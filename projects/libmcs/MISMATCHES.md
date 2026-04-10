@@ -44,6 +44,19 @@ and dispatches via a `case` statement. Determines `MODE` (oneshot/loop),
 5. **`${LIBMCS}` → `${TEST_CASE_DIR}` in PROMPT_CTX.** Generic naming so the
    same script template would work for non-libmcs projects.
 
+## `analyze_and_fix.md`: fixed `__C_SRC__/` artifact
+
+Upstream `analyze_and_fix.md` contains a literal `__C_SRC__/` placeholder
+that nothing ever substitutes (the runtime `expand_prompt` function in
+`common.sh` only substitutes `__RUST_DIR__`, not `__C_SRC__`). The result
+is that the AI sees an unsubstituted placeholder string in the prompt at
+runtime — clearly a bug.
+
+Baked version uses `__CODE_LAYOUT__` (a bake-time placeholder) which
+expands to the real `/home/leochanj/Desktop/libmcs/libm/` path.
+
+**Effect on verify:** `MISMATCH`: `prompts/analyze_and_fix.md`
+
 ## Scenario configs collapsed
 
 **Upstream:** Each `scenarios/sN_*/config_overrides.sh` is ~25 lines and
