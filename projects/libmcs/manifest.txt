@@ -6,3 +6,4 @@ common.sh
 02_testgen.sh
 prompts/transpile.md
 prompts/s*_testgen.md
+scenarios/*/config_overrides.sh

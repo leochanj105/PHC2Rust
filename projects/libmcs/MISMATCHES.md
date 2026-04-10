@@ -43,3 +43,22 @@ and dispatches via a `case` statement. Determines `MODE` (oneshot/loop),
 
 5. **`${LIBMCS}` → `${TEST_CASE_DIR}` in PROMPT_CTX.** Generic naming so the
    same script template would work for non-libmcs projects.
+
+## Scenario configs collapsed
+
+**Upstream:** Each `scenarios/sN_*/config_overrides.sh` is ~25 lines and
+duplicates project-wide settings (TEST_CASE_DIR, C_SRC_DIRS, C_INCLUDE_DIRS,
+JUDGER_DIR, JUDGER_SCRIPT, DIFFTEST_SCRIPT, _EXP) across all 6 files.
+
+**Baked:**
+- Project-wide vars (`JUDGER_DIR`, `JUDGER_SCRIPT`, `DIFFTEST_SCRIPT`) moved
+  into `common.sh` (single source of truth, swappable per project via the
+  `__LIB_EXPORTS__` placeholder).
+- Each `scenarios/sN_*/config_overrides.sh` shrinks to ~5 lines: just the
+  scenario-specific `RUST_DIR`, `WORK_DIR`, `COVERAGE_MODES`, `MAX_ROUNDS`,
+  `STALL_LIMIT`. Uses `${EXP_DIR}` (already exported by `common.sh`) instead
+  of redefining `_EXP`.
+
+**Effect on verify:**
+- `MISMATCH`: `common.sh` (+3 export lines)
+- `MISMATCH`: all 6 `scenarios/sN_*/config_overrides.sh` (much shorter)

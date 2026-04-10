@@ -9,6 +9,9 @@ export HARNESS_DIR="/home/leochanj/Desktop/progress_harness"
 export LIBMCS="/home/leochanj/Desktop/libmcs/libm"
 export C_SRC_DIRS="${LIBMCS}/mathd ${LIBMCS}/mathf ${LIBMCS}/common ${LIBMCS}/complexd ${LIBMCS}/complexf"
 export C_INCLUDE_DIRS="${LIBMCS}/include"
+export JUDGER_DIR="/home/leochanj/Desktop/libmcs/testing"
+export JUDGER_SCRIPT="${EXP_DIR}/judger_wrapper.sh"
+export DIFFTEST_SCRIPT="${EXP_DIR}/run_difftest.sh"
 
 SCENARIOS=(s1_naive s2_explicit s3_edgecase s4_function s5_branch s6_branch_extended)
 
