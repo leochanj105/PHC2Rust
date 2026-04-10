@@ -1,1 +1,3 @@
+claude-haiku
+claude-opus
 claude-sonnet

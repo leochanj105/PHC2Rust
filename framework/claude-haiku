@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Wrapper: calls claude CLI with haiku model.
+exec claude --model haiku "$@"
