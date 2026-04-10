@@ -27,4 +27,57 @@ print the result in %a hex float format, e.g.:
 ==__ADDITIONAL_RULES__==
 - Print all results in %a hex float format.
 ==__ADDITIONAL_PROMPT__==
+==__HARNESS_DIR_EXPORT__==
+export HARNESS_DIR="/home/leochanj/Desktop/progress_harness"
+==__LIB_EXPORTS__==
+export LIBMCS="/home/leochanj/Desktop/libmcs/libm"
+export C_SRC_DIRS="${LIBMCS}/mathd ${LIBMCS}/mathf ${LIBMCS}/common ${LIBMCS}/complexd ${LIBMCS}/complexf"
+export C_INCLUDE_DIRS="${LIBMCS}/include"
+==__SCENARIOS_DEF__==
+SCENARIOS=(s1_naive s2_explicit s3_edgecase s4_function s5_branch s6_branch_extended)
+==__CLAUDE_MD__==
+# Project Context
+
+## Library
+Libmcs — a C math library (libm implementation). IEEE 754 compliant.
+
+## Comparison rule
+All outputs must be bitwise exact. Use %a hex float format. Zero tolerance.
+
+## Source layout
+- /home/leochanj/Desktop/libmcs/libm/mathd/       — double-precision functions
+- /home/leochanj/Desktop/libmcs/libm/mathf/       — float-precision functions
+- /home/leochanj/Desktop/libmcs/libm/complexd/    — complex double functions
+- /home/leochanj/Desktop/libmcs/libm/complexf/    — complex float functions
+- /home/leochanj/Desktop/libmcs/libm/common/      — shared utilities
+- /home/leochanj/Desktop/libmcs/libm/include/     — headers (math.h, complex.h, fenv.h)
+Each directory has an internal/ subdirectory with helper functions.
+==__SETTINGS_COMMENT__==
+    # Settings.json — allow access to libmcs source and experiment directories.
+    # Block ALL of testing/ (judger + other held-out tests) via both tool deny
+    # rules AND Bash deny. Bash deny prevents cat/grep bypass of Read deny.
+==__SETTINGS_JSON__==
+{
+  "permissions": {
+    "allow": [
+      "Read(./**)", "Write(./**)", "Edit(./**)", "Glob(./**)", "Grep(./**)",
+      "Bash",
+      "Read(//tmp/**)", "Write(//tmp/**)", "Edit(//tmp/**)",
+      "Read(//home/leochanj/Desktop/libmcs/libm/**)",
+      "Glob(//home/leochanj/Desktop/libmcs/libm/**)",
+      "Grep(//home/leochanj/Desktop/libmcs/libm/**)",
+      "Read(//home/leochanj/Desktop/libmcs/newexp/**)",
+      "Write(//home/leochanj/Desktop/libmcs/newexp/**)",
+      "Edit(//home/leochanj/Desktop/libmcs/newexp/**)",
+      "Glob(//home/leochanj/Desktop/libmcs/newexp/**)",
+      "Grep(//home/leochanj/Desktop/libmcs/newexp/**)"
+    ],
+    "deny": [
+      "WebFetch", "WebSearch",
+      "Read(//home/leochanj/Desktop/libmcs/testing/**)",
+      "Glob(//home/leochanj/Desktop/libmcs/testing/**)",
+      "Grep(//home/leochanj/Desktop/libmcs/testing/**)"
+    ]
+  }
+}
 ==END==
