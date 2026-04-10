@@ -1,3 +1,5 @@
 claude-haiku
 claude-opus
 claude-sonnet
+prompts/transpile.md
+prompts/s1_testgen.md
