@@ -30,9 +30,6 @@ print the result in %a hex float format, e.g.:
 ==__CODE_LAYOUT__==
 - Original C code: /home/leochanj/Desktop/libmcs/libm/
 - Transpiled Rust code: __RUST_DIR__/
-==__DIFFTEST_LAYOUT__==
-- Original C source: /home/leochanj/Desktop/libmcs/libm/
-- Transpiled Rust source: __RUST_DIR__/src/
 ==__HARNESS_DIR_EXPORT__==
 export HARNESS_DIR="/home/leochanj/Desktop/progress_harness"
 ==__LIB_EXPORTS__==

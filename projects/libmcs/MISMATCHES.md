@@ -44,6 +44,21 @@ and dispatches via a `case` statement. Determines `MODE` (oneshot/loop),
 5. **`${LIBMCS}` → `${TEST_CASE_DIR}` in PROMPT_CTX.** Generic naming so the
    same script template would work for non-libmcs projects.
 
+## `difftest.md` dropped (orphan in upstream)
+
+Upstream has `prompts/difftest.md` but no script ever references it.
+`03_diffgen.sh` is documented as not needing AI generation:
+
+> With separate-binary testing, test_suite.c IS the difftest — no generation
+> needed. This script just copies test_suite.c to the diffgen dir...
+
+Test files are mechanically wrapped via `scripts/wrap_tests_independent.py`,
+not generated via Claude. The "compile twice and diff stdout" pattern is
+general (works for libyaml too), so this prompt would be unused for any
+project, not just libmcs.
+
+**Effect on verify:** `MISSING`: `prompts/difftest.md`
+
 ## `analyze_and_fix.md`: fixed `__C_SRC__/` artifact
 
 Upstream `analyze_and_fix.md` contains a literal `__C_SRC__/` placeholder
