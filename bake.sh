@@ -7,7 +7,7 @@ set -euo pipefail
 #   ./bake.sh <project>
 #
 # Reads:
-#   projects/<project>/manifest.txt   — one path per line, relative to framework/
+#   projects/<project>/manifest.txt   — one path per line (globs expanded against framework/)
 #   projects/<project>/values         — section-delimited placeholder map
 #
 # Writes:
@@ -17,8 +17,12 @@ set -euo pipefail
 #   - values file uses ==__NAME__== section markers, terminated by ==END==
 #   - in framework files, any line consisting EXACTLY of __NAME__ is replaced
 #     by the section's content (which may be multiple lines).
+#   - lines matching "@include <path>" are replaced by the content of
+#     framework/<path> (with substitution applied recursively).
 #   - non-placeholder lines pass through verbatim.
-#   - if no placeholders match, the file is copied byte-identically.
+#   - manifest lines may contain shell globs (*,?) which are expanded against
+#     framework/ at bake time; adding a new file that matches is sufficient to
+#     include it.
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT="${1:-}"
@@ -45,13 +49,12 @@ mkdir -p "$BUILT"
 
 substitute() {
     local src="$1" dst="$2"
-    awk -v values_file="$VALUES" '
+    awk -v values_file="$VALUES" -v framework="$FRAMEWORK" '
     BEGIN {
-        # First load the values file into a map.
+        # Load the values file into a map.
         current = ""
         while ((getline line < values_file) > 0) {
             if (line ~ /^==__[A-Z_]+__==$/) {
-                # strip leading "==" and trailing "=="
                 current = substr(line, 3, length(line) - 4)
                 buf[current] = ""
                 continue
@@ -66,9 +69,23 @@ substitute() {
         }
         close(values_file)
     }
+    function expand_file(path,    line, inc) {
+        while ((getline line < path) > 0) {
+            if (line ~ /^@include /) {
+                inc = framework "/" substr(line, 10)
+                expand_file(inc)
+            } else if (line in buf) {
+                printf "%s", buf[line]
+            } else {
+                print line
+            }
+        }
+        close(path)
+    }
     {
-        if ($0 in buf) {
-            # Substitute multi-line value, no extra newline (value already has trailing \n)
+        if ($0 ~ /^@include /) {
+            expand_file(framework "/" substr($0, 10))
+        } else if ($0 in buf) {
             printf "%s", buf[$0]
         } else {
             print
@@ -77,11 +94,10 @@ substitute() {
     ' "$src" > "$dst"
 }
 
-count=0
-while IFS= read -r path; do
-    [[ -z "$path" || "$path" =~ ^# ]] && continue
-    src="${FRAMEWORK}/${path}"
-    dst="${BUILT}/${path}"
+bake_one() {
+    local path="$1"
+    local src="${FRAMEWORK}/${path}"
+    local dst="${BUILT}/${path}"
     if [ ! -f "$src" ]; then
         echo "Error: framework file missing: $src" >&2
         exit 1
@@ -91,6 +107,20 @@ while IFS= read -r path; do
     # Preserve file mode from framework
     chmod --reference="$src" "$dst"
     count=$((count + 1))
+}
+
+count=0
+while IFS= read -r path; do
+    [[ -z "$path" || "$path" =~ ^# ]] && continue
+    if [[ "$path" == *'*'* || "$path" == *'?'* ]]; then
+        # Glob — expand against framework/
+        for expanded in "$FRAMEWORK"/$path; do
+            [ -f "$expanded" ] || continue
+            bake_one "${expanded#$FRAMEWORK/}"
+        done
+    else
+        bake_one "$path"
+    fi
 done < "$MANIFEST"
 
 echo "Baked ${count} files into ${BUILT}"
