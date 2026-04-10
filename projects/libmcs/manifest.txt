@@ -3,6 +3,6 @@ claude-opus
 claude-sonnet
 common.sh
 01_transpile.sh
-02*_testgen_*.sh
+02_testgen.sh
 prompts/transpile.md
 prompts/s*_testgen.md
