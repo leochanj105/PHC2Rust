@@ -72,6 +72,49 @@ expands to the real `/home/leochanj/Desktop/libmcs/libm/` path.
 
 **Effect on verify:** `MISMATCH`: `prompts/analyze_and_fix.md`
 
+## Pile A: absorbed + 3 cross-project fixes
+
+Pile A was supposed to be 5 verbatim files. 3 actually were:
+`04_difffix.sh`, `scripts/compare_outputs.py`, `scripts/wrap_tests_independent.py`.
+
+The other 2 plus one pile-B file had libmcs-specific bits that only surfaced
+on a thorough re-scan (path-contains filters and hardcoded subdirectory
+lists — not the same as the `fenv.c` pattern that pile B fixed).
+
+### `scripts/branch_coverage.py` — filter prefix parameterized
+
+Upstream hardcodes `filter_prefix='libm/'` in `load_branches()` and checks
+the literal string `'libm/'` in 3 places. For any project whose file paths
+don't contain `libm/`, the function drops every branch and returns empty.
+
+Baked version reads `SOURCE_PATH_MARKER` from env (defaults to empty =
+no filter). libmcs sets `SOURCE_PATH_MARKER=libm/` in its `__LIB_EXPORTS__`.
+Behavior is preserved for libmcs; libyaml sets its own marker (or empty).
+
+### `scripts/make_difffix_context.py` — hardcoded subdir list replaced
+
+Upstream hardcodes `for src_dir in ["mathd", "mathf", "common", "complexd",
+"complexf"]` when searching for a function's C source file. libmcs-only.
+
+Baked version reads `$C_SRC_DIRS` from env (already exported by
+`common.sh`) and walks whatever directories the project specifies. The
+`--libm` argparse flag is dropped entirely (superseded by the env var).
+
+### `run_difffix_loop.sh` — `--libm` flag dropped
+
+Drops the now-unused `--libm "${TEST_CASE_DIR}"` argument from its
+`make_difffix_context.py` invocation. 1-line edit.
+
+### Supporting value: `SOURCE_PATH_MARKER`
+
+New export in `projects/libmcs/values` `__LIB_EXPORTS__` block:
+`export SOURCE_PATH_MARKER="libm/"`. Also `echo`ed at startup alongside
+`EXCLUDE_C_FILES` for visibility.
+
+**Effect on verify:**
+- `MATCH`: `04_difffix.sh`, `scripts/compare_outputs.py`, `scripts/wrap_tests_independent.py`
+- `MISMATCH`: `scripts/branch_coverage.py`, `run_difffix_loop.sh` (new), `common.sh` (now has `SOURCE_PATH_MARKER`), `scripts/make_difffix_context.py` (already mismatched from pile B; more extensive edit now)
+
 ## Pile B: exclusion lists made explicit via `EXCLUDE_C_FILES`
 
 Upstream libmcs hardcodes `grep -v fenv.c` or a 12-file `_EXCL=` list across

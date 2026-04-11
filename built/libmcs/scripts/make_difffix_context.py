@@ -37,17 +37,13 @@ def parse_diff(c_lines, r_lines):
     return divergences
 
 
-def find_c_source(func_name, libm_dir):
-    """Find the C source file for a function."""
-    # Convention: sin -> sind.c or sinf.c, etc.
-    candidates = [
-        f"{func_name}.c",
-        f"{func_name}d.c",   # double: sin -> sind.c
-        f"{func_name}f.c",   # float: sinf -> sinff.c? No...
-    ]
-    # Also try the name as-is in each directory
-    for src_dir in ["mathd", "mathf", "common", "complexd", "complexf"]:
-        full_dir = os.path.join(libm_dir, src_dir)
+def find_c_source(func_name, src_dirs):
+    """Find the C source file for a function.
+
+    src_dirs: an iterable of directories to search (expected to come from
+    the C_SRC_DIRS env var, which common.sh exports as a space-separated list).
+    """
+    for full_dir in src_dirs:
         if not os.path.isdir(full_dir):
             continue
         for fname in os.listdir(full_dir):
@@ -96,9 +92,14 @@ def main():
     parser.add_argument("c_output", help="C test output file")
     parser.add_argument("rust_output", help="Rust test output file")
     parser.add_argument("rust_src_dir", help="Rust source directory")
-    parser.add_argument("--libm", default=os.environ.get("LIBMCS"))
     parser.add_argument("--max-funcs", type=int, default=10)
     args = parser.parse_args()
+
+    # C source roots come from $C_SRC_DIRS (exported by common.sh,
+    # space-separated list of absolute directories).
+    c_src_dirs = os.environ.get("C_SRC_DIRS", "").split()
+    if not c_src_dirs:
+        sys.exit("C_SRC_DIRS not set (should be exported by common.sh)")
 
     with open(args.c_output) as f:
         c_lines = f.readlines()
@@ -131,7 +132,7 @@ def main():
         print()
 
         # C source
-        c_path, c_content = find_c_source(func, args.libm)
+        c_path, c_content = find_c_source(func, c_src_dirs)
         if c_path:
             print(f"### C source: {c_path}")
             print(f"```c\n{c_content}\n```\n")
