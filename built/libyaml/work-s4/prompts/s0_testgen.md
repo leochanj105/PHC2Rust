@@ -15,5 +15,9 @@ when generating tests.
 
 ## Rules
 - All tests must be deterministic.
+- Do NOT print human-readable strings from library internals (e.g. parser.problem,
+  emitter.problem, error message text). Print the numeric/enum value instead
+  (parser.error, event.type, etc.). Every printed line must be a stable, typed
+  value so C and Rust outputs match byte-for-byte.
 - Include a main() that calls all test functions.
 - Write the complete test_suite.c.

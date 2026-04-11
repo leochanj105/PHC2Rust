@@ -19,7 +19,6 @@ REPORT="${1:?Usage: run_difftest.sh <report_path>}"
 
 CC="${CC:-clang-21}"
 DIFFTEST="${DIFFGEN_WORKDIR}/difftest_suite.c"
-BRIDGE="${DIFFGEN_WORKDIR}/test_bridge.c"
 INCDIR="${C_INCLUDE_DIRS}"
 
 [ -f "$DIFFTEST" ] || { echo "Error: $DIFFTEST not found" >&2; exit 1; }
@@ -47,12 +46,19 @@ done
 ar rcs "${BDIR}/libc_impl.a" "${BDIR}"/c_*.o 2>/dev/null
 rm -f "${BDIR}"/c_*.o
 
-# Compile bridge if it exists
-BRIDGE_OBJ=""
-if [ -f "$BRIDGE" ]; then
-    $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -c "$BRIDGE" -o "${BDIR}/bridge.o" 2>/dev/null && \
-        BRIDGE_OBJ="${BDIR}/bridge.o" || true
-fi
+# Compile bridges if they exist. Supports both layouts:
+#   single-file: test_bridge.c               (libmcs)
+#   per-file:    bridge_*.c (many files)     (libyaml)
+BRIDGE_OBJS=""
+_bridge_inc=""
+for _sd in $C_SRC_DIRS; do _bridge_inc="$_bridge_inc -I$_sd"; done
+for _bf in "${DIFFGEN_WORKDIR}/test_bridge.c" "${DIFFGEN_WORKDIR}"/bridge_*.c; do
+    [ -f "$_bf" ] || continue
+    _bo="${BDIR}/$(basename "${_bf%.c}").o"
+    if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} $_bridge_inc -c "$_bf" -o "$_bo" 2>/dev/null; then
+        BRIDGE_OBJS="$BRIDGE_OBJS $_bo"
+    fi
+done
 
 # ── Build Rust library ──
 echo "Building Rust library..."
@@ -81,7 +87,8 @@ fi
 echo "Compiling test against C library..."
 C_COMPILE_ERR=""
 if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -Wno-implicit-function-declaration \
-    "$DIFFTEST" $BRIDGE_OBJ "${BDIR}/libc_impl.a" \
+    "$DIFFTEST" $BRIDGE_OBJS "${BDIR}/libc_impl.a" \
+    -Wl,--allow-multiple-definition \
     -lm -o "${BDIR}/test_c" 2>"${BDIR}/c_compile_err.txt"; then
     echo "Running C test..."
     stdbuf -oL timeout 600 "${BDIR}/test_c" > "${BDIR}/c_out.txt" 2>"${BDIR}/c_stderr.txt" || true
