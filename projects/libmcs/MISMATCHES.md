@@ -72,6 +72,42 @@ expands to the real `/home/leochanj/Desktop/libmcs/libm/` path.
 
 **Effect on verify:** `MISMATCH`: `prompts/analyze_and_fix.md`
 
+## Intentionally dropped: orphan scripts (pile C)
+
+These scripts exist in `upstream/libmcs/scripts/` but are never called from
+any active phase script. They were either previously wired into a workflow
+that no longer exists, or they're alternative implementations that were
+never adopted. All transitively dead.
+
+| file | reason |
+|---|---|
+| `scripts/extract_functions_llvmcov.sh` | alternative to `extract_functions.sh`, never referenced |
+| `scripts/summarize_coverage.sh` | no callers |
+| `scripts/extract_branches.sh` | only called by `summarize_coverage.sh` (dead) |
+| `scripts/measure_coverage.sh` | only called by `extract_branches.sh` (dead) |
+| `scripts/get_uncovered.sh` | only called by `summarize_coverage.sh` (dead) |
+| `scripts/extract_context.py` | no callers |
+
+**Effect on verify:** 6 `MISSING` entries, all intentional.
+
+## Out of scope: irrelevant files (pile D)
+
+Files in `upstream/libmcs/` that are not framework material and will not
+be baked. They're either runtime build artifacts, library-specific inputs
+handled externally, or project-specific content that doesn't belong in a
+cross-project framework.
+
+| file | why |
+|---|---|
+| `05_judge.sh` | runs libmcs-specific `judger_v2` (glibc + core-math float evaluator); nothing analogous for libyaml. Explicitly skipped. |
+| `test_bridge.c` / `test_bridge.h` / `test_bridge.rs` | external inputs, placed at `${EXP_DIR}/` before running `01b_prepare.sh` |
+| `branch_total.txt` | runtime build artifact |
+| `work-branches.json` / `work-branches.md` / `work-func-map.txt` / `work-functions.md` | runtime build artifacts (produced by coverage tooling) |
+| `scripts/__pycache__/*.pyc` | compiled Python bytecode |
+| `README.md` | project-specific documentation |
+
+**Effect on verify:** 13 `MISSING` entries, all out of scope.
+
 ## New prepare phase: `01b_prepare.sh` + `promote_visibility.py`
 
 **Upstream** has `scripts/prepare_rust_for_test.sh` — a 94-line script with
