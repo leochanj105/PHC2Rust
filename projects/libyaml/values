@@ -5,21 +5,20 @@
 ==__LIB_INTRO__==
 Read ALL .c and .h files in the C source tree.
 ==__EXAMPLE_FN__==
-TODO:   pub extern "C" fn yaml_parser_initialize(parser: *mut yaml_parser_t) -> i32 {
+pub extern "C" fn yaml_parser_initialize(parser: *mut yaml_parser_t) -> i32 {
 ==__TESTGEN_SOURCE_BLOCK__==
 Source code is in /home/leochanj/Desktop/libyaml/src/.
 Headers are in /home/leochanj/Desktop/libyaml/include/.
 ==__GENERATE_DESC__==
-TODO: describe what the test generator should produce for libyaml.
-TODO: e.g. "Generate a test_suite.c that exercises the YAML parser and emitter,
-TODO: printing events, scalar values, and emitted output as plain text so that
-TODO: C and Rust outputs can be diffed line-by-line."
+Generate a test_suite.c that exercises the YAML parser and emitter,
+printing events, scalar values, and emitted output as plain text so that
+C and Rust outputs can be diffed line-by-line.
 ==__BRIDGE_WRAPPERS__==
-TODO: run framework/scripts/gen_bridges.py against libyaml/src/ with a
-TODO: coverage-instrumented binary to get the authoritative list, then paste
-TODO: the bridge function signatures here (one per line, indented).
+A pre-built test_bridge.c and test_bridge.h are provided in the working directory.
+Read test_bridge.h to see the available `bridge_*` wrapper declarations for the
+library's static functions, and  #include "test_bridge.h"  in test_suite.c to
+call them. Do NOT generate or modify test_bridge.c or test_bridge.h.
 ==__ADDITIONAL_RULES__==
-TODO: any project-specific testgen rules (libmcs had: "- Print all results in %a hex float format.")
 ==__ADDITIONAL_PROMPT__==
 ==__CODE_LAYOUT__==
 - Original C code: /home/leochanj/Desktop/libyaml/src/
@@ -41,16 +40,14 @@ SCENARIOS=(s1_naive s2_explicit s3_edgecase s4_function s5_branch s6_branch_exte
 # Project Context
 
 ## Library
-TODO: one-sentence description of libyaml (e.g. "libyaml — a C YAML 1.1 parser and emitter library.")
+libyaml — a C YAML 1.1 parser and emitter library.
 
 ## Comparison rule
-TODO: describe how C and Rust outputs will be compared for libyaml
-TODO: (libmcs used: "All outputs must be bitwise exact. Use %a hex float format. Zero tolerance.")
+All outputs must match line-by-line. Zero tolerance.
 
 ## Source layout
 - /home/leochanj/Desktop/libyaml/src/        — all .c sources (parser, scanner, emitter, ...)
 - /home/leochanj/Desktop/libyaml/include/    — public headers (yaml.h)
-TODO: add any notes about internal vs public structure
 ==__SETTINGS_COMMENT__==
     # Settings.json — allow access to libyaml source and experiment directories.
     # Block WebFetch/WebSearch only; no held-out test dir for libyaml.

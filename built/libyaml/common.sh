@@ -49,7 +49,7 @@ _ensure_claude_setup() {
 # Project Context
 
 ## Library
-TODO: one-sentence description of libyaml (e.g. "libyaml — a C YAML 1.1 parser and emitter library.")
+libyaml — a C YAML 1.1 parser and emitter library.
 
 ## Comparison rule
 TODO: describe how C and Rust outputs will be compared for libyaml
@@ -58,7 +58,6 @@ TODO: (libmcs used: "All outputs must be bitwise exact. Use %a hex float format.
 ## Source layout
 - /home/leochanj/Desktop/libyaml/src/        — all .c sources (parser, scanner, emitter, ...)
 - /home/leochanj/Desktop/libyaml/include/    — public headers (yaml.h)
-TODO: add any notes about internal vs public structure
 CLAUDEEOF
 
     # Settings.json — allow access to libyaml source and experiment directories.

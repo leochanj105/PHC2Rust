@@ -12,7 +12,7 @@ Produce a complete, equivalent Rust library that:
    the **same name** as the C function. Example:
    ```rust
    #[no_mangle]
-TODO:   pub extern "C" fn yaml_parser_initialize(parser: *mut yaml_parser_t) -> i32 {
+pub extern "C" fn yaml_parser_initialize(parser: *mut yaml_parser_t) -> i32 {
        // ... Rust implementation ...
    }
    ```
