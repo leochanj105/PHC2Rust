@@ -5,6 +5,15 @@ common.sh
 01_transpile.sh
 01b_prepare.sh
 02_testgen.sh
+03_diffgen.sh
+run_difftest.sh
+run_testgen_loop.sh
 prompts/[!_]*.md
 scenarios/*/config_overrides.sh
 scripts/promote_visibility.py
+scripts/build_and_cover.sh
+scripts/extract_functions.sh
+scripts/run_all_configs.sh
+scripts/build_func_map.py
+scripts/extract_signatures.py
+scripts/make_difffix_context.py

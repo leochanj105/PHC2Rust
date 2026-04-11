@@ -12,6 +12,8 @@ export C_INCLUDE_DIRS="${LIBMCS}/include"
 export JUDGER_DIR="/home/leochanj/Desktop/libmcs/testing"
 export JUDGER_SCRIPT="${EXP_DIR}/judger_wrapper.sh"
 export DIFFTEST_SCRIPT="${EXP_DIR}/run_difftest.sh"
+export EXCLUDE_C_FILES="fenv.c"
+echo "  EXCLUDE_C_FILES: ${EXCLUDE_C_FILES:-(none)}"
 
 SCENARIOS=(s1_naive s2_explicit s3_edgecase s4_function s5_branch s6_branch_extended)
 

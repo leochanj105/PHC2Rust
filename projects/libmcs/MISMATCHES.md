@@ -72,6 +72,39 @@ expands to the real `/home/leochanj/Desktop/libmcs/libm/` path.
 
 **Effect on verify:** `MISMATCH`: `prompts/analyze_and_fix.md`
 
+## Pile B: exclusion lists made explicit via `EXCLUDE_C_FILES`
+
+Upstream libmcs hardcodes `grep -v fenv.c` or a 12-file `_EXCL=` list across
+several scripts to skip source files that either fail to compile under LLVM
+coverage instrumentation (`fenv.c`) or contain no real code (the 11 macro
+placeholder files like `isfinite.c`).
+
+**Problem:** buried in a grep pipeline, this is a silent coverage hole.
+`fenv.c`'s 10 real functions (`feclearexcept`, `fesetround`, ...) are invisible
+to the s4/s5 coverage feedback loop — the AI is never told they're uncovered.
+
+**Fix (behavior preserved for libmcs, but visibility added):**
+
+1. **New env var `EXCLUDE_C_FILES`** exported from `common.sh` via the
+   project-specific `__LIB_EXPORTS__` placeholder. libmcs sets it to `fenv.c`;
+   future projects set it to empty (or whatever) explicitly.
+2. **Loud at startup:** `common.sh` echoes `EXCLUDE_C_FILES: ${EXCLUDE_C_FILES:-(none)}`
+   on every invocation so the gap is visible in the log.
+3. **Scripts updated:** the hardcoded `grep -v fenv.c` or `_EXCL="..."` is
+   replaced with `grep -v "${EXCLUDE_C_FILES:-^$}"` (matches nothing if unset).
+   - `03_diffgen.sh`, `run_difftest.sh`, `run_testgen_loop.sh`
+   - `scripts/build_and_cover.sh`, `scripts/extract_functions.sh`
+4. **The 11 empty macro files (`isfinite.c`, etc.) are dropped from the
+   exclusion list** — they have no code, nothing to exclude.
+5. **Python scripts:** hardcoded `/home/leochanj/Desktop/libmcs/libm` defaults
+   removed from `build_func_map.py`, `extract_signatures.py`,
+   `make_difffix_context.py`. They now read `LIBMCS` from env (exported by
+   `common.sh`) and fail fast if unset.
+
+**Effect on verify:**
+- `MISMATCH`: 8 pile-B files (the edits above) + `common.sh` (already listed)
+- `MATCH`: `scripts/run_all_configs.sh` (verbatim, no edit needed)
+
 ## Intentionally dropped: orphan scripts (pile C)
 
 These scripts exist in `upstream/libmcs/scripts/` but are never called from
