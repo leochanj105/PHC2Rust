@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Wrapper: calls claude CLI with opus model.
-exec claude --model opus "$@"
