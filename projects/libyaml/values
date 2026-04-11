@@ -1,0 +1,81 @@
+==__SOURCE_LAYOUT__==
+- Original C source: /home/leochanj/Desktop/libyaml/src/
+==__OUTPUT_DEST__==
+- Output Rust project: __RUST_DIR__/
+==__LIB_INTRO__==
+Read ALL .c and .h files in the C source tree.
+==__EXAMPLE_FN__==
+TODO:   pub extern "C" fn yaml_parser_initialize(parser: *mut yaml_parser_t) -> i32 {
+==__TESTGEN_SOURCE_BLOCK__==
+Source code is in /home/leochanj/Desktop/libyaml/src/.
+Headers are in /home/leochanj/Desktop/libyaml/include/.
+==__GENERATE_DESC__==
+TODO: describe what the test generator should produce for libyaml.
+TODO: e.g. "Generate a test_suite.c that exercises the YAML parser and emitter,
+TODO: printing events, scalar values, and emitted output as plain text so that
+TODO: C and Rust outputs can be diffed line-by-line."
+==__BRIDGE_WRAPPERS__==
+TODO: run framework/scripts/gen_bridges.py against libyaml/src/ with a
+TODO: coverage-instrumented binary to get the authoritative list, then paste
+TODO: the bridge function signatures here (one per line, indented).
+==__ADDITIONAL_RULES__==
+TODO: any project-specific testgen rules (libmcs had: "- Print all results in %a hex float format.")
+==__ADDITIONAL_PROMPT__==
+==__CODE_LAYOUT__==
+- Original C code: /home/leochanj/Desktop/libyaml/src/
+- Transpiled Rust code: __RUST_DIR__/
+==__HARNESS_DIR_EXPORT__==
+export HARNESS_DIR="/home/leochanj/Desktop/progress_harness"
+==__LIB_EXPORTS__==
+export C_LIB_DIR="/home/leochanj/Desktop/libyaml/src"
+export C_SRC_DIRS="${C_LIB_DIR}"
+export C_INCLUDE_DIRS="/home/leochanj/Desktop/libyaml/include"
+export DIFFTEST_SCRIPT="${EXP_DIR}/run_difftest.sh"
+export EXCLUDE_C_FILES=""
+export SOURCE_PATH_MARKER="src/"
+echo "  EXCLUDE_C_FILES:    ${EXCLUDE_C_FILES:-(none)}"
+echo "  SOURCE_PATH_MARKER: ${SOURCE_PATH_MARKER:-(none)}"
+==__SCENARIOS_DEF__==
+SCENARIOS=(s1_naive s2_explicit s3_edgecase s4_function s5_branch s6_branch_extended)
+==__CLAUDE_MD__==
+# Project Context
+
+## Library
+TODO: one-sentence description of libyaml (e.g. "libyaml — a C YAML 1.1 parser and emitter library.")
+
+## Comparison rule
+TODO: describe how C and Rust outputs will be compared for libyaml
+TODO: (libmcs used: "All outputs must be bitwise exact. Use %a hex float format. Zero tolerance.")
+
+## Source layout
+- /home/leochanj/Desktop/libyaml/src/        — all .c sources (parser, scanner, emitter, ...)
+- /home/leochanj/Desktop/libyaml/include/    — public headers (yaml.h)
+TODO: add any notes about internal vs public structure
+==__SETTINGS_COMMENT__==
+    # Settings.json — allow access to libyaml source and experiment directories.
+    # Block WebFetch/WebSearch only; no held-out test dir for libyaml.
+==__SETTINGS_JSON__==
+{
+  "permissions": {
+    "allow": [
+      "Read(./**)", "Write(./**)", "Edit(./**)", "Glob(./**)", "Grep(./**)",
+      "Bash",
+      "Read(//tmp/**)", "Write(//tmp/**)", "Edit(//tmp/**)",
+      "Read(//home/leochanj/Desktop/libyaml/src/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/src/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/src/**)",
+      "Read(//home/leochanj/Desktop/libyaml/include/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/include/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/include/**)",
+      "Read(//home/leochanj/Desktop/libyaml/exps/**)",
+      "Write(//home/leochanj/Desktop/libyaml/exps/**)",
+      "Edit(//home/leochanj/Desktop/libyaml/exps/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/exps/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/exps/**)"
+    ],
+    "deny": [
+      "WebFetch", "WebSearch"
+    ]
+  }
+}
+==END==

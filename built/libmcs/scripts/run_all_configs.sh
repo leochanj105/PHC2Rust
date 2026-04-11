@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # run_all_configs.sh — runs build_and_cover.sh for every config.
-# For libmcs: single config ("default"), no multi-config.
+# Single config ("default"), no multi-config.
 #
 # Usage: run_all_configs.sh -w WORKDIR [-j MAX_JOBS]
 
@@ -21,7 +21,7 @@ done
 
 [ -n "$WORKDIR" ] || { echo "Usage: $0 -w WORKDIR [-j MAX_JOBS]"; exit 1; }
 
-# Single config for libmcs
+# Single config (no multi-config support)
 CONFIGS=("default")
 echo "(using configs: ${CONFIGS[*]})"
 

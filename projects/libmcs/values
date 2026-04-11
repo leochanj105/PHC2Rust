@@ -33,9 +33,9 @@ print the result in %a hex float format, e.g.:
 ==__HARNESS_DIR_EXPORT__==
 export HARNESS_DIR="/home/leochanj/Desktop/progress_harness"
 ==__LIB_EXPORTS__==
-export LIBMCS="/home/leochanj/Desktop/libmcs/libm"
-export C_SRC_DIRS="${LIBMCS}/mathd ${LIBMCS}/mathf ${LIBMCS}/common ${LIBMCS}/complexd ${LIBMCS}/complexf"
-export C_INCLUDE_DIRS="${LIBMCS}/include"
+export C_LIB_DIR="/home/leochanj/Desktop/libmcs/libm"
+export C_SRC_DIRS="${C_LIB_DIR}/mathd ${C_LIB_DIR}/mathf ${C_LIB_DIR}/common ${C_LIB_DIR}/complexd ${C_LIB_DIR}/complexf"
+export C_INCLUDE_DIRS="${C_LIB_DIR}/include"
 export JUDGER_DIR="/home/leochanj/Desktop/libmcs/testing"
 export JUDGER_SCRIPT="${EXP_DIR}/judger_wrapper.sh"
 export DIFFTEST_SCRIPT="${EXP_DIR}/run_difftest.sh"

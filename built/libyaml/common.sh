@@ -6,14 +6,12 @@ COMMON_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 export EXP_DIR="$COMMON_DIR"
 export HARNESS_DIR="/home/leochanj/Desktop/progress_harness"
-export C_LIB_DIR="/home/leochanj/Desktop/libmcs/libm"
-export C_SRC_DIRS="${C_LIB_DIR}/mathd ${C_LIB_DIR}/mathf ${C_LIB_DIR}/common ${C_LIB_DIR}/complexd ${C_LIB_DIR}/complexf"
-export C_INCLUDE_DIRS="${C_LIB_DIR}/include"
-export JUDGER_DIR="/home/leochanj/Desktop/libmcs/testing"
-export JUDGER_SCRIPT="${EXP_DIR}/judger_wrapper.sh"
+export C_LIB_DIR="/home/leochanj/Desktop/libyaml/src"
+export C_SRC_DIRS="${C_LIB_DIR}"
+export C_INCLUDE_DIRS="/home/leochanj/Desktop/libyaml/include"
 export DIFFTEST_SCRIPT="${EXP_DIR}/run_difftest.sh"
-export EXCLUDE_C_FILES="fenv.c"
-export SOURCE_PATH_MARKER="libm/"
+export EXCLUDE_C_FILES=""
+export SOURCE_PATH_MARKER="src/"
 echo "  EXCLUDE_C_FILES:    ${EXCLUDE_C_FILES:-(none)}"
 echo "  SOURCE_PATH_MARKER: ${SOURCE_PATH_MARKER:-(none)}"
 
@@ -51,24 +49,20 @@ _ensure_claude_setup() {
 # Project Context
 
 ## Library
-Libmcs — a C math library (libm implementation). IEEE 754 compliant.
+TODO: one-sentence description of libyaml (e.g. "libyaml — a C YAML 1.1 parser and emitter library.")
 
 ## Comparison rule
-All outputs must be bitwise exact. Use %a hex float format. Zero tolerance.
+TODO: describe how C and Rust outputs will be compared for libyaml
+TODO: (libmcs used: "All outputs must be bitwise exact. Use %a hex float format. Zero tolerance.")
 
 ## Source layout
-- /home/leochanj/Desktop/libmcs/libm/mathd/       — double-precision functions
-- /home/leochanj/Desktop/libmcs/libm/mathf/       — float-precision functions
-- /home/leochanj/Desktop/libmcs/libm/complexd/    — complex double functions
-- /home/leochanj/Desktop/libmcs/libm/complexf/    — complex float functions
-- /home/leochanj/Desktop/libmcs/libm/common/      — shared utilities
-- /home/leochanj/Desktop/libmcs/libm/include/     — headers (math.h, complex.h, fenv.h)
-Each directory has an internal/ subdirectory with helper functions.
+- /home/leochanj/Desktop/libyaml/src/        — all .c sources (parser, scanner, emitter, ...)
+- /home/leochanj/Desktop/libyaml/include/    — public headers (yaml.h)
+TODO: add any notes about internal vs public structure
 CLAUDEEOF
 
-    # Settings.json — allow access to libmcs source and experiment directories.
-    # Block ALL of testing/ (judger + other held-out tests) via both tool deny
-    # rules AND Bash deny. Bash deny prevents cat/grep bypass of Read deny.
+    # Settings.json — allow access to libyaml source and experiment directories.
+    # Block WebFetch/WebSearch only; no held-out test dir for libyaml.
     cat > "${claude_dir}/settings.json" <<SETTINGSEOF
 {
   "permissions": {
@@ -76,20 +70,20 @@ CLAUDEEOF
       "Read(./**)", "Write(./**)", "Edit(./**)", "Glob(./**)", "Grep(./**)",
       "Bash",
       "Read(//tmp/**)", "Write(//tmp/**)", "Edit(//tmp/**)",
-      "Read(//home/leochanj/Desktop/libmcs/libm/**)",
-      "Glob(//home/leochanj/Desktop/libmcs/libm/**)",
-      "Grep(//home/leochanj/Desktop/libmcs/libm/**)",
-      "Read(//home/leochanj/Desktop/libmcs/newexp/**)",
-      "Write(//home/leochanj/Desktop/libmcs/newexp/**)",
-      "Edit(//home/leochanj/Desktop/libmcs/newexp/**)",
-      "Glob(//home/leochanj/Desktop/libmcs/newexp/**)",
-      "Grep(//home/leochanj/Desktop/libmcs/newexp/**)"
+      "Read(//home/leochanj/Desktop/libyaml/src/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/src/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/src/**)",
+      "Read(//home/leochanj/Desktop/libyaml/include/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/include/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/include/**)",
+      "Read(//home/leochanj/Desktop/libyaml/exps/**)",
+      "Write(//home/leochanj/Desktop/libyaml/exps/**)",
+      "Edit(//home/leochanj/Desktop/libyaml/exps/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/exps/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/exps/**)"
     ],
     "deny": [
-      "WebFetch", "WebSearch",
-      "Read(//home/leochanj/Desktop/libmcs/testing/**)",
-      "Glob(//home/leochanj/Desktop/libmcs/testing/**)",
-      "Grep(//home/leochanj/Desktop/libmcs/testing/**)"
+      "WebFetch", "WebSearch"
     ]
   }
 }

@@ -30,7 +30,7 @@ expand_prompt "${EXP_DIR}/prompts/transpile.md" \
 # Source AI runner
 source "${HARNESS_DIR}/scripts/ai_runner.sh"
 
-export TEST_CASE_DIR="$LIBMCS"
+export TEST_CASE_DIR="$C_LIB_DIR"
 export RUST_DIR="$RUST_BASELINE"
 export WORK_DIR="$TRANS_WORK"
 

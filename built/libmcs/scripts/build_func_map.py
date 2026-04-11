@@ -35,7 +35,7 @@ def extract_functions(filepath):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--libm", default=os.environ.get("LIBMCS"))
+    parser.add_argument("--libm", default=os.environ.get("C_LIB_DIR"))
     args = parser.parse_args()
 
     src_dirs = ["mathd", "mathf", "common", "complexd", "complexf"]

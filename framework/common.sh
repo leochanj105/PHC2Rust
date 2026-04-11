@@ -169,7 +169,7 @@ export_scenario_env() {
     local work_dir="${EXP_DIR}/work-${short}"
 
     export PROJECT_DIR="$scenario_dir"
-    export TEST_CASE_DIR="$LIBMCS"
+    export TEST_CASE_DIR="$C_LIB_DIR"
     export RUST_DIR="${EXP_DIR}/rust-${short}"
     export WORK_DIR="$work_dir"
     export TESTGEN_WORKDIR="${work_dir}/testgen"

@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # build_and_cover.sh — compile test_suite.c with LLVM coverage, run, emit feedback.
-# Standalone version for libmcs (no harness config.sh dependency).
+# Standalone version (no harness config.sh dependency).
 #
 # Usage: build_and_cover.sh -w WORKDIR <config>
 #

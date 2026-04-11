@@ -9,7 +9,7 @@ import os
 import re
 import sys
 
-LIBM = os.environ.get("LIBMCS") or sys.exit("LIBMCS not set (export from common.sh)")
+LIBM = os.environ.get("C_LIB_DIR") or sys.exit("C_LIB_DIR not set (export from common.sh)")
 SRC_DIRS = ["mathd", "mathf", "common", "complexd", "complexf"]
 
 

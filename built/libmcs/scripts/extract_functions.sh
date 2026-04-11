@@ -13,7 +13,7 @@ set -euo pipefail
 
 OUTPUT="${1:?Usage: extract_functions.sh <output_file>}"
 
-: "${LIBMCS:?LIBMCS not set (should be exported by common.sh)}"
+: "${C_LIB_DIR:?C_LIB_DIR not set (should be exported by common.sh)}"
 : "${C_SRC_DIRS:?C_SRC_DIRS not set (should be exported by common.sh)}"
 : "${C_INCLUDE_DIRS:?C_INCLUDE_DIRS not set (should be exported by common.sh)}"
 CC="${CC:-clang-21}"
@@ -77,7 +77,7 @@ comm -23 "${BDIR}/static_candidates.txt" "${BDIR}/public.txt" > "${BDIR}/static.
 
 # Generate output
 {
-    echo "# C functions in libmcs (compiled symbols)"
+    echo "# C functions in the target library (compiled symbols)"
     echo "# [static] prefix = internal linkage (needs bridge for testing)"
     echo "# Generated from: nm on compiled .o files"
     echo ""
