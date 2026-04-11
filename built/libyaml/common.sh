@@ -9,9 +9,16 @@ export HARNESS_DIR="/home/leochanj/Desktop/progress_harness"
 export C_LIB_DIR="/home/leochanj/Desktop/libyaml/src"
 export C_SRC_DIRS="${C_LIB_DIR}"
 export C_INCLUDE_DIRS="/home/leochanj/Desktop/libyaml/include"
+export CC_EXTRA_FLAGS="-DHAVE_CONFIG_H=1"
 export DIFFTEST_SCRIPT="${EXP_DIR}/run_difftest.sh"
 export EXCLUDE_C_FILES=""
 export SOURCE_PATH_MARKER="src/"
+# Space-separated list of line keys to exclude from C/Rust diff comparison.
+# Any line whose parsed key exactly matches one of these is skipped by
+# compare_outputs.py. Use this for lines that print free-text strings from
+# the library (e.g. error messages) which may differ cosmetically between
+# C and Rust without indicating a real bug.
+export COMPARE_IGNORE_KEYS="scan_error parse_error load_error parser_problem emitter_error writer_error version_string"
 echo "  EXCLUDE_C_FILES:    ${EXCLUDE_C_FILES:-(none)}"
 echo "  SOURCE_PATH_MARKER: ${SOURCE_PATH_MARKER:-(none)}"
 

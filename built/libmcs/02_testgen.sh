@@ -76,7 +76,7 @@ fi
 
 [ -d "${TESTGEN_DIR}/.claude" ] || cp -r "${HARNESS_DIR}/.claude" "${TESTGEN_DIR}/.claude"
 
-source "${HARNESS_DIR}/scripts/ai_runner.sh"
+source "${EXP_DIR}/scripts/ai_runner.sh"
 export_scenario_env "$SCENARIO"
 
 cd "$TESTGEN_DIR"
@@ -111,5 +111,8 @@ fi
     exit 1
 }
 
-n_tests=$(grep -c 'printf(' "${TESTGEN_DIR}/test_suite.c" 2>/dev/null || echo '?')
-echo "${SHORT} testgen complete: ~${n_tests} test prints"
+# Count test_* function definitions (more reliable than grepping printf,
+# which is inflated by helper functions and loops).
+n_tests=$(grep -cE '^[[:space:]]*(static[[:space:]]+)?void[[:space:]]+test_\w+[[:space:]]*\(' \
+    "${TESTGEN_DIR}/test_suite.c" 2>/dev/null || echo '?')
+echo "${SHORT} testgen complete: ${n_tests} test functions"

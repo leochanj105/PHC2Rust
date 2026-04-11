@@ -89,13 +89,13 @@ if has_mode "branch"; then
         for _d in $C_SRC_DIRS; do
             [ -d "$_d" ] || continue
             find "$_d" -name '*.c' -type f | grep -vE "$_EXCL" | while read -r _cf; do
-                $CC $_INC -fprofile-instr-generate -fcoverage-mapping -O0 -fno-builtin \
+                $CC $_INC ${CC_EXTRA_FLAGS:-} -fprofile-instr-generate -fcoverage-mapping -O0 -fno-builtin \
                     -c "$_cf" -o "${_BBDIR}/c_$(basename "$_cf" .c).o" 2>/dev/null || true
             done
         done
         _OBJ=$(find "$_BBDIR" -name 'c_*.o' -type f | sort)
         echo 'int main(void){return 0;}' > "${_BBDIR}/m.c"
-        $CC $_INC -fprofile-instr-generate -fcoverage-mapping -O0 "${_BBDIR}/m.c" $_OBJ \
+        $CC $_INC ${CC_EXTRA_FLAGS:-} -fprofile-instr-generate -fcoverage-mapping -O0 "${_BBDIR}/m.c" $_OBJ \
             -lm -Wl,--allow-multiple-definition -o "${_BBDIR}/b" 2>/dev/null
         ${LLVM_COV} export "${_BBDIR}/b" -empty-profile > "${_BBDIR}/static.json" 2>/dev/null
         python3 "${SCRIPTS}/branch_coverage.py" extract "${_BBDIR}/static.json" "$BRANCHES_JSON"
@@ -105,33 +105,83 @@ if has_mode "branch"; then
     echo "  Total branch conditions: ${_total_conditions}"
 fi
 
-# ── Compute uncovered functions (grep-based, with call-pattern matching) ──
+# ── Compute uncovered functions from runtime coverage data ──
+# Reads feedback/*_export.json (produced by build_and_cover.sh) and flags any
+# function with execution count 0. This catches cases the old grep-based
+# check missed (functions referenced in comments, functions in strings, etc.)
+# and cases it over-counted (static functions that the public API exercises
+# transitively — those are now honestly credited as covered).
 compute_uncovered_functions() {
     local test_file="$1"
     local out_file="$2"
-    local total=0 covered=0
 
-    : > "$out_file"
-    while IFS= read -r func; do
-        [[ "$func" =~ ^# ]] && continue
-        [ -z "$func" ] && continue
-        total=$((total + 1))
-        _bare="${func#\[static\] }"
-        # Match function call pattern: name( or bridge_name(
-        # Also matches bridge wrappers for static functions
-        if grep -qP "\b(bridge_)?${_bare}\s*\(" "$test_file" 2>/dev/null; then
-            covered=$((covered + 1))
-        else
-            echo "$func" >> "$out_file"
-        fi
-    done < "$FUNCTIONS_FILE"
+    # Find the export JSON produced by run_all_configs.sh → build_and_cover.sh
+    local feedback_dir="${WORKDIR}/feedback"
+    local export_json=""
+    for ej in "${feedback_dir}"/*_export.json; do
+        [ -f "$ej" ] || continue
+        export_json="$ej"
+        break
+    done
 
-    local uncov=$((total - covered))
-    echo "  Function coverage: ${covered}/${total} covered, ${uncov} uncovered"
+    if [ -z "$export_json" ]; then
+        panic "No export JSON produced by build_and_cover.sh — cannot measure function coverage"
+    fi
+
+    # Extract {name: count} for every function llvm-cov saw, then compare
+    # against FUNCTIONS_FILE (authoritative ground-truth list).
+    python3 - "$export_json" "$FUNCTIONS_FILE" "$out_file" <<'PYEOF'
+import json, sys
+
+export_path, funcs_path, out_path = sys.argv[1:4]
+
+with open(export_path) as f:
+    d = json.load(f)
+
+# llvm-cov export 'functions' array has entries like:
+#   {"name": "yaml_parser_initialize",       "count": 7, ...}
+#   {"name": "scanner.c:yaml_parser_scan",   "count": 0, ...}
+# A function is "covered" when count > 0.
+covered = set()
+for fn in d['data'][0].get('functions', []):
+    bare = fn['name'].rsplit(':', 1)[-1]  # strip file: prefix for statics
+    if fn.get('count', 0) > 0:
+        covered.add(bare)
+
+uncovered_lines = []
+total = 0
+covered_n = 0
+with open(funcs_path) as f:
+    for line in f:
+        line = line.rstrip('\n')
+        if not line or line.startswith('#'):
+            continue
+        total += 1
+        bare = line[len('[static] '):] if line.startswith('[static] ') else line
+        if bare in covered:
+            covered_n += 1
+        else:
+            uncovered_lines.append(line)
+
+with open(out_path, 'w') as f:
+    for line in uncovered_lines:
+        f.write(line + '\n')
+
+print(f"  Function coverage: {covered_n}/{total} covered, {total - covered_n} uncovered")
+PYEOF
 
     # Sanity: if round > 1 and 0 covered, something is wrong
-    if [ "$covered" -eq 0 ] && [ "$total" -gt 0 ]; then
-        panic "0 functions covered but test_suite.c exists (${total} total). Grep logic may be broken."
+    local covered_count
+    covered_count=$(python3 -c "
+import json
+d = json.load(open('$export_json'))
+c = sum(1 for f in d['data'][0].get('functions', []) if f.get('count', 0) > 0)
+print(c)
+" 2>/dev/null || echo 0)
+    local total_fns
+    total_fns=$(grep -c -v '^#\|^$' "$FUNCTIONS_FILE" || true)
+    if [ "${covered_count:-0}" -eq 0 ] && [ "${total_fns:-0}" -gt 0 ]; then
+        panic "0 functions covered after running test suite — likely a test crash or link error"
     fi
 }
 
@@ -222,10 +272,19 @@ for round in $(seq "$start_round" "$MAX_ROUNDS"); do
         if has_mode "function"; then
             uncovered_funcs="${ROUND_DIR}/uncovered_functions.md"
             if [ ! -f "${WORKDIR}/test_suite.c" ]; then
-                # Round 1: every function is uncovered
+                # Round 1: no tests yet, every function is uncovered
                 grep -v "^#" "$FUNCTIONS_FILE" | grep -v "^$" > "$uncovered_funcs" || true
                 echo "  Round 1: all $(wc -l < "$uncovered_funcs") functions uncovered"
             else
+                # Need runtime coverage data. If branch mode already ran the
+                # coverage build above, feedback/ is fresh; otherwise run it
+                # now explicitly for function-only mode.
+                if ! has_mode "branch"; then
+                    echo "  Running coverage instrumentation..."
+                    if ! "${SCRIPTS}/run_all_configs.sh" -w "$WORKDIR" -j "${MAX_JOBS:-$(nproc)}" 2>&1 | tail -5; then
+                        echo "  WARNING: run_all_configs.sh had errors (may be test crashes)"
+                    fi
+                fi
                 compute_uncovered_functions "${WORKDIR}/test_suite.c" "$uncovered_funcs"
             fi
             cp "$uncovered_funcs" "${WORKDIR}/uncovered_functions.md"
@@ -286,7 +345,7 @@ If you create test_bridge.c, write it to ${WORKDIR}/test_bridge.c
         _INC=""
         for _id in $C_INCLUDE_DIRS; do _INC="$_INC -I$_id"; done
         _compile_ok=0
-        if $CC $_INC -I"${WORKDIR}" -Wno-implicit-function-declaration \
+        if $CC $_INC ${CC_EXTRA_FLAGS:-} -I"${WORKDIR}" -Wno-implicit-function-declaration \
             -fprofile-instr-generate -fcoverage-mapping \
             -fsyntax-only "${WORKDIR}/test_suite.c" 2>"${ROUND_DIR}/compile_err.txt"; then
             _compile_ok=1
@@ -303,7 +362,7 @@ If you create test_bridge.c, write it to ${WORKDIR}/test_bridge.c
             # Common fix: forward declaration (function used before defined)
             # Try reordering: move static void test_xxx definitions before main
             # This is hard to do generically, so just try recompiling after includes fix
-            if $CC $_INC -I"${WORKDIR}" -Wno-implicit-function-declaration \
+            if $CC $_INC ${CC_EXTRA_FLAGS:-} -I"${WORKDIR}" -Wno-implicit-function-declaration \
                 -fprofile-instr-generate -fcoverage-mapping \
                 -fsyntax-only "${WORKDIR}/test_suite.c" 2>/dev/null; then
                 echo "  Auto-fix succeeded."

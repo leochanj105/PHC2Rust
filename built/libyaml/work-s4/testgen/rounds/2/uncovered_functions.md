@@ -1,0 +1,7 @@
+[static] yaml_emitter_dump_alias
+[static] yaml_emitter_dump_mapping
+[static] yaml_emitter_dump_sequence
+[static] yaml_emitter_emit_flow_sequence_item
+[static] yaml_parser_parse_flow_sequence_entry_mapping_end
+[static] yaml_parser_parse_flow_sequence_entry_mapping_key
+[static] yaml_parser_parse_flow_sequence_entry_mapping_value

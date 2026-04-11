@@ -1,0 +1,196 @@
+yaml_alias_event_initialize
+yaml_document_add_mapping
+yaml_document_add_scalar
+yaml_document_add_sequence
+yaml_document_append_mapping_pair
+yaml_document_append_sequence_item
+yaml_document_delete
+yaml_document_end_event_initialize
+yaml_document_get_node
+yaml_document_get_root_node
+yaml_document_initialize
+yaml_document_start_event_initialize
+yaml_emitter_close
+yaml_emitter_delete
+yaml_emitter_dump
+yaml_emitter_emit
+yaml_emitter_flush
+yaml_emitter_initialize
+yaml_emitter_open
+yaml_emitter_set_break
+yaml_emitter_set_canonical
+yaml_emitter_set_encoding
+yaml_emitter_set_indent
+yaml_emitter_set_output
+yaml_emitter_set_output_file
+yaml_emitter_set_output_string
+yaml_emitter_set_unicode
+yaml_emitter_set_width
+yaml_event_delete
+yaml_free
+yaml_get_version
+yaml_get_version_string
+yaml_malloc
+yaml_mapping_end_event_initialize
+yaml_mapping_start_event_initialize
+yaml_parser_delete
+yaml_parser_fetch_more_tokens
+yaml_parser_initialize
+yaml_parser_load
+yaml_parser_parse
+yaml_parser_scan
+yaml_parser_set_encoding
+yaml_parser_set_input
+yaml_parser_set_input_file
+yaml_parser_set_input_string
+yaml_parser_update_buffer
+yaml_queue_extend
+yaml_realloc
+yaml_scalar_event_initialize
+yaml_sequence_end_event_initialize
+yaml_sequence_start_event_initialize
+yaml_set_max_nest_level
+yaml_stack_extend
+yaml_strdup
+yaml_stream_end_event_initialize
+yaml_stream_start_event_initialize
+yaml_string_extend
+yaml_string_join
+yaml_token_delete
+[static] yaml_check_utf8
+[static] yaml_emitter_analyze_anchor
+[static] yaml_emitter_analyze_event
+[static] yaml_emitter_analyze_scalar
+[static] yaml_emitter_analyze_tag
+[static] yaml_emitter_analyze_tag_directive
+[static] yaml_emitter_analyze_version_directive
+[static] yaml_emitter_anchor_node
+[static] yaml_emitter_append_tag_directive
+[static] yaml_emitter_check_empty_document
+[static] yaml_emitter_check_empty_mapping
+[static] yaml_emitter_check_empty_sequence
+[static] yaml_emitter_check_simple_key
+[static] yaml_emitter_delete_document_and_anchors
+[static] yaml_emitter_dump_alias
+[static] yaml_emitter_dump_mapping
+[static] yaml_emitter_dump_node
+[static] yaml_emitter_dump_scalar
+[static] yaml_emitter_dump_sequence
+[static] yaml_emitter_emit_alias
+[static] yaml_emitter_emit_block_mapping_key
+[static] yaml_emitter_emit_block_mapping_value
+[static] yaml_emitter_emit_block_sequence_item
+[static] yaml_emitter_emit_document_content
+[static] yaml_emitter_emit_document_end
+[static] yaml_emitter_emit_document_start
+[static] yaml_emitter_emit_flow_mapping_key
+[static] yaml_emitter_emit_flow_mapping_value
+[static] yaml_emitter_emit_flow_sequence_item
+[static] yaml_emitter_emit_mapping_start
+[static] yaml_emitter_emit_node
+[static] yaml_emitter_emit_scalar
+[static] yaml_emitter_emit_sequence_start
+[static] yaml_emitter_emit_stream_start
+[static] yaml_emitter_generate_anchor
+[static] yaml_emitter_increase_indent
+[static] yaml_emitter_need_more_events
+[static] yaml_emitter_process_anchor
+[static] yaml_emitter_process_scalar
+[static] yaml_emitter_process_tag
+[static] yaml_emitter_select_scalar_style
+[static] yaml_emitter_set_emitter_error
+[static] yaml_emitter_set_writer_error
+[static] yaml_emitter_state_machine
+[static] yaml_emitter_write_anchor
+[static] yaml_emitter_write_block_scalar_hints
+[static] yaml_emitter_write_bom
+[static] yaml_emitter_write_double_quoted_scalar
+[static] yaml_emitter_write_folded_scalar
+[static] yaml_emitter_write_indent
+[static] yaml_emitter_write_indicator
+[static] yaml_emitter_write_literal_scalar
+[static] yaml_emitter_write_plain_scalar
+[static] yaml_emitter_write_single_quoted_scalar
+[static] yaml_emitter_write_tag_content
+[static] yaml_emitter_write_tag_handle
+[static] yaml_file_read_handler
+[static] yaml_file_write_handler
+[static] yaml_maximum_level_reached
+[static] yaml_parser_append_tag_directive
+[static] yaml_parser_decrease_flow_level
+[static] yaml_parser_delete_aliases
+[static] yaml_parser_determine_encoding
+[static] yaml_parser_fetch_anchor
+[static] yaml_parser_fetch_block_entry
+[static] yaml_parser_fetch_block_scalar
+[static] yaml_parser_fetch_directive
+[static] yaml_parser_fetch_document_indicator
+[static] yaml_parser_fetch_flow_collection_end
+[static] yaml_parser_fetch_flow_collection_start
+[static] yaml_parser_fetch_flow_entry
+[static] yaml_parser_fetch_flow_scalar
+[static] yaml_parser_fetch_key
+[static] yaml_parser_fetch_next_token
+[static] yaml_parser_fetch_plain_scalar
+[static] yaml_parser_fetch_stream_end
+[static] yaml_parser_fetch_stream_start
+[static] yaml_parser_fetch_tag
+[static] yaml_parser_fetch_value
+[static] yaml_parser_increase_flow_level
+[static] yaml_parser_load_alias
+[static] yaml_parser_load_document
+[static] yaml_parser_load_mapping
+[static] yaml_parser_load_mapping_end
+[static] yaml_parser_load_node_add
+[static] yaml_parser_load_nodes
+[static] yaml_parser_load_scalar
+[static] yaml_parser_load_sequence
+[static] yaml_parser_load_sequence_end
+[static] yaml_parser_parse_block_mapping_key
+[static] yaml_parser_parse_block_mapping_value
+[static] yaml_parser_parse_block_sequence_entry
+[static] yaml_parser_parse_document_content
+[static] yaml_parser_parse_document_end
+[static] yaml_parser_parse_document_start
+[static] yaml_parser_parse_flow_mapping_key
+[static] yaml_parser_parse_flow_mapping_value
+[static] yaml_parser_parse_flow_sequence_entry
+[static] yaml_parser_parse_flow_sequence_entry_mapping_end
+[static] yaml_parser_parse_flow_sequence_entry_mapping_key
+[static] yaml_parser_parse_flow_sequence_entry_mapping_value
+[static] yaml_parser_parse_indentless_sequence_entry
+[static] yaml_parser_parse_node
+[static] yaml_parser_parse_stream_start
+[static] yaml_parser_process_directives
+[static] yaml_parser_process_empty_scalar
+[static] yaml_parser_register_anchor
+[static] yaml_parser_remove_simple_key
+[static] yaml_parser_roll_indent
+[static] yaml_parser_save_simple_key
+[static] yaml_parser_scan_anchor
+[static] yaml_parser_scan_block_scalar
+[static] yaml_parser_scan_block_scalar_breaks
+[static] yaml_parser_scan_directive
+[static] yaml_parser_scan_directive_name
+[static] yaml_parser_scan_flow_scalar
+[static] yaml_parser_scan_plain_scalar
+[static] yaml_parser_scan_tag
+[static] yaml_parser_scan_tag_directive_value
+[static] yaml_parser_scan_tag_handle
+[static] yaml_parser_scan_tag_uri
+[static] yaml_parser_scan_to_next_token
+[static] yaml_parser_scan_uri_escapes
+[static] yaml_parser_scan_version_directive_number
+[static] yaml_parser_scan_version_directive_value
+[static] yaml_parser_set_composer_error
+[static] yaml_parser_set_composer_error_context
+[static] yaml_parser_set_parser_error
+[static] yaml_parser_set_parser_error_context
+[static] yaml_parser_set_reader_error
+[static] yaml_parser_set_scanner_error
+[static] yaml_parser_stale_simple_keys
+[static] yaml_parser_state_machine
+[static] yaml_parser_unroll_indent
+[static] yaml_parser_update_raw_buffer
+[static] yaml_string_read_handler
+[static] yaml_string_write_handler

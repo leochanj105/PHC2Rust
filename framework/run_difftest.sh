@@ -41,7 +41,7 @@ echo "Building C library..."
 for d in $C_SRC_DIRS; do
     [ -d "$d" ] || continue
     find "$d" -name '*.c' -type f | grep -v "${EXCLUDE_C_FILES:-^$}" | while read -r cfile; do
-        $CC $INC_FLAGS -c "$cfile" -o "${BDIR}/c_$(basename "$cfile" .c).o" 2>/dev/null || true
+        $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -c "$cfile" -o "${BDIR}/c_$(basename "$cfile" .c).o" 2>/dev/null || true
     done
 done
 ar rcs "${BDIR}/libc_impl.a" "${BDIR}"/c_*.o 2>/dev/null
@@ -50,7 +50,7 @@ rm -f "${BDIR}"/c_*.o
 # Compile bridge if it exists
 BRIDGE_OBJ=""
 if [ -f "$BRIDGE" ]; then
-    $CC $INC_FLAGS -c "$BRIDGE" -o "${BDIR}/bridge.o" 2>/dev/null && \
+    $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -c "$BRIDGE" -o "${BDIR}/bridge.o" 2>/dev/null && \
         BRIDGE_OBJ="${BDIR}/bridge.o" || true
 fi
 
@@ -80,7 +80,7 @@ fi
 # ── Compile + run against C library ──
 echo "Compiling test against C library..."
 C_COMPILE_ERR=""
-if $CC $INC_FLAGS -Wno-implicit-function-declaration \
+if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -Wno-implicit-function-declaration \
     "$DIFFTEST" $BRIDGE_OBJ "${BDIR}/libc_impl.a" \
     -lm -o "${BDIR}/test_c" 2>"${BDIR}/c_compile_err.txt"; then
     echo "Running C test..."
@@ -101,7 +101,7 @@ else
     echo "Compiling test against Rust library..."
     # Rust binary: link with Rust lib ONLY. No C fallback, no C bridge.
     # The Rust lib provides its own bridge exports via test_bridge.rs.
-    if $CC $INC_FLAGS -Wno-implicit-function-declaration \
+    if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -Wno-implicit-function-declaration \
         "$DIFFTEST" "$RUST_LIB" \
         -lm -lpthread -ldl \
         -o "${BDIR}/test_r" 2>"${BDIR}/r_compile_err.txt"; then

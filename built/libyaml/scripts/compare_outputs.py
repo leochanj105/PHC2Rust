@@ -9,16 +9,45 @@ Produces a structured report:
 - MISMATCH: same line position, different result
 - FAULT: lines starting with "FAULT" (crash/timeout detected by fork wrapper)
 
+Environment:
+  COMPARE_IGNORE_KEYS: space-separated list of line keys to exclude entirely.
+      For a line "foo: 42", the key is "foo"; for "sin 0.5 = 0x1.8p-1",
+      the key is "sin". Matching is exact on the first whitespace-delimited
+      token of the key portion (before ':' or '='). Used to skip lines whose
+      value is cosmetic free text (e.g. library error messages) that may
+      differ between C and Rust without indicating a real bug.
+
 Usage: compare_outputs.py <c_output> <rust_output> [-o report_file]
 """
 
+import os
 import sys
 import argparse
 
 
-def parse_output(filepath):
-    """Parse test output into list of (line_number, line) tuples.
-    Skips FAULT lines (handled separately) and blank lines."""
+def _ignore_keys():
+    """Parse $COMPARE_IGNORE_KEYS into a set of exact-match keys."""
+    return set(os.environ.get("COMPARE_IGNORE_KEYS", "").split())
+
+
+def _line_key(line):
+    """Extract the key from a test line.
+
+    Lines look like either "key: value" or "key value = result".
+    The key is the first whitespace-delimited token of the left side.
+    """
+    left = line.split('=', 1)[0]
+    left = left.split(':', 1)[0]
+    toks = left.split()
+    return toks[0] if toks else ""
+
+
+def parse_output(filepath, ignored=None):
+    """Parse test output into list of lines.
+    Skips FAULT lines (handled separately), blank lines, and lines whose
+    key is in `ignored` (set)."""
+    if ignored is None:
+        ignored = _ignore_keys()
     test_lines = []
     fault_lines = []
     with open(filepath) as f:
@@ -33,6 +62,8 @@ def parse_output(filepath):
                 continue
             # Skip lines that aren't test output (no = or : separator)
             if '=' not in line and ': ' not in line:
+                continue
+            if ignored and _line_key(line) in ignored:
                 continue
             test_lines.append(line)
     return test_lines, fault_lines

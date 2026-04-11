@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./**)", "Write(./**)", "Edit(./**)", "Glob(./**)", "Grep(./**)",
+      "Bash",
+      "Read(//tmp/**)", "Write(//tmp/**)", "Edit(//tmp/**)",
+      "Read(//home/leochanj/Desktop/libmcs/libm/**)",
+      "Glob(//home/leochanj/Desktop/libmcs/libm/**)",
+      "Grep(//home/leochanj/Desktop/libmcs/libm/**)",
+      "Read(//home/leochanj/Desktop/libmcs/newexp/**)",
+      "Write(//home/leochanj/Desktop/libmcs/newexp/**)",
+      "Edit(//home/leochanj/Desktop/libmcs/newexp/**)",
+      "Glob(//home/leochanj/Desktop/libmcs/newexp/**)",
+      "Grep(//home/leochanj/Desktop/libmcs/newexp/**)"
+    ],
+    "deny": [
+      "WebFetch", "WebSearch",
+      "Read(//home/leochanj/Desktop/libmcs/testing/**)",
+      "Glob(//home/leochanj/Desktop/libmcs/testing/**)",
+      "Grep(//home/leochanj/Desktop/libmcs/testing/**)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/leochanj/Desktop/libmcs/newexp/scripts/deny_testing_hook.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

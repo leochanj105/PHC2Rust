@@ -51,7 +51,7 @@ echo "Building + covering: ${CONFIG}"
 cd "$BUILDDIR"
 
 # Compile C library with coverage
-$CC $INC_FLAGS -fprofile-instr-generate -fcoverage-mapping -c $C_SRCS 2>/dev/null || {
+$CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -fprofile-instr-generate -fcoverage-mapping -c $C_SRCS 2>/dev/null || {
     echo "  Library compile failed for ${CONFIG}" >&2
     mkdir -p "${WORKDIR}/feedback"
     echo "COMPILE_ERROR: library compilation failed" > "${WORKDIR}/feedback/${CONFIG}_feedback"
@@ -60,22 +60,30 @@ $CC $INC_FLAGS -fprofile-instr-generate -fcoverage-mapping -c $C_SRCS 2>/dev/nul
 ar rcs libmylib.a ./*.o 2>/dev/null
 rm -f ./*.o
 
-# Compile test bridge if it exists
-BRIDGE_FILE="${WORKDIR}/test_bridge.c"
-if [ -f "$BRIDGE_FILE" ]; then
-    _bridge_includes=""
-    for _sd in $C_SRC_DIRS; do _bridge_includes="$_bridge_includes -I$_sd"; done
-    echo "  Compiling test_bridge.c"
-    if $CC $INC_FLAGS $_bridge_includes -fprofile-instr-generate -fcoverage-mapping \
-        -c "$BRIDGE_FILE" -o bridge.o 2>"${BUILDDIR}/bridge_err.txt"; then
-        ar rcs libmylib.a bridge.o
+# Compile test bridge(s) if they exist. Supports two layouts:
+#   single-file: ${WORKDIR}/test_bridge.c                     (libmcs)
+#   per-file:    ${WORKDIR}/bridge_*.c                         (libyaml)
+_bridge_includes=""
+for _sd in $C_SRC_DIRS; do _bridge_includes="$_bridge_includes -I$_sd"; done
+_bridge_objs=""
+for _bf in "${WORKDIR}/test_bridge.c" "${WORKDIR}"/bridge_*.c; do
+    [ -f "$_bf" ] || continue
+    _obj="$(basename "${_bf%.c}").o"
+    echo "  Compiling $(basename "$_bf")"
+    if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} $_bridge_includes -fprofile-instr-generate -fcoverage-mapping \
+        -c "$_bf" -o "$_obj" 2>"${BUILDDIR}/bridge_err.txt"; then
+        _bridge_objs="$_bridge_objs $_obj"
     else
-        echo "  WARNING: test_bridge.c failed to compile"
+        echo "  WARNING: $(basename "$_bf") failed to compile"
+        head -5 "${BUILDDIR}/bridge_err.txt" >&2 || true
     fi
+done
+if [ -n "$_bridge_objs" ]; then
+    ar rcs libmylib.a $_bridge_objs
 fi
 
 # Compile test suite WITHOUT coverage (we only want library coverage)
-if ! $CC $INC_FLAGS -c "$TEST_SUITE" -o test_suite.o 2>"${BUILDDIR}/compile_err.txt"; then
+if ! $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -c "$TEST_SUITE" -o test_suite.o 2>"${BUILDDIR}/compile_err.txt"; then
     echo "  Test suite compile failed for ${CONFIG}"
     mkdir -p "${WORKDIR}/feedback"
     {

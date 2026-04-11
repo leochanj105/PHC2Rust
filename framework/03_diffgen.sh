@@ -62,14 +62,14 @@ prepare_difftest() {
     BDIR=$(mktemp -d)
     (
         cd "$BDIR"
-        $CC $INC_FLAGS -c $C_SRCS 2>/dev/null
+        $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -c $C_SRCS 2>/dev/null
         ar rcs libc_impl.a ./*.o 2>/dev/null
         rm -f ./*.o
         BRIDGE_OBJ=""
         [ -f "${diffgen_dir}/test_bridge.c" ] && \
-            $CC $INC_FLAGS -c "${diffgen_dir}/test_bridge.c" -o bridge.o 2>/dev/null && \
+            $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -c "${diffgen_dir}/test_bridge.c" -o bridge.o 2>/dev/null && \
             BRIDGE_OBJ="bridge.o"
-        if $CC $INC_FLAGS -Wno-implicit-function-declaration \
+        if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -Wno-implicit-function-declaration \
             "${diffgen_dir}/difftest_suite.c" $BRIDGE_OBJ libc_impl.a -lm \
             -Wl,--allow-multiple-definition \
             -o /dev/null 2>"${diffgen_dir}/c_compile_err.txt"; then

@@ -31,49 +31,51 @@ trap 'rm -rf "$BDIR"' EXIT
 INC_FLAGS=""
 for d in $C_INCLUDE_DIRS; do INC_FLAGS="$INC_FLAGS -I$d"; done
 
-# Compile all .c files to .o and extract symbols with nm
+# Compile all .c files with coverage instrumentation, then link a minimal
+# binary so llvm-cov can report every function it saw (public + static).
+# This is more reliable than regex-parsing source for static declarations.
 for d in $C_SRC_DIRS; do
     [ -d "$d" ] || continue
     find "$d" -name '*.c' -type f 2>/dev/null | grep -v "${EXCLUDE_C_FILES:-^$}" | sort | while read -r f; do
         bn=$(basename "$f" .c)
         dn=$(basename "$d")
-        $CC $INC_FLAGS -c "$f" -o "${BDIR}/${dn}_${bn}.o" 2>/dev/null || true
+        $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -fprofile-instr-generate -fcoverage-mapping \
+            -c "$f" -o "${BDIR}/${dn}_${bn}.o" 2>/dev/null || true
     done
 done
 
-# Public functions: T (text) symbols from nm
-nm "${BDIR}"/*.o 2>/dev/null | grep " T " | awk '{print $3}' | sort -u > "${BDIR}/public.txt"
+# Link a trivial binary so llvm-cov has something to export from
+echo 'int main(void){return 0;}' > "${BDIR}/m.c"
+$CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -fprofile-instr-generate -fcoverage-mapping \
+    "${BDIR}/m.c" "${BDIR}"/*.o \
+    -Wl,--allow-multiple-definition -o "${BDIR}/cov_bin" 2>/dev/null || true
 
-# Static functions: defined in source but not in nm output.
-# We detect them by parsing source for static function definitions,
-# then checking they don't appear in the public list.
-{
-    for d in $C_SRC_DIRS; do
-        [ -d "$d" ] || continue
-        find "$d" -name '*.c' -type f 2>/dev/null | grep -v "${EXCLUDE_C_FILES:-^$}" | sort | while read -r f; do
-            # Only extract static functions (not behind #ifdef guards that are disabled)
-            # Simple approach: look for "static ... funcname(" at the start of a line
-            # within the actually-compiled code. Since we compiled with the same flags,
-            # functions behind disabled #ifdefs won't have corresponding .o entries anyway.
-            awk '
-            /^static[[:space:]].*\(/ {
-                line = $0
-                sub(/\(.*/, "", line)
-                gsub(/[*]/, " ", line)
-                n = split(line, parts, /[[:space:]]+/)
-                if (n >= 2 && parts[n] ~ /^[a-zA-Z_]/) {
-                    print parts[n]
-                }
-            }
-            ' "$f" 2>/dev/null || true
-        done
-    done
-} | sort -u > "${BDIR}/static_candidates.txt"
-
-# Filter static candidates: only keep those NOT in the public symbol list
-# (some "static inline" functions get inlined and don't appear as symbols,
-# but we still want to list them if they exist in source)
-comm -23 "${BDIR}/static_candidates.txt" "${BDIR}/public.txt" > "${BDIR}/static.txt"
+# Authoritative function list via llvm-cov export -empty-profile.
+# The `name` field looks like:
+#   "yaml_parser_initialize"        — public (no ':' separator)
+#   "scanner.c:yaml_parser_scan"    — static (file-scoped)
+LLVM_COV="${LLVM_COV:-llvm-cov-21}"
+"${LLVM_COV}" export "${BDIR}/cov_bin" -empty-profile 2>/dev/null | python3 -c "
+import json, sys
+d = json.load(sys.stdin)
+public, static = set(), set()
+for f in d['data'][0].get('functions', []):
+    name = f['name']
+    if ':' in name:
+        static.add(name.rsplit(':', 1)[-1])
+    elif name != 'main':  # exclude the stub main() used to link cov_bin
+        public.add(name)
+with open('${BDIR}/public.txt', 'w') as fp:
+    for n in sorted(public):
+        fp.write(n + '\n')
+with open('${BDIR}/static.txt', 'w') as fp:
+    for n in sorted(static):
+        fp.write(n + '\n')
+" || {
+    # Fallback: if llvm-cov failed, at least emit public symbols via nm
+    nm "${BDIR}"/*.o 2>/dev/null | grep " T " | awk '{print $3}' | sort -u > "${BDIR}/public.txt"
+    : > "${BDIR}/static.txt"
+}
 
 # Generate output
 {
@@ -89,7 +91,11 @@ comm -23 "${BDIR}/static_candidates.txt" "${BDIR}/public.txt" > "${BDIR}/static.
     done < "${BDIR}/static.txt"
 } | sort -t' ' -k2 > "$OUTPUT"
 
-_total=$(grep -c -v '^#\|^$' "$OUTPUT" || echo 0)
-_static=$(grep -c '^\[static\]' "$OUTPUT" || echo 0)
+# grep -c outputs "0" when no matches AND exits 1; `|| true` keeps the "0"
+# without adding a second one (which would break arithmetic).
+_total=$(grep -c -v '^#\|^$' "$OUTPUT" || true)
+_static=$(grep -c '^\[static\]' "$OUTPUT" || true)
+_total=${_total:-0}
+_static=${_static:-0}
 _public=$(( _total - _static ))
 echo "  ${_total} functions (${_public} public, ${_static} static) -> ${OUTPUT}"
