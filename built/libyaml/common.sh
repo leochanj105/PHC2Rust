@@ -52,8 +52,7 @@ _ensure_claude_setup() {
 libyaml — a C YAML 1.1 parser and emitter library.
 
 ## Comparison rule
-TODO: describe how C and Rust outputs will be compared for libyaml
-TODO: (libmcs used: "All outputs must be bitwise exact. Use %a hex float format. Zero tolerance.")
+All outputs must match line-by-line. Zero tolerance.
 
 ## Source layout
 - /home/leochanj/Desktop/libyaml/src/        — all .c sources (parser, scanner, emitter, ...)
