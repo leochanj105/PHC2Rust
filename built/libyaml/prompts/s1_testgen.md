@@ -14,10 +14,7 @@ C and Rust outputs can be diffed line-by-line.
 A pre-built test_bridge.c and test_bridge.h are provided in the working directory.
 They expose these static functions as callable bridge wrappers:
 
-A pre-built test_bridge.c and test_bridge.h are provided in the working directory.
-Read test_bridge.h to see the available `bridge_*` wrapper declarations for the
-library's static functions, and  #include "test_bridge.h"  in test_suite.c to
-call them. Do NOT generate or modify test_bridge.c or test_bridge.h.
+    (See test_bridge.h for the full list — too many to inline here.)
 
 To use them, add `#include "test_bridge.h"` at the top of test_suite.c.
 Do NOT generate or modify test_bridge.c or test_bridge.h.
