@@ -61,11 +61,11 @@ All outputs must match line-by-line. Zero tolerance.
       "Read(//home/leochanj/Desktop/libyaml/include/**)",
       "Glob(//home/leochanj/Desktop/libyaml/include/**)",
       "Grep(//home/leochanj/Desktop/libyaml/include/**)",
-      "Read(//home/leochanj/Desktop/libyaml/exps/**)",
-      "Write(//home/leochanj/Desktop/libyaml/exps/**)",
-      "Edit(//home/leochanj/Desktop/libyaml/exps/**)",
-      "Glob(//home/leochanj/Desktop/libyaml/exps/**)",
-      "Grep(//home/leochanj/Desktop/libyaml/exps/**)"
+      "Read(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)",
+      "Write(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)",
+      "Edit(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)",
+      "Glob(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)",
+      "Grep(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)"
     ],
     "deny": [
       "WebFetch", "WebSearch"

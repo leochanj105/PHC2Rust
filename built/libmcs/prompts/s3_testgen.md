@@ -20,8 +20,8 @@ and boundary values.
 
 ## Static functions
 
-A pre-built test_bridge.c and test_bridge.h are provided in the working directory.
-They expose these static functions as callable bridge wrappers:
+A pre-built test_bridge.h is provided in the working directory, declaring
+`bridge_*` wrapper functions for the library's static C functions.
 
     bridge___rem_pio2_internal(double *x, double *y, int e0, int nx)
     bridge___tan(double x, double y, int iy)
@@ -33,7 +33,7 @@ They expose these static functions as callable bridge wrappers:
     bridge___sin_pif(float x)
 
 To use them, add `#include "test_bridge.h"` at the top of test_suite.c.
-Do NOT generate or modify test_bridge.c or test_bridge.h.
+Do NOT generate or modify test_bridge.h or any bridge_* implementation files.
 
 ## Rules
 - All tests must be deterministic.

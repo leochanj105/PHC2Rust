@@ -179,11 +179,17 @@ setup_scenario_workdir() {
         cp -r "${HARNESS_DIR}/.claude" "${work_dir}/.claude"
     fi
 
-    # Copy canonical test bridge to testgen dir
+    # Copy bridge files to testgen dir. Supports both layouts:
+    #   - single-file: test_bridge.h + test_bridge.c (libmcs)
+    #   - per-file:    test_bridge.h + bridge_*.c   (libyaml)
+    # Trigger is the existence of test_bridge.h.
     local testgen="${work_dir}/testgen"
-    if [ -f "${EXP_DIR}/test_bridge.c" ]; then
-        cp "${EXP_DIR}/test_bridge.c" "${testgen}/test_bridge.c"
+    if [ -f "${EXP_DIR}/test_bridge.h" ]; then
         cp "${EXP_DIR}/test_bridge.h" "${testgen}/test_bridge.h"
+        [ -f "${EXP_DIR}/test_bridge.c" ] && cp "${EXP_DIR}/test_bridge.c" "${testgen}/test_bridge.c"
+        for bf in "${EXP_DIR}"/bridge_*.c; do
+            [ -f "$bf" ] && cp "$bf" "${testgen}/"
+        done
     fi
 }
 

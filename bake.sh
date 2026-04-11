@@ -43,8 +43,10 @@ if [ ! -f "$VALUES" ]; then
     VALUES=/dev/null
 fi
 
-# Fresh build dir
-rm -rf "$BUILT"
+# Ensure build dir exists. Do NOT wipe — built/<project>/ may also contain
+# runtime artifacts (work-*, rust-*, etc.) that the user has produced. Bake
+# overwrites files in place; orphans (e.g. files removed from manifest) are
+# left behind for the user to clean manually if desired.
 mkdir -p "$BUILT"
 
 substitute() {
@@ -103,6 +105,8 @@ bake_one() {
         exit 1
     fi
     mkdir -p "$(dirname "$dst")"
+    # Remove existing dst (may be read-only from a previous bake)
+    rm -f "$dst"
     substitute "$src" "$dst"
     # Preserve file mode from framework
     chmod --reference="$src" "$dst"
