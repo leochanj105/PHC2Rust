@@ -72,6 +72,31 @@ expands to the real `/home/leochanj/Desktop/libmcs/libm/` path.
 
 **Effect on verify:** `MISMATCH`: `prompts/analyze_and_fix.md`
 
+## New prepare phase: `01b_prepare.sh` + `promote_visibility.py`
+
+**Upstream** has `scripts/prepare_rust_for_test.sh` — a 94-line script with
+14 hardcoded `sed` commands that promote specific function names
+(`tan_kern`, `sin_pi`, `tanf_kern`, etc.) from private to `pub(crate)` in
+the transpiled Rust sources. The list is hand-maintained and libmcs-specific.
+
+**Baked** introduces a new phase:
+- `01b_prepare.sh` (new, between `01_transpile.sh` and `02_testgen.sh`).
+- `scripts/promote_visibility.py` (new) — parses `test_bridge.rs` to find
+  all `crate::module::fn_name(` references, then promotes the corresponding
+  functions in `rust-baseline-test/src/`. **Data-driven** — no hardcoded
+  list, works for any library whose `test_bridge.rs` follows the
+  `crate::module::fn(...)` pattern.
+- Upstream's `scripts/prepare_rust_for_test.sh` is dropped (no longer baked).
+
+**`test_bridge.{c,h,rs}` remain external inputs** — placed at `${EXP_DIR}/`
+before running `01b_prepare.sh`. The framework does not generate them;
+that is handled by a separate utility (e.g. libyaml's `cov/gen_bridges.py`)
+out of scope for the bake.
+
+**Effect on verify:**
+- `EXTRA`: `01b_prepare.sh`, `scripts/promote_visibility.py`
+- `MISSING`: `scripts/prepare_rust_for_test.sh` (intentionally dropped)
+
 ## Scenario configs collapsed
 
 **Upstream:** Each `scenarios/sN_*/config_overrides.sh` is ~25 lines and

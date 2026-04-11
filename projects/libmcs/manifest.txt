@@ -3,6 +3,8 @@ claude-opus
 claude-sonnet
 common.sh
 01_transpile.sh
+01b_prepare.sh
 02_testgen.sh
 prompts/[!_]*.md
 scenarios/*/config_overrides.sh
+scripts/promote_visibility.py
