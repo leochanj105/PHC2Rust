@@ -19,7 +19,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 HARNESS="${HARNESS_DIR:?HARNESS_DIR not set}"
 SCRIPTS="${EXP_DIR}/scripts"
 
-source "${HARNESS}/scripts/ai_runner.sh"
+source "${EXP_DIR}/scripts/ai_runner.sh"
 
 VERBOSE=""
 [ "${1:-}" = "-v" ] && VERBOSE="-v"

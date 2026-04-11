@@ -16,7 +16,7 @@ set -euo pipefail
 #   EXP_DIR, HARNESS_DIR, MAX_ROUNDS, STALL_LIMIT, MAX_GOALS
 
 HARNESS="${HARNESS_DIR:?HARNESS_DIR not set}"
-source "${HARNESS}/scripts/ai_runner.sh"
+source "${EXP_DIR}/scripts/ai_runner.sh"
 
 : "${MAX_ROUNDS:=5}"
 : "${STALL_LIMIT:=2}"

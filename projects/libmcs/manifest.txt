@@ -12,6 +12,7 @@ run_difffix_loop.sh
 run_testgen_loop.sh
 prompts/[!_]*.md
 scenarios/*/config_overrides.sh
+scripts/ai_runner.sh
 scripts/promote_visibility.py
 scripts/branch_coverage.py
 scripts/build_and_cover.sh

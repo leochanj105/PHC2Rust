@@ -2,15 +2,15 @@
 """Extract function signatures only — minimal context for testgen/strategy.
 
 Output: a compact list of all function signatures with source locations.
-~200 lines, ~1.2K tokens.
+
+Iterates the directories listed in $C_SRC_DIRS (space-separated, exported by
+common.sh). For each .c file under those directories, extracts function
+definitions via regex and prints them grouped by file.
 """
 
 import os
 import re
 import sys
-
-LIBM = os.environ.get("C_LIB_DIR") or sys.exit("C_LIB_DIR not set (export from common.sh)")
-SRC_DIRS = ["mathd", "mathf", "common", "complexd", "complexf"]
 
 
 def extract_sigs(filepath):
@@ -28,28 +28,28 @@ def extract_sigs(filepath):
 
 
 def main():
-    for src_dir in SRC_DIRS:
-        full_dir = os.path.join(LIBM, src_dir)
-        if not os.path.isdir(full_dir):
-            continue
-        print(f"## {src_dir}/")
-        for fname in sorted(os.listdir(full_dir)):
-            if not fname.endswith('.c'):
-                continue
-            path = os.path.join(full_dir, fname)
-            for sig in extract_sigs(path):
-                is_static = "static" in sig.split('(')[0]
-                marker = "[static] " if is_static else ""
-                print(f"- {marker}`{sig}` — {fname}")
+    c_src_dirs = os.environ.get("C_SRC_DIRS", "").split()
+    if not c_src_dirs:
+        sys.exit("C_SRC_DIRS not set (export from common.sh)")
 
-        internal = os.path.join(full_dir, "internal")
-        if os.path.isdir(internal):
-            for fname in sorted(os.listdir(internal)):
+    excludes = set(os.environ.get("EXCLUDE_C_FILES", "").split("|")) - {""}
+
+    for src_dir in c_src_dirs:
+        if not os.path.isdir(src_dir):
+            continue
+        print(f"## {os.path.basename(src_dir.rstrip('/'))}/")
+        for root, _dirs, files in os.walk(src_dir):
+            for fname in sorted(files):
                 if not fname.endswith('.c'):
                     continue
-                path = os.path.join(internal, fname)
+                if fname in excludes:
+                    continue
+                path = os.path.join(root, fname)
+                rel = os.path.relpath(path, src_dir)
                 for sig in extract_sigs(path):
-                    print(f"- [static] `{sig}` — internal/{fname}")
+                    is_static = "static" in sig.split('(')[0]
+                    marker = "[static] " if is_static else ""
+                    print(f"- {marker}`{sig}` — {rel}")
         print()
 
 

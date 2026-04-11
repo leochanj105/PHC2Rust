@@ -28,7 +28,7 @@ expand_prompt "${EXP_DIR}/prompts/transpile.md" \
     "${TRANS_WORK}/prompts/transpile.md" "$RUST_BASELINE"
 
 # Source AI runner
-source "${HARNESS_DIR}/scripts/ai_runner.sh"
+source "${EXP_DIR}/scripts/ai_runner.sh"
 
 export TEST_CASE_DIR="$C_LIB_DIR"
 export RUST_DIR="$RUST_BASELINE"

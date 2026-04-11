@@ -76,7 +76,7 @@ fi
 
 [ -d "${TESTGEN_DIR}/.claude" ] || cp -r "${HARNESS_DIR}/.claude" "${TESTGEN_DIR}/.claude"
 
-source "${HARNESS_DIR}/scripts/ai_runner.sh"
+source "${EXP_DIR}/scripts/ai_runner.sh"
 export_scenario_env "$SCENARIO"
 
 cd "$TESTGEN_DIR"
