@@ -24,3 +24,5 @@ scripts/build_func_map.py
 scripts/extract_signatures.py
 scripts/make_difffix_context.py
 scripts/gen_bridges.py
+gen_bridge_rs.sh
+prompts/gen_test_bridge_rs.md
