@@ -1,0 +1,251 @@
+=== libyaml test suite ===
+test_version
+  version_string: 0.2.5
+  version: 0.2.5
+test_memory
+  malloc_ok: 1
+  realloc_ok: 1
+  free_ok: 1
+  free_null_ok: 1
+  strdup: hello
+  strdup_null_ok: 1
+test_string_extend_join
+  string_extend_ok: 1
+  new_size: 32
+  string_join_ok: 1
+test_stack_queue_extend
+  stack_extend_ok: 1
+  queue_extend_ok: 1
+test_token_delete
+  token_delete_ok: 1
+  token_delete_scalar_ok: 1
+test_event_initialize
+  stream_start_type: 1
+  stream_end_type: 2
+  doc_start_type: 3
+  doc_end_type: 4
+  alias_type: 5
+  scalar_type: 6
+  seq_start_type: 7
+  seq_end_type: 8
+  map_start_type: 9
+  map_end_type: 10
+test_parser_scan
+FAULT parser_scan SIGNAL 6
+test_parser_parse
+  event: STREAM_START
+  event: DOCUMENT_START
+  event: SEQUENCE_START
+  event: SCALAR
+  event: SCALAR
+  event: SCALAR
+  event: SEQUENCE_END
+  event: DOCUMENT_END
+  event: STREAM_END
+  events: 9
+test_parser_load
+  root_type: 1
+  node1_ok: 1
+FAULT parser_load SIGNAL 6
+test_parser_encoding
+  first_event: 1
+  ok: 1
+test_parser_set_input
+  parse_ok: 1
+  event_type: 1
+test_set_max_nest_level
+  set_ok: 1
+  load_ok: 1
+FAULT set_max_nest_level SIGNAL 6
+test_emitter_basic
+  written: 11
+  output: key: value
+test_emitter_set_output
+  written: 6
+test_emitter_open_close
+  open_ok: 1
+  close_ok: 1
+test_emitter_dump
+  scalar_idx: 1
+  dump_ok: 1
+  written: 13
+test_document_api
+  scalar: 1
+  seq: 2
+  append_seq_item1: 1
+  append_seq_item2: 1
+  map: 5
+  append_map_pair: 1
+  root_type: 1
+  node_type: 1
+  delete_ok: 1
+test_parser_fetch_update
+  scan1_ok: 1 token: 1
+  fetch_more_ok: 1
+  update_buffer_ok: 1
+test_bridge_check_utf8
+  valid_utf8: 1
+  invalid_utf8: 0
+test_bridge_reader_handlers
+  string_read_ok: 1 bytes: 5
+  file_read_ok: 1 bytes: 5
+test_bridge_writer_handlers
+  string_write_ok: 1 written: 9
+  file_write_ok: 1
+test_bridge_emitter_set_errors
+  set_emitter_error_ret: 0
+  emitter_error: test emitter error
+  set_writer_error_ret: 0
+  writer_error: test writer error
+test_bridge_emitter_analyze
+  analyze_anchor_ok: 1
+  analyze_tag_ok: 1
+  analyze_scalar_ok: 1
+  analyze_version_directive_ok: 1
+  analyze_tag_directive_ok: 1
+test_bridge_emitter_write
+  write_indent_ok: 1
+  write_indicator_ok: 1
+  write_anchor_ok: 1
+  write_tag_handle_ok: 1
+  write_tag_content_ok: 1
+  write_plain_scalar_ok: 1
+test_bridge_emitter_write_quoted
+  write_single_quoted_ok: 1
+  write_double_quoted_ok: 1
+test_bridge_emitter_write_block
+  write_literal_ok: 1
+  write_folded_ok: 1
+test_bridge_emitter_checks
+  check_empty_document: 0
+  check_empty_sequence: 0
+  check_empty_mapping: 0
+  check_simple_key: 0
+  need_more_events: 1
+test_bridge_emitter_append_tag_directive
+  append_tag_directive_ok: 1
+test_bridge_emitter_increase_indent
+  increase_indent_ok: 1 indent: 0
+test_bridge_emitter_generate_anchor
+  anchor: id001
+test_bridge_emitter_dump_document
+  scalar_node: 1
+  dump_ok: 1 written: 11
+test_bridge_parser_set_errors
+  set_parser_error_ret: 0
+  parser_problem: parser_err
+  set_parser_error_context_ret: 0
+  set_reader_error_ret: 0
+  set_scanner_error_ret: 0
+  set_composer_error_ret: 0
+  set_composer_error_context_ret: 0
+  maximum_level_reached_ret: 0
+test_bridge_parser_flow_levels
+  increase_flow_ok: 1 level: 2
+  decrease_flow_ok: 1 level: 1
+test_bridge_parser_scan_full
+FAULT bridge_parser_scan_full SIGNAL 6
+test_bridge_parser_parse_full
+  scalar: mapping
+  parse_error: did not find expected <document start>
+  event_count: 4
+FAULT bridge_parser_parse_full SIGNAL 6
+test_bridge_parser_load_aliases
+  load_ok: 1
+  root_type: 2
+  delete_aliases_ok: 1
+test_bridge_parser_determine_encoding
+  update_raw_buffer_ok: 1
+  determine_encoding_ok: 1 encoding: 1
+test_bridge_parser_scan_tokens
+  fetch_next_token_ok: 1
+FAULT bridge_parser_scan_tokens SIGNAL 6
+test_bridge_parser_roll_indent
+  roll_indent_ok: 1
+  unroll_indent_ok: 1
+test_bridge_parser_fetch_stream
+  fetch_stream_start_ok: 1
+FAULT bridge_parser_fetch_stream SIGNAL 6
+test_bridge_parser_fetch_document_indicators
+FAULT bridge_parser_fetch_document_indicators SIGNAL 6
+test_bridge_parser_fetch_collections
+FAULT bridge_parser_fetch_collections SIGNAL 6
+test_bridge_parser_fetch_block_entry_key_value
+  tokens: 10
+test_bridge_parser_fetch_anchors_tags
+  tokens: 19
+test_bridge_parser_fetch_scalars
+  scalar: single quoted
+  scalar: double quoted
+  scalar: literal block
+
+  scalar: folded block
+
+  scalar: plain_scalar
+  token_count: 14
+test_bridge_parser_scan_directives
+FAULT bridge_parser_scan_directives SIGNAL 6
+test_bridge_parser_scan_uri_escapes
+  tokens: 7
+test_bridge_parser_process_directives
+  process_directives_ok: 1
+  yaml_version: 1.1
+test_bridge_parser_append_tag_directive
+  append_tag_directive_ok: 1
+test_bridge_parser_stale_save_remove_keys
+  stale_simple_keys_ok: 1
+  save_simple_key_ok: 1
+  remove_simple_key_ok: 1
+test_bridge_emitter_emit_stream
+  state_machine_stream_start: 1
+test_bridge_emitter_process_anchor_tag_scalar
+  process_anchor_ok: 1
+  process_tag_ok: 1
+  process_scalar_ok: 1
+test_bridge_emitter_select_scalar_style
+  select_scalar_style_ok: 1 style: 1
+test_bridge_emitter_write_bom
+  write_bom_ok: 1 written: 0
+test_bridge_emitter_block_scalar_hints
+  write_block_scalar_hints_ok: 1
+test_bridge_parser_parse_states
+  event_count: 4
+FAULT bridge_parser_parse_states SIGNAL 6
+test_bridge_parser_process_empty_scalar
+  events: 4
+FAULT bridge_parser_process_empty_scalar SIGNAL 6
+test_bridge_parser_register_anchor
+  load_ok: 1
+test_bridge_emitter_emit_nodes
+  seq_written: 16
+  flow_map_written: 7
+test_bridge_emitter_emit_alias
+  emit_alias_ok: 1
+  written: 30
+test_bridge_parser_flow_sequence_mapping_entries
+  events: 6
+FAULT bridge_parser_flow_sequence_mapping_entries SIGNAL 6
+test_bridge_parser_indentless_sequence
+  events: 4
+FAULT bridge_parser_indentless_sequence SIGNAL 6
+test_multiple_documents
+  load_error: did not find expected <document start>
+  doc_count: 1
+test_emitter_canonical
+  written: 71
+test_emitter_version_tag_directives
+  doc_start_with_directives: 1
+  written: 38
+test_dump_sequence_mapping_alias
+  dump_sequence_ok: 1 written: 15
+  dump_mapping_ok: 1 written: 11
+  dump_alias_ok: 1 written: 25
+test_emit_flow_sequence
+  written: 18
+  output: [one, two, three]
+
+test_flow_sequence_compact_mapping
+  input0_ok: 1 events: 14
+  input1_ok: 1 events: 10
+  input2_ok: 0 events: 4
+=== done ===

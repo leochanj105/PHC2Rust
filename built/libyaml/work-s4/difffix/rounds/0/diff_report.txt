@@ -1,0 +1,58 @@
+============================================================
+Differential Test Report (C vs Rust)
+Generated: 2026-04-12 14:49
+============================================================
+
+## OUTPUT COMPARISON
+
+C test output:    250 lines
+Rust test output: 251 lines
+
+C output: 173 test lines
+Rust output: 158 test lines
+
+FAULT (14 test functions crashed/timed out):
+  FAULT parser_scan SIGNAL 6
+  FAULT parser_load SIGNAL 6
+  FAULT set_max_nest_level SIGNAL 6
+  FAULT bridge_parser_scan_full SIGNAL 6
+  FAULT bridge_parser_parse_full SIGNAL 6
+  FAULT bridge_parser_scan_tokens SIGNAL 6
+  FAULT bridge_parser_fetch_stream SIGNAL 6
+  FAULT bridge_parser_fetch_document_indicators SIGNAL 6
+  FAULT bridge_parser_fetch_collections SIGNAL 6
+  FAULT bridge_parser_scan_directives SIGNAL 6
+  FAULT bridge_parser_parse_states SIGNAL 6
+  FAULT bridge_parser_process_empty_scalar SIGNAL 6
+  FAULT bridge_parser_flow_sequence_mapping_entries SIGNAL 6
+  FAULT bridge_parser_indentless_sequence SIGNAL 6
+
+MISSING (25 tests, 13 functions):
+Functions not in Rust output (not implemented or crashed):
+  decrease_flow_ok:: 1 tests
+  doc_count:: 1 tests
+  empty_scalar_found:: 1 tests
+  event_count:: 2 tests
+  events:: 3 tests
+  increase_flow_ok:: 1 tests
+  input2_ok:: 1 tests
+  remaining_tokens:: 1 tests
+  root_type:: 1 tests
+  scalar:: 7 tests
+  stream_end_consumed:: 1 tests
+  token_count:: 1 tests
+  tokens:: 4 tests
+
+SUMMARY
+Tests passed:     148
+Tests failed:     25
+Missing functions: decrease_flow_ok:, doc_count:, empty_scalar_found:, event_count:, events:, increase_flow_ok:, input2_ok:, remaining_tokens:, root_type:, scalar:, stream_end_consumed:, token_count:, tokens:
+
+## FUNCTION LOCATION MAP
+
+Use this to find where each function is defined (do NOT read all files):
+
+
+============================================================
+Tests failed:     25
+============================================================

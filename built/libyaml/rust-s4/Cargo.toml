@@ -9,6 +9,3 @@ crate-type = ["staticlib", "cdylib"]
 
 [dependencies]
 libc = "0.2"
-
-[profile.release]
-opt-level = 3

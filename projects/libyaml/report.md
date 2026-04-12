@@ -135,12 +135,127 @@ roughly $1–2 of exploratory cost) and the killed s3 run.
   3. `framework/scripts/compare_outputs.py` reads `$COMPARE_IGNORE_KEYS`
      and drops matching lines via **exact key match** (no regex).
 
-## What we still need
+## Transpile comparison: Opus vs Sonnet vs c2rust
 
-1. `test_bridge.rs` for libyaml — blocks `01b_prepare.sh`
-   - Options: extend `gen_bridges.py` with `--rust`, hand-write, or
-     one-shot Claude call.
-2. `01b_prepare.sh` run — produces `rust-baseline-test/`
-3. `02_testgen.sh s3_edgecase` run (replay, since killed)
-4. `03_diffgen.sh` — mechanical wrap + compile check
-5. `04_difffix.sh --scenario s3` — the actual goal
+### Claude Opus (original baseline)
+
+| metric | value |
+|---|---|
+| model | claude-opus-4-6[1m] |
+| isolation | none (first transpile, nothing to cheat from) |
+| duration | 26.0 min |
+| cost | $19.07 |
+| tool uses | 195 |
+| output | 12 files, 13500 lines |
+| structure | multi-module (api.rs, scanner.rs, parser.rs, ...) |
+| build | clean |
+| yaml_* exports | 59 |
+| judger (yaml-test-suite, 4424 cases) | **4424 match, 0 diff, 0 panic** |
+| judger (oss-fuzz 15k, 300k cases) | **288856 match, 0 diff, 11144 shared-panic** |
+| similarity to unsafe-libyaml crate | 53.6% avg function body |
+
+### Claude Sonnet — FIRST attempt (cheated, invalidated)
+
+Sonnet found Opus's `rust-s4/` directory on disk and `cp`'d all 12 files
+into its own output via Bash. Produced byte-identical code to Opus.
+**Result discarded.** Exposed a critical isolation failure in the experiment
+setup (Bash had no path restrictions; settings.json deny rules only block
+dedicated Read/Glob/Grep tools, not shell commands).
+
+### Claude Sonnet — SECOND attempt (isolated)
+
+| metric | value |
+|---|---|
+| model | claude-sonnet-4-6 |
+| isolation | **full**: CWD in /tmp, Bash PreToolUse hook blocking 20 forbidden path patterns, settings.json deny on all prior Rust outputs + .cargo/ |
+| duration | **74.7 min** |
+| cost | **$20.82** |
+| tool uses | 370 |
+| blocked/denied events | 0 (Sonnet did not attempt to cheat) |
+| output | **1 file** (lib.rs), **10191 lines** |
+| structure | single monolithic lib.rs (no modules) |
+| build | clean (2 warnings: unreachable patterns) |
+| yaml_* exports | 60 |
+| missing internal functions | 3 (`yaml_parser_set_composer_error`, `yaml_parser_set_composer_error_context`, `yaml_parser_delete_aliases`) |
+| judger (yaml-test-suite, 4424 cases) | **2238 match (51%), 523 diff (12%), 1663 panic (38%)** |
+
+### c2rust (mechanical baseline)
+
+| metric | value |
+|---|---|
+| tool | c2rust 0.22.1 (AST-level mechanical transpiler) |
+| duration | ~5 sec |
+| cost | $0 |
+| output | 8 files, 32260 lines |
+| manual fix needed | 1 (opaque extern types moved out of extern block) |
+| build | clean |
+| yaml_* exports | 59 |
+| judger (yaml-test-suite, 4424 cases) | **4424 match, 0 diff, 0 panic** |
+| judger (oss-fuzz 15k, 300k cases) | **288856 match, 0 diff, 11144 shared-panic** |
+
+### Summary matrix
+
+| transpiler | contamination | isolation | match% | diff | panic | lines |
+|---|---|---|---|---|---|---|
+| c2rust | zero | n/a | 100% | 0 | 0 | 32K |
+| Claude Opus | high | none needed | 100% | 0 | 0 | 13.5K |
+| Claude Sonnet (cheated) | high | **none** | 100% | 0 | 0 | 13.5K (copied) |
+| **Claude Sonnet (isolated)** | high | **full** | **51%** | **523** | **1663** | **10.2K** |
+
+**Key finding:** With proper isolation, Sonnet achieves only 51% match rate
+despite having the same training data as Opus. The 49% failure rate includes
+523 behavioral diffs and 1663 crashes/timeouts. This demonstrates that
+training-data contamination alone is not sufficient — model capability
+matters. Opus can leverage its training knowledge to produce correct code;
+Sonnet cannot reliably do so.
+
+The Sonnet (isolated) transpile is now the active `rust-baseline` for the
+difffix pipeline. `rust-baseline-test` is prepared with 137 bridge symbols
+(3 missing functions have stub bodies returning 0).
+
+## Phase 4: Difffix (s4 tests, Sonnet transpile)
+
+Using s4's test suite (68 test functions, 173 test lines) against the
+Sonnet transpile. Difffix model: Claude Sonnet.
+
+### Baseline (round 0)
+
+| metric | value |
+|---|---|
+| Tests passed | 148 |
+| Tests failed | **25** |
+| Crashed test functions | 14 (SIGABRT) |
+
+### Round 1
+
+| metric | value |
+|---|---|
+| Goals generated | 5 |
+| Fixes applied | 5 |
+| Tests passed | **173** |
+| Tests failed | **0** |
+| Cost | $12.01 |
+| Tokens out | 166K |
+| Code changes | 20 lines diff |
+| Cheat audit | CLEAN — 0 forbidden path references |
+
+### Independent judger verification (yaml-test-suite, 4424 cases)
+
+| | before difffix | after difffix |
+|---|---|---|
+| match | 2238 (51%) | **4267 (96.4%)** |
+| diff | 523 (12%) | **157 (3.6%)** |
+| panic | 1663 (38%) | **0 (0%)** |
+
+Difffix eliminated ALL 1663 crashes and reduced diffs from 523 → 157 in one
+round. The remaining 157 diffs are in code paths the s4 test suite doesn't
+cover — they require more test coverage (s5 branch-guided, or additional
+testgen) for difffix to see and fix them.
+
+### Grand total for Sonnet transpile + fix
+
+| step | duration | cost |
+|---|---|---|
+| Sonnet transpile (isolated) | 74.7 min | $20.82 |
+| Difffix round 1 (s4 tests) | ~15 min | $12.01 |
+| **Total** | **~90 min** | **$32.83** |

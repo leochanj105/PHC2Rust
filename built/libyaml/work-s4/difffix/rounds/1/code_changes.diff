@@ -1,0 +1,20 @@
+diff -ru /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s4/difffix/rounds/1/src_pre/lib.rs /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s4/src/lib.rs
+--- /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s4/difffix/rounds/1/src_pre/lib.rs	2026-04-12 14:56:59.736351728 -0400
++++ /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s4/src/lib.rs	2026-04-12 15:19:00.749023240 -0400
+@@ -6035,7 +6035,6 @@
+             while sk != (*parser).simple_keys.top {
+                 if (*sk).possible != 0
+                     && (*sk).token_number == (*parser).tokens_parsed
+-                        + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize)
+                 {
+                     need_more_tokens = 1;
+                     break;
+@@ -6211,7 +6210,7 @@
+             possible: 1,
+             required,
+             token_number: (*parser).tokens_parsed
+-                + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize),
++                + (*parser).tokens.tail.offset_from((*parser).tokens.head) as usize,
+             mark: (*parser).mark,
+         };
+ 
