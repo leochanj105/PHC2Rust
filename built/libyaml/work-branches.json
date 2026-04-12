@@ -1,0 +1,8081 @@
+{
+  "total_branches": 1615,
+  "total_conditions": 3230,
+  "branches": [
+    {
+      "file": "src/api.c",
+      "line": 33,
+      "col": 19
+    },
+    {
+      "file": "src/api.c",
+      "line": 43,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 43,
+      "col": 31
+    },
+    {
+      "file": "src/api.c",
+      "line": 43,
+      "col": 57
+    },
+    {
+      "file": "src/api.c",
+      "line": 53,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 63,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 79,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 93,
+      "col": 4
+    },
+    {
+      "file": "src/api.c",
+      "line": 100,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 103,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 104,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 123,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 128,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 146,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 146,
+      "col": 28
+    },
+    {
+      "file": "src/api.c",
+      "line": 150,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 160,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 161,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 179,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 182,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 184,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 186,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 188,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 190,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 192,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 194,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 196,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 222,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 226,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 234,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 254,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 259,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 292,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 293,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 294,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 311,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 312,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 313,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 329,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 330,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 331,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 344,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 345,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 357,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 360,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 362,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 364,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 366,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 368,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 370,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 394,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 399,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 404,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 424,
+      "col": 4
+    },
+    {
+      "file": "src/api.c",
+      "line": 424,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 445,
+      "col": 7
+    },
+    {
+      "file": "src/api.c",
+      "line": 446,
+      "col": 10
+    },
+    {
+      "file": "src/api.c",
+      "line": 457,
+      "col": 4
+    },
+    {
+      "file": "src/api.c",
+      "line": 460,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 461,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 462,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 480,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 481,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 482,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 498,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 499,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 500,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 513,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 514,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 526,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 538,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 540,
+      "col": 29
+    },
+    {
+      "file": "src/api.c",
+      "line": 540,
+      "col": 43
+    },
+    {
+      "file": "src/api.c",
+      "line": 550,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 552,
+      "col": 27
+    },
+    {
+      "file": "src/api.c",
+      "line": 562,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 574,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 586,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 590,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 595,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 599,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 603,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 608,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 612,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 631,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 638,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 639,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 640,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 641,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 642,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 643,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 644,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 645,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 646,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 647,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 648,
+      "col": 21
+    },
+    {
+      "file": "src/api.c",
+      "line": 650,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 653,
+      "col": 15
+    },
+    {
+      "file": "src/api.c",
+      "line": 654,
+      "col": 14
+    },
+    {
+      "file": "src/api.c",
+      "line": 654,
+      "col": 28
+    },
+    {
+      "file": "src/api.c",
+      "line": 655,
+      "col": 14
+    },
+    {
+      "file": "src/api.c",
+      "line": 655,
+      "col": 28
+    },
+    {
+      "file": "src/api.c",
+      "line": 656,
+      "col": 14
+    },
+    {
+      "file": "src/api.c",
+      "line": 656,
+      "col": 28
+    },
+    {
+      "file": "src/api.c",
+      "line": 674,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 690,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 720,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 721,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 725,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 727,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 732,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 734,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 737,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 738,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 739,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 740,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 743,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 748,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 748,
+      "col": 34
+    },
+    {
+      "file": "src/api.c",
+      "line": 749,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 764,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 785,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 802,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 803,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 805,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 808,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 832,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 833,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 835,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 836,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 838,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 841,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 842,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 844,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 847,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 851,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 853,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 883,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 885,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 886,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 888,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 891,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 892,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 894,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 918,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 938,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 940,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 941,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 943,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 946,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 947,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 949,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 973,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 989,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 993,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 996,
+      "col": 21
+    },
+    {
+      "file": "src/api.c",
+      "line": 1004,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1008,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1014,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1019,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1024,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1059,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1060,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1064,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1066,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1068,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 1073,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1075,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 1078,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 1079,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 1080,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 1081,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 1084,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 1089,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 1089,
+      "col": 34
+    },
+    {
+      "file": "src/api.c",
+      "line": 1090,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 1106,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 1127,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1129,
+      "col": 12
+    },
+    {
+      "file": "src/api.c",
+      "line": 1133,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 1136,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 1139,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 1142,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 1143,
+      "col": 17
+    },
+    {
+      "file": "src/api.c",
+      "line": 1150,
+      "col": 13
+    },
+    {
+      "file": "src/api.c",
+      "line": 1167,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1169,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1169,
+      "col": 22
+    },
+    {
+      "file": "src/api.c",
+      "line": 1182,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1184,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1207,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1208,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1210,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1214,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1216,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1218,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1222,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1224,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1229,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1260,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1262,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1266,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1268,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1270,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1274,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1305,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1307,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1311,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1313,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1315,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1319,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1342,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1343,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1346,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1348,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1351,
+      "col": 9
+    },
+    {
+      "file": "src/api.c",
+      "line": 1372,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1373,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1376,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1378,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1380,
+      "col": 5
+    },
+    {
+      "file": "src/api.c",
+      "line": 1386,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 67,
+      "col": 5
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 68,
+      "col": 5
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 72,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 91,
+      "col": 5
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 92,
+      "col": 5
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 94,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 98,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 117,
+      "col": 5
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 118,
+      "col": 5
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 122,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 123,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 127,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 132,
+      "col": 5
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 136,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 143,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 146,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 149,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 171,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 177,
+      "col": 21
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 180,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 182,
+      "col": 17
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 186,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 189,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 215,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 217,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 219,
+      "col": 25
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 223,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 225,
+      "col": 25
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 230,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 235,
+      "col": 14
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 252,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 270,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 272,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 275,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 282,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 284,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 286,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 288,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 289,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 351,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 354,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 355,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 359,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 381,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 384,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 385,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 386,
+      "col": 13
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 390,
+      "col": 9
+    },
+    {
+      "file": "src/dumper.c",
+      "line": 436,
+      "col": 5
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 9,
+      "col": 6
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 10,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 18,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 18,
+      "col": 55
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 28,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 28,
+      "col": 11
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 30,
+      "col": 11
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 32,
+      "col": 11
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 45,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 55,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 175,
+      "col": 5
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 175,
+      "col": 23
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 181,
+      "col": 29
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 189,
+      "col": 8
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 190,
+      "col": 8
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 191,
+      "col": 8
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 192,
+      "col": 8
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 193,
+      "col": 8
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 194,
+      "col": 8
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 195,
+      "col": 7
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 196,
+      "col": 7
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 262,
+      "col": 6
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 263,
+      "col": 10
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 264,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 265,
+      "col": 10
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 266,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 267,
+      "col": 10
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 268,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 269,
+      "col": 10
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 270,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 271,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 272,
+      "col": 10
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 273,
+      "col": 15
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 274,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 275,
+      "col": 15
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 276,
+      "col": 18
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 277,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 283,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 288,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 289,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 291,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 319,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 322,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 325,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 328,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 332,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 335,
+      "col": 40
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 337,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 338,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 339,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 340,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 343,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 344,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 345,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 346,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 349,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 352,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 371,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 372,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 373,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 380,
+      "col": 7
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 381,
+      "col": 7
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 382,
+      "col": 7
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 382,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 382,
+      "col": 25
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 383,
+      "col": 7
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 387,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 398,
+      "col": 6
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 400,
+      "col": 6
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 403,
+      "col": 6
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 406,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 407,
+      "col": 6
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 409,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 410,
+      "col": 27
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 412,
+      "col": 14
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 428,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 431,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 434,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 437,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 440,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 443,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 445,
+      "col": 7
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 446,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 446,
+      "col": 10
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 449,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 452,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 455,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 458,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 461,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 464,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 467,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 469,
+      "col": 5
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 470,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 472,
+      "col": 7
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 473,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 473,
+      "col": 10
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 476,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 479,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 483,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 484,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 499,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 501,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 505,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 509,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 509,
+      "col": 41
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 513,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 514,
+      "col": 20
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 518,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 522,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 533,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 534,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 555,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 565,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 566,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 572,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 574,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 576,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 581,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 582,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 587,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 587,
+      "col": 23
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 591,
+      "col": 14
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 592,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 594,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 596,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 598,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 603,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 605,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 607,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 608,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 612,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 615,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 619,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 623,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 625,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 627,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 630,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 633,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 638,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 642,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 643,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 645,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 647,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 648,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 659,
+      "col": 14
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 666,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 668,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 671,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 674,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 694,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 708,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 710,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 712,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 713,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 716,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 719,
+      "col": 18
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 721,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 726,
+      "col": 16
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 749,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 751,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 753,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 758,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 762,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 762,
+      "col": 35
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 763,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 765,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 768,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 775,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 776,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 780,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 780,
+      "col": 31
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 781,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 784,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 798,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 800,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 802,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 807,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 811,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 811,
+      "col": 35
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 812,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 814,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 817,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 824,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 825,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 828,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 828,
+      "col": 31
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 829,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 833,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 833,
+      "col": 32
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 835,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 843,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 845,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 861,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 862,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 866,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 866,
+      "col": 35
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 867,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 870,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 873,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 886,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 888,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 889,
+      "col": 22
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 889,
+      "col": 50
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 893,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 901,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 903,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 905,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 920,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 922,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 926,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 934,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 937,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 939,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 947,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 949,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 965,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 966,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 970,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 972,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 975,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 997,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1000,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1003,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1006,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1009,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1024,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1026,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1040,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1042,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1044,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1046,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1048,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1063,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1065,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1068,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1068,
+      "col": 32
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1069,
+      "col": 16
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1070,
+      "col": 16
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1087,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1089,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1092,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1092,
+      "col": 32
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1093,
+      "col": 16
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1094,
+      "col": 16
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1121,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1124,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1125,
+      "col": 16
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1135,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1138,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1139,
+      "col": 16
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1154,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1158,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1159,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1167,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1168,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1175,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1176,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1183,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1187,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1201,
+      "col": 19
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1201,
+      "col": 48
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1203,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1203,
+      "col": 19
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1204,
+      "col": 16
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1209,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1212,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1215,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1215,
+      "col": 40
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1218,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1220,
+      "col": 14
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1220,
+      "col": 37
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1221,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1221,
+      "col": 45
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1223,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1224,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1224,
+      "col": 44
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1226,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1226,
+      "col": 23
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1230,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1232,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1236,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1236,
+      "col": 47
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1238,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1239,
+      "col": 20
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1239,
+      "col": 43
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1243,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1243,
+      "col": 19
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1244,
+      "col": 16
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1262,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1265,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1266,
+      "col": 18
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1280,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1280,
+      "col": 38
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1283,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1285,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1288,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1289,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1296,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1298,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1301,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1317,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1322,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1327,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1332,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1336,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1340,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1341,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1355,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1356,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1357,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1384,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1389,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1394,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1401,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1409,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1431,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1432,
+      "col": 56
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1437,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1439,
+      "col": 60
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1468,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1474,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1476,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1477,
+      "col": 20
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1528,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1552,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1554,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1570,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1575,
+      "col": 39
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1590,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1595,
+      "col": 39
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1602,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1602,
+      "col": 42
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1612,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1615,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1618,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1626,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1629,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1632,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1646,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1658,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1658,
+      "col": 26
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1658,
+      "col": 43
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1658,
+      "col": 61
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1663,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1667,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1673,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1673,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1680,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1685,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1689,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1715,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1716,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1721,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1722,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1723,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1727,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1727,
+      "col": 44
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1728,
+      "col": 26
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1729,
+      "col": 29
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1730,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1733,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1738,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1739,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1740,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1744,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1744,
+      "col": 52
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1745,
+      "col": 25
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1746,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1752,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1753,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1754,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1758,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1758,
+      "col": 51
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1759,
+      "col": 25
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1760,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1766,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1790,
+      "col": 18
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1792,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1792,
+      "col": 32
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1793,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1793,
+      "col": 46
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1797,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1818,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1818,
+      "col": 28
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1822,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1827,
+      "col": 27
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1827,
+      "col": 49
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1839,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1856,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1860,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1878,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1878,
+      "col": 28
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1882,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1899,
+      "col": 20
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1938,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1938,
+      "col": 34
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1938,
+      "col": 44
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1942,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1946,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1946,
+      "col": 33
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1947,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1948,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1949,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1959,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1968,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1969,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1994,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 1997,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2001,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2001,
+      "col": 33
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2002,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2003,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2004,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2005,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2006,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2016,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2025,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2026,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2038,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2039,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2041,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2059,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2062,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2064,
+      "col": 39
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2064,
+      "col": 60
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2074,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2075,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2076,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2077,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2078,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2079,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2080,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2081,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2082,
+      "col": 25
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2092,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2096,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2100,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2104,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2108,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2112,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2116,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2120,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2124,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2128,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2132,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2136,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2140,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2144,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2148,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2152,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2153,
+      "col": 25
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2157,
+      "col": 30
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2165,
+      "col": 43
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2175,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2175,
+      "col": 33
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2176,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2177,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2178,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2179,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2197,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2217,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2224,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2232,
+      "col": 18
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2237,
+      "col": 18
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2246,
+      "col": 22
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2255,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2257,
+      "col": 13
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2273,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2275,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2281,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2291,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2292,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2313,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2315,
+      "col": 9
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2321,
+      "col": 12
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2325,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2325,
+      "col": 28
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2340,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2341,
+      "col": 21
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2344,
+      "col": 17
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2344,
+      "col": 48
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2345,
+      "col": 24
+    },
+    {
+      "file": "src/emitter.c",
+      "line": 2346,
+      "col": 21
+    },
+    {
+      "file": "src/loader.c",
+      "line": 91,
+      "col": 5
+    },
+    {
+      "file": "src/loader.c",
+      "line": 92,
+      "col": 5
+    },
+    {
+      "file": "src/loader.c",
+      "line": 95,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 98,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 99,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 100,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 104,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 108,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 109,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 113,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 118,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 174,
+      "col": 12
+    },
+    {
+      "file": "src/loader.c",
+      "line": 189,
+      "col": 5
+    },
+    {
+      "file": "src/loader.c",
+      "line": 202,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 203,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 222,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 225,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 226,
+      "col": 21
+    },
+    {
+      "file": "src/loader.c",
+      "line": 228,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 229,
+      "col": 21
+    },
+    {
+      "file": "src/loader.c",
+      "line": 231,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 232,
+      "col": 21
+    },
+    {
+      "file": "src/loader.c",
+      "line": 234,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 235,
+      "col": 21
+    },
+    {
+      "file": "src/loader.c",
+      "line": 238,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 239,
+      "col": 21
+    },
+    {
+      "file": "src/loader.c",
+      "line": 241,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 242,
+      "col": 21
+    },
+    {
+      "file": "src/loader.c",
+      "line": 245,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 246,
+      "col": 17
+    },
+    {
+      "file": "src/loader.c",
+      "line": 248,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 251,
+      "col": 14
+    },
+    {
+      "file": "src/loader.c",
+      "line": 270,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 277,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 278,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 286,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 314,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 315,
+      "col": 17
+    },
+    {
+      "file": "src/loader.c",
+      "line": 317,
+      "col": 17
+    },
+    {
+      "file": "src/loader.c",
+      "line": 320,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 322,
+      "col": 17
+    },
+    {
+      "file": "src/loader.c",
+      "line": 324,
+      "col": 21
+    },
+    {
+      "file": "src/loader.c",
+      "line": 324,
+      "col": 36
+    },
+    {
+      "file": "src/loader.c",
+      "line": 332,
+      "col": 17
+    },
+    {
+      "file": "src/loader.c",
+      "line": 334,
+      "col": 17
+    },
+    {
+      "file": "src/loader.c",
+      "line": 339,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 340,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 358,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 359,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 382,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 384,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 384,
+      "col": 17
+    },
+    {
+      "file": "src/loader.c",
+      "line": 387,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 394,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 398,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 424,
+      "col": 4
+    },
+    {
+      "file": "src/loader.c",
+      "line": 427,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 429,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 429,
+      "col": 17
+    },
+    {
+      "file": "src/loader.c",
+      "line": 432,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 435,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 436,
+      "col": 5
+    },
+    {
+      "file": "src/loader.c",
+      "line": 439,
+      "col": 6
+    },
+    {
+      "file": "src/loader.c",
+      "line": 441,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 445,
+      "col": 7
+    },
+    {
+      "file": "src/loader.c",
+      "line": 445,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 446,
+      "col": 10
+    },
+    {
+      "file": "src/loader.c",
+      "line": 448,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 450,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 451,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 467,
+      "col": 5
+    },
+    {
+      "file": "src/loader.c",
+      "line": 470,
+      "col": 5
+    },
+    {
+      "file": "src/loader.c",
+      "line": 495,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 497,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 497,
+      "col": 17
+    },
+    {
+      "file": "src/loader.c",
+      "line": 500,
+      "col": 13
+    },
+    {
+      "file": "src/loader.c",
+      "line": 503,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 509,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 513,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 516,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 518,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 519,
+      "col": 9
+    },
+    {
+      "file": "src/loader.c",
+      "line": 535,
+      "col": 5
+    },
+    {
+      "file": "src/loader.c",
+      "line": 538,
+      "col": 5
+    },
+    {
+      "file": "src/parser.c",
+      "line": 49,
+      "col": 7
+    },
+    {
+      "file": "src/parser.c",
+      "line": 49,
+      "col": 34
+    },
+    {
+      "file": "src/parser.c",
+      "line": 184,
+      "col": 5
+    },
+    {
+      "file": "src/parser.c",
+      "line": 185,
+      "col": 5
+    },
+    {
+      "file": "src/parser.c",
+      "line": 193,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 193,
+      "col": 40
+    },
+    {
+      "file": "src/parser.c",
+      "line": 194,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 250,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 253,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 256,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 259,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 262,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 265,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 268,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 271,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 274,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 277,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 280,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 283,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 286,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 289,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 292,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 295,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 298,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 301,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 304,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 307,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 310,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 313,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 316,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 319,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 320,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 338,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 340,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 373,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 377,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 379,
+      "col": 16
+    },
+    {
+      "file": "src/parser.c",
+      "line": 382,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 388,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 388,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 389,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 390,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 391,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 393,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 395,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 405,
+      "col": 14
+    },
+    {
+      "file": "src/parser.c",
+      "line": 409,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 413,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 414,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 419,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 424,
+      "col": 4
+    },
+    {
+      "file": "src/parser.c",
+      "line": 436,
+      "col": 5
+    },
+    {
+      "file": "src/parser.c",
+      "line": 439,
+      "col": 6
+    },
+    {
+      "file": "src/parser.c",
+      "line": 444,
+      "col": 12
+    },
+    {
+      "file": "src/parser.c",
+      "line": 445,
+      "col": 7
+    },
+    {
+      "file": "src/parser.c",
+      "line": 446,
+      "col": 10
+    },
+    {
+      "file": "src/parser.c",
+      "line": 465,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 467,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 468,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 469,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 470,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 471,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 497,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 501,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 507,
+      "col": 12
+    },
+    {
+      "file": "src/parser.c",
+      "line": 561,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 563,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 576,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 583,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 584,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 592,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 595,
+      "col": 18
+    },
+    {
+      "file": "src/parser.c",
+      "line": 603,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 604,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 610,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 614,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 615,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 623,
+      "col": 25
+    },
+    {
+      "file": "src/parser.c",
+      "line": 625,
+      "col": 25
+    },
+    {
+      "file": "src/parser.c",
+      "line": 629,
+      "col": 29
+    },
+    {
+      "file": "src/parser.c",
+      "line": 642,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 651,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 651,
+      "col": 29
+    },
+    {
+      "file": "src/parser.c",
+      "line": 652,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 652,
+      "col": 36
+    },
+    {
+      "file": "src/parser.c",
+      "line": 660,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 664,
+      "col": 22
+    },
+    {
+      "file": "src/parser.c",
+      "line": 664,
+      "col": 77
+    },
+    {
+      "file": "src/parser.c",
+      "line": 665,
+      "col": 29
+    },
+    {
+      "file": "src/parser.c",
+      "line": 665,
+      "col": 36
+    },
+    {
+      "file": "src/parser.c",
+      "line": 668,
+      "col": 26
+    },
+    {
+      "file": "src/parser.c",
+      "line": 679,
+      "col": 22
+    },
+    {
+      "file": "src/parser.c",
+      "line": 680,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 690,
+      "col": 22
+    },
+    {
+      "file": "src/parser.c",
+      "line": 691,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 701,
+      "col": 22
+    },
+    {
+      "file": "src/parser.c",
+      "line": 701,
+      "col": 31
+    },
+    {
+      "file": "src/parser.c",
+      "line": 702,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 712,
+      "col": 22
+    },
+    {
+      "file": "src/parser.c",
+      "line": 712,
+      "col": 31
+    },
+    {
+      "file": "src/parser.c",
+      "line": 713,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 723,
+      "col": 22
+    },
+    {
+      "file": "src/parser.c",
+      "line": 723,
+      "col": 32
+    },
+    {
+      "file": "src/parser.c",
+      "line": 725,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 738,
+      "col": 26
+    },
+    {
+      "file": "src/parser.c",
+      "line": 767,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 769,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 775,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 777,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 782,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 783,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 784,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 785,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 796,
+      "col": 14
+    },
+    {
+      "file": "src/parser.c",
+      "line": 826,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 828,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 833,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 834,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 835,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 836,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 837,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 838,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 875,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 877,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 883,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 885,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 890,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 891,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 892,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 893,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 894,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 905,
+      "col": 14
+    },
+    {
+      "file": "src/parser.c",
+      "line": 941,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 943,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 948,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 949,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 950,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 951,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 952,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 990,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 992,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 998,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1000,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1002,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1003,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1006,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1015,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1024,
+      "col": 18
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1025,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1052,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1054,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1054,
+      "col": 44
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1055,
+      "col": 16
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1056,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1061,
+      "col": 14
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1087,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1089,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1092,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1093,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1094,
+      "col": 20
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1095,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1118,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1146,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1148,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1154,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1156,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1158,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1159,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1162,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1171,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1174,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1175,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1176,
+      "col": 24
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1177,
+      "col": 24
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1178,
+      "col": 21
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1189,
+      "col": 18
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1190,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1217,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1219,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1225,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1228,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1229,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1230,
+      "col": 20
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1231,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1253,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1289,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1293,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1295,
+      "col": 12
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1296,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1298,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1299,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1304,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1306,
+      "col": 25
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1307,
+      "col": 28
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1314,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1322,
+      "col": 18
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1327,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1330,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1336,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1340,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1341,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1346,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1349,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1363,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1369,
+      "col": 12
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1390,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1391,
+      "col": 13
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1392,
+      "col": 17
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1401,
+      "col": 9
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1401,
+      "col": 25
+    },
+    {
+      "file": "src/parser.c",
+      "line": 1406,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 55,
+      "col": 12
+    },
+    {
+      "file": "src/reader.c",
+      "line": 56,
+      "col": 16
+    },
+    {
+      "file": "src/reader.c",
+      "line": 57,
+      "col": 13
+    },
+    {
+      "file": "src/reader.c",
+      "line": 64,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 65,
+      "col": 16
+    },
+    {
+      "file": "src/reader.c",
+      "line": 70,
+      "col": 14
+    },
+    {
+      "file": "src/reader.c",
+      "line": 71,
+      "col": 16
+    },
+    {
+      "file": "src/reader.c",
+      "line": 76,
+      "col": 14
+    },
+    {
+      "file": "src/reader.c",
+      "line": 77,
+      "col": 16
+    },
+    {
+      "file": "src/reader.c",
+      "line": 100,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 101,
+      "col": 16
+    },
+    {
+      "file": "src/reader.c",
+      "line": 106,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 110,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 111,
+      "col": 16
+    },
+    {
+      "file": "src/reader.c",
+      "line": 121,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 127,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 146,
+      "col": 5
+    },
+    {
+      "file": "src/reader.c",
+      "line": 150,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 150,
+      "col": 24
+    },
+    {
+      "file": "src/reader.c",
+      "line": 155,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 160,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 161,
+      "col": 13
+    },
+    {
+      "file": "src/reader.c",
+      "line": 167,
+      "col": 9
+    },
+    {
+      "file": "src/reader.c",
+      "line": 168,
+      "col": 16
+    },
+    {
+      "file": "src/reader.c",
+      "line": 174,
+      "col": 14
+    },
+    {
+      "file": "src/reader.c",
+      "line": 181,
+      "col": 12
+    },
+    {
+      "file": "src/reader.c",
+      "line": 185,
+      "col": 13
+    },
+    {
+      "file": "src/reader.c",
+      "line": 185,
+      "col": 23
+    },
+    {
+      "file": "src/reader.c",
+      "line": 186,
+      "col": 17
+    },
+    {
+      "file": "src/reader.c",
+      "line": 192,
+      "col": 16
+    },
+    {
+      "file": "src/reader.c",
+      "line": 206,
+      "col": 17
+    },
+    {
+      "file": "src/reader.c",
+      "line": 231,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 232,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 233,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 234,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 238,
+      "col": 25
+    },
+    {
+      "file": "src/reader.c",
+      "line": 245,
+      "col": 25
+    },
+    {
+      "file": "src/reader.c",
+      "line": 246,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 257,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 258,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 259,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 260,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 264,
+      "col": 33
+    },
+    {
+      "file": "src/reader.c",
+      "line": 270,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 282,
+      "col": 27
+    },
+    {
+      "file": "src/reader.c",
+      "line": 283,
+      "col": 30
+    },
+    {
+      "file": "src/reader.c",
+      "line": 283,
+      "col": 44
+    },
+    {
+      "file": "src/reader.c",
+      "line": 284,
+      "col": 30
+    },
+    {
+      "file": "src/reader.c",
+      "line": 284,
+      "col": 44
+    },
+    {
+      "file": "src/reader.c",
+      "line": 285,
+      "col": 30
+    },
+    {
+      "file": "src/reader.c",
+      "line": 285,
+      "col": 44
+    },
+    {
+      "file": "src/reader.c",
+      "line": 292,
+      "col": 26
+    },
+    {
+      "file": "src/reader.c",
+      "line": 292,
+      "col": 45
+    },
+    {
+      "file": "src/reader.c",
+      "line": 292,
+      "col": 65
+    },
+    {
+      "file": "src/reader.c",
+      "line": 299,
+      "col": 17
+    },
+    {
+      "file": "src/reader.c",
+      "line": 300,
+      "col": 17
+    },
+    {
+      "file": "src/reader.c",
+      "line": 302,
+      "col": 28
+    },
+    {
+      "file": "src/reader.c",
+      "line": 303,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 333,
+      "col": 25
+    },
+    {
+      "file": "src/reader.c",
+      "line": 334,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 350,
+      "col": 25
+    },
+    {
+      "file": "src/reader.c",
+      "line": 357,
+      "col": 25
+    },
+    {
+      "file": "src/reader.c",
+      "line": 363,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 364,
+      "col": 33
+    },
+    {
+      "file": "src/reader.c",
+      "line": 380,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 396,
+      "col": 17
+    },
+    {
+      "file": "src/reader.c",
+      "line": 397,
+      "col": 21
+    },
+    {
+      "file": "src/reader.c",
+      "line": 402,
+      "col": 17
+    },
+    {
+      "file": "src/reader.c",
+      "line": 411,
+      "col": 20
+    },
+    {
+      "file": "src/reader.c",
+      "line": 411,
+      "col": 37
+    },
+    {
+      "file": "src/reader.c",
+      "line": 411,
+      "col": 54
+    },
+    {
+      "file": "src/reader.c",
+      "line": 412,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 412,
+      "col": 46
+    },
+    {
+      "file": "src/reader.c",
+      "line": 413,
+      "col": 28
+    },
+    {
+      "file": "src/reader.c",
+      "line": 413,
+      "col": 48
+    },
+    {
+      "file": "src/reader.c",
+      "line": 413,
+      "col": 65
+    },
+    {
+      "file": "src/reader.c",
+      "line": 414,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 414,
+      "col": 48
+    },
+    {
+      "file": "src/reader.c",
+      "line": 415,
+      "col": 29
+    },
+    {
+      "file": "src/reader.c",
+      "line": 415,
+      "col": 49
+    },
+    {
+      "file": "src/reader.c",
+      "line": 428,
+      "col": 17
+    },
+    {
+      "file": "src/reader.c",
+      "line": 432,
+      "col": 22
+    },
+    {
+      "file": "src/reader.c",
+      "line": 437,
+      "col": 22
+    },
+    {
+      "file": "src/reader.c",
+      "line": 455,
+      "col": 13
+    },
+    {
+      "file": "src/reader.c",
+      "line": 463,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 133,
+      "col": 6
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 146,
+      "col": 5
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 146,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 147,
+      "col": 12
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 158,
+      "col": 6
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 175,
+      "col": 5
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 175,
+      "col": 48
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 181,
+      "col": 29
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 189,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 190,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 191,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 192,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 193,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 194,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 195,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 196,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 205,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 206,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 224,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 225,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 226,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 227,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 228,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 229,
+      "col": 8
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 238,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 239,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 241,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 242,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 380,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 381,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 382,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 383,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 398,
+      "col": 6
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 400,
+      "col": 6
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 403,
+      "col": 6
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 407,
+      "col": 6
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 445,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 446,
+      "col": 10
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 472,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 473,
+      "col": 10
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 484,
+      "col": 7
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 485,
+      "col": 10
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 487,
+      "col": 6
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 529,
+      "col": 35
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 745,
+      "col": 5
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 746,
+      "col": 5
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 754,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 754,
+      "col": 40
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 760,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 761,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 771,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 807,
+      "col": 12
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 815,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 827,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 831,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 832,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 833,
+      "col": 28
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 842,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 847,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 865,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 870,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 875,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 880,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 885,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 893,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 903,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 908,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 918,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 963,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 969,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 989,
+      "col": 39
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 994,
+      "col": 39
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1037,
+      "col": 14
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1064,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1073,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1074,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1075,
+      "col": 24
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1079,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1106,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1107,
+      "col": 16
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1113,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1122,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1139,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1143,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1168,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1173,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1190,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1213,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1216,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1223,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1226,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1237,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1238,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1242,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1265,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1270,
+      "col": 12
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1276,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1303,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1319,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1336,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1343,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1348,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1357,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1374,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1379,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1386,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1391,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1412,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1417,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1438,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1457,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1462,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1481,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1500,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1505,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1524,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1542,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1559,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1577,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1581,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1588,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1603,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1620,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1638,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1642,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1649,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1656,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1673,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1692,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1699,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1705,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1724,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1728,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1735,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1755,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1772,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1781,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1784,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1802,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1811,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1814,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1833,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1842,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1845,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1864,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1873,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1876,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1895,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1904,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1907,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1924,
+      "col": 12
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1928,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1930,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1943,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1946,
+      "col": 19
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1946,
+      "col": 41
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1949,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1957,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1965,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 1970,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2011,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2016,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2020,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2034,
+      "col": 14
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2038,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2061,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2065,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2071,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2086,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2117,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2121,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2125,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2126,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2131,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2168,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2172,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2177,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2182,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2191,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2218,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2224,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2233,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2238,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2265,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2269,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2274,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2279,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2291,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2296,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2301,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2328,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2338,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2341,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2342,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2355,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2360,
+      "col": 47
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2368,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2397,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2404,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2414,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2419,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2433,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2438,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2438,
+      "col": 33
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2438,
+      "col": 54
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2442,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2449,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2456,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2465,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2475,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2478,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2478,
+      "col": 36
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2509,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2513,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2515,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2516,
+      "col": 47
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2524,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2528,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2532,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2533,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2540,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2550,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2550,
+      "col": 28
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2550,
+      "col": 54
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2574,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2577,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2581,
+      "col": 12
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2582,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2594,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2601,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2623,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2632,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2635,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2639,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2643,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2648,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2649,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2652,
+      "col": 47
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2685,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2690,
+      "col": 58
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2701,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2703,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2704,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2705,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2706,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2707,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2708,
+      "col": 62
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2717,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2718,
+      "col": 62
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2731,
+      "col": 14
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2755,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2756,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2757,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2767,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2781,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2815,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2826,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2830,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2836,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2851,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2859,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2860,
+      "col": 18
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2865,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2870,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2872,
+      "col": 12
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2872,
+      "col": 50
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2884,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2884,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2885,
+      "col": 20
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2885,
+      "col": 38
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2889,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2890,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2897,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2903,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2913,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2914,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2919,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2921,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2925,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2931,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2932,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2934,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2935,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2973,
+      "col": 12
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2977,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2979,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2979,
+      "col": 29
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2982,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2985,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2990,
+      "col": 14
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 2990,
+      "col": 26
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3002,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3003,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3009,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3011,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3013,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3036,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3037,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3038,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3039,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3049,
+      "col": 12
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3053,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3055,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3079,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3087,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3090,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3105,
+      "col": 22
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3108,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3117,
+      "col": 22
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3121,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3127,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3131,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3135,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3139,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3140,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3144,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3148,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3152,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3156,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3160,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3164,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3168,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3172,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3176,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3180,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3185,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3190,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3196,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3202,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3206,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3210,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3214,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3225,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3232,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3234,
+      "col": 33
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3245,
+      "col": 26
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3245,
+      "col": 45
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3245,
+      "col": 65
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3251,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3254,
+      "col": 30
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3258,
+      "col": 30
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3272,
+      "col": 33
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3282,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3285,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3294,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3300,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3308,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3309,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3317,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3321,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3324,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3329,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3332,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3337,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3341,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3342,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3343,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3347,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3353,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3354,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3361,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3409,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3410,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3411,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3412,
+      "col": 9
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3418,
+      "col": 12
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3422,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3424,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3447,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3466,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3475,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3475,
+      "col": 35
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3477,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3481,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3482,
+      "col": 29
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3483,
+      "col": 33
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3487,
+      "col": 33
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3493,
+      "col": 29
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3494,
+      "col": 29
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3503,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3510,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3514,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3524,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3532,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3532,
+      "col": 39
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3541,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3542,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3550,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3554,
+      "col": 21
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3557,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3562,
+      "col": 25
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3565,
+      "col": 17
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3570,
+      "col": 13
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3570,
+      "col": 36
+    },
+    {
+      "file": "src/scanner.c",
+      "line": 3581,
+      "col": 9
+    },
+    {
+      "file": "src/writer.c",
+      "line": 36,
+      "col": 5
+    },
+    {
+      "file": "src/writer.c",
+      "line": 37,
+      "col": 5
+    },
+    {
+      "file": "src/writer.c",
+      "line": 38,
+      "col": 5
+    },
+    {
+      "file": "src/writer.c",
+      "line": 45,
+      "col": 9
+    },
+    {
+      "file": "src/writer.c",
+      "line": 51,
+      "col": 9
+    },
+    {
+      "file": "src/writer.c",
+      "line": 53,
+      "col": 13
+    },
+    {
+      "file": "src/writer.c",
+      "line": 67,
+      "col": 12
+    },
+    {
+      "file": "src/writer.c",
+      "line": 68,
+      "col": 13
+    },
+    {
+      "file": "src/writer.c",
+      "line": 70,
+      "col": 12
+    },
+    {
+      "file": "src/writer.c",
+      "line": 86,
+      "col": 17
+    },
+    {
+      "file": "src/writer.c",
+      "line": 87,
+      "col": 17
+    },
+    {
+      "file": "src/writer.c",
+      "line": 88,
+      "col": 17
+    },
+    {
+      "file": "src/writer.c",
+      "line": 89,
+      "col": 17
+    },
+    {
+      "file": "src/writer.c",
+      "line": 91,
+      "col": 17
+    },
+    {
+      "file": "src/writer.c",
+      "line": 92,
+      "col": 17
+    },
+    {
+      "file": "src/writer.c",
+      "line": 93,
+      "col": 17
+    },
+    {
+      "file": "src/writer.c",
+      "line": 94,
+      "col": 17
+    },
+    {
+      "file": "src/writer.c",
+      "line": 96,
+      "col": 21
+    },
+    {
+      "file": "src/writer.c",
+      "line": 105,
+      "col": 13
+    },
+    {
+      "file": "src/writer.c",
+      "line": 128,
+      "col": 9
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 93,
+      "col": 4
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 133,
+      "col": 6
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 146,
+      "col": 5
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 146,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 147,
+      "col": 12
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 158,
+      "col": 6
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 175,
+      "col": 5
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 175,
+      "col": 23
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 175,
+      "col": 48
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 181,
+      "col": 29
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 189,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 190,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 191,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 192,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 193,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 194,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 195,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 196,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 205,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 206,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 224,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 225,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 226,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 227,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 228,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 229,
+      "col": 8
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 238,
+      "col": 9
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 239,
+      "col": 9
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 241,
+      "col": 9
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 242,
+      "col": 9
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 262,
+      "col": 6
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 263,
+      "col": 10
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 264,
+      "col": 13
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 265,
+      "col": 10
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 266,
+      "col": 13
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 267,
+      "col": 10
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 268,
+      "col": 13
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 269,
+      "col": 10
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 270,
+      "col": 13
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 271,
+      "col": 9
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 272,
+      "col": 10
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 273,
+      "col": 15
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 274,
+      "col": 17
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 275,
+      "col": 15
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 276,
+      "col": 18
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 277,
+      "col": 21
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 380,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 381,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 382,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 383,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 398,
+      "col": 6
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 400,
+      "col": 6
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 403,
+      "col": 6
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 407,
+      "col": 6
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 424,
+      "col": 4
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 436,
+      "col": 5
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 439,
+      "col": 6
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 445,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 446,
+      "col": 10
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 457,
+      "col": 4
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 469,
+      "col": 5
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 472,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 473,
+      "col": 10
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 484,
+      "col": 7
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 485,
+      "col": 10
+    },
+    {
+      "file": "src/yaml_private.h",
+      "line": 529,
+      "col": 35
+    }
+  ]
+}
