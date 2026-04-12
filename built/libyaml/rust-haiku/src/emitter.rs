@@ -1,0 +1,1 @@
+// emitter module stub
