@@ -1,4 +1,63 @@
-# Judger coverage of libyaml
+# libyaml differential + coverage results
+
+## Run B: oss-fuzz corpus × 20 drivers, N=15000 (scaled)
+
+**Setup:** 15,000 deterministic inputs (sorted filename order) from merged
+oss-fuzz corpus (7 fuzzer corpora, deduplicated to 65,614 unique files) ×
+20 drivers (13 judger drivers + 7 oss-fuzz fuzzer harnesses wrapped as CLIs).
+
+**Runtime:** 39.4 min wall, 127 cases/s. No AI calls.
+
+**Verdict distribution (300,000 total cases):**
+
+| category | count | % |
+|---|---|---|
+| match (C == Rust, same exit, same stdout, same stderr) | 288,856 | 96.29% |
+| both crash, same signal | 11,141 | 3.71% |
+| both crash, different signal (same bug, glibc memory-check race) | 3 | 0.001% |
+| **only C crashed, Rust ran** | **0** | **0%** |
+| **only Rust crashed, C ran** | **0** | **0%** |
+| **real behavioral diff** | **0** | **0%** |
+
+All panics are in drivers that `assert()` on malformed input
+(`run-emitter-test-suite: 10,379`, `run-dumper`: 388, `run-emitter`: 374,
+`libyaml_dumper_fuzzer`: 3). Both sides fail identically.
+
+**Coverage of libyaml/src/ (run B, aggregated):**
+
+| file | function | branch |
+|---|---|---|
+| api.c | 46/53 (86.8%) | 331/434 (76.3%) |
+| dumper.c | 11/11 (100%) | 85/96 (88.5%) |
+| emitter.c | 47/47 (100%) | 720/886 (81.3%) |
+| loader.c | 14/14 (100%) | 123/158 (77.8%) |
+| parser.c | 23/24 (95.8%) | 369/412 (89.6%) |
+| reader.c | 4/4 (100%) | 158/170 (92.9%) |
+| scanner.c | 41/41 (100%) | 571/704 (81.1%) |
+| writer.c | 2/2 (100%) | 33/40 (82.5%) |
+| yaml_private.h | — | 119/132 (90.2%) |
+| **TOTAL** | **188/196 (95.9%)** | **2509/3032 (82.8%)** |
+
+**Remaining 8 uncovered functions** (all configuration setters no fuzzer
+calls, plus one file-write handler the fuzzers bypass):
+
+- api.c: `yaml_emitter_set_break`, `yaml_emitter_set_encoding`,
+  `yaml_emitter_set_indent`, `yaml_emitter_set_width`,
+  `yaml_parser_set_encoding`, `yaml_parser_set_input`, `yaml_file_write_handler`
+- parser.c: `yaml_set_max_nest_level`
+
+## Delta over yaml-test-suite baseline
+
+| metric | yaml-test-suite | oss-fuzz 15k | delta |
+|---|---|---|---|
+| Cases | 4,424 | 300,000 | ×68 |
+| Function coverage | 184/196 (93.9%) | 188/196 (95.9%) | +4 fns, +2.0pp |
+| Branch coverage | 2156/3032 (71.1%) | 2509/3032 (82.8%) | **+353 branches, +11.7pp** |
+| Real Rust/C divergences | 0 | 0 | — |
+
+---
+
+## Run A: judger yaml-test-suite baseline (historical)
 
 Coverage of `libyaml/src/*.c` when exercised by the full judger test corpus
 (13 test drivers × yaml-test-suite, 4424 cases total).
