@@ -252,10 +252,46 @@ round. The remaining 157 diffs are in code paths the s4 test suite doesn't
 cover — they require more test coverage (s5 branch-guided, or additional
 testgen) for difffix to see and fix them.
 
-### Grand total for Sonnet transpile + fix
+## Phase 2 (Sonnet): Testgen s5 — branch-coverage-guided
+
+Built on top of s4's test suite (68 tests, 2538 lines, 53.1% branch coverage).
+5 rounds of branch-coverage feedback. Model: Claude Sonnet.
+
+### Coverage trajectory
+
+| round | covered | uncovered | delta |
+|---|---|---|---|
+| start (s4 suite) | 1715/3230 (53.1%) | 1515 | — |
+| after round 1 | 2042/3230 (63.2%) | 1188 | +327 |
+| after round 2 | 2153/3230 (66.7%) | 1077 | +111 |
+| after round 3 | 2248/3230 (69.6%) | 982 | +95 |
+| after round 4 | 2292/3230 (70.9%) | 938 | +44 |
+
+### Per-round costs
+
+| round | cost | tokens out |
+|---|---|---|
+| 1 | $4.07 | 62.7k |
+| 2 | $2.22 | 44.0k |
+| 3 | $2.19 | 35.5k |
+| 4 | $2.51 | 53.2k |
+| 5 | $4.98 | 44.8k |
+| **total** | **$15.97** | |
+
+### Final test suite
+
+| metric | s4 (start) | s5 (final) | delta |
+|---|---|---|---|
+| Test functions | 68 | **201** | +133 |
+| Lines | 2538 | **9137** | +6599 |
+| Branch coverage | 53.1% | **70.9%** | +17.8pp |
+
+### Grand total for Sonnet transpile + testgen + fix
 
 | step | duration | cost |
 |---|---|---|
 | Sonnet transpile (isolated) | 74.7 min | $20.82 |
+| Testgen s4 (2 rounds, from Opus era) | 13.5 min | $2.26 |
+| Testgen s5 (5 rounds, branch-guided) | ~40 min | $15.97 |
 | Difffix round 1 (s4 tests) | ~15 min | $12.01 |
-| **Total** | **~90 min** | **$32.83** |
+| **Total so far** | **~145 min** | **$51.06** |
