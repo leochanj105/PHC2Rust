@@ -1,0 +1,48 @@
+diff -ru /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s2/difffix/rounds/3/src_pre/lib.rs /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s2/src/lib.rs
+--- /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s2/difffix/rounds/3/src_pre/lib.rs	2026-04-13 10:55:18.760965775 -0400
++++ /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s2/src/lib.rs	2026-04-13 10:56:07.542799230 -0400
+@@ -5086,7 +5086,7 @@
+     0
+ }
+ 
+-unsafe fn yaml_parser_loader_set_composer_error(
++pub(crate) unsafe fn yaml_parser_loader_set_composer_error(
+     parser: *mut yaml_parser_t,
+     problem: *const c_char,
+     problem_mark: yaml_mark_t,
+diff -ru /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s2/difffix/rounds/3/src_pre/test_bridge.rs /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s2/src/test_bridge.rs
+--- /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s2/difffix/rounds/3/src_pre/test_bridge.rs	2026-04-13 10:55:18.760965775 -0400
++++ /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s2/src/test_bridge.rs	2026-04-13 10:56:24.963632691 -0400
+@@ -1189,22 +1189,22 @@
+ 
+ #[no_mangle]
+ pub unsafe extern "C" fn bridge_yaml_parser_set_composer_error(
+-    _parser: *mut yaml_parser_t,
+-    _problem: *const c_char,
+-    _problem_mark: yaml_mark_t,
++    parser: *mut yaml_parser_t,
++    problem: *const c_char,
++    problem_mark: yaml_mark_t,
+ ) -> c_int {
+-    0
++    crate::yaml_parser_loader_set_composer_error(parser, problem, problem_mark) as c_int
+ }
+ 
+ #[no_mangle]
+ pub unsafe extern "C" fn bridge_yaml_parser_set_composer_error_context(
+-    _parser: *mut yaml_parser_t,
+-    _context: *const c_char,
+-    _context_mark: yaml_mark_t,
+-    _problem: *const c_char,
+-    _problem_mark: yaml_mark_t,
++    parser: *mut yaml_parser_t,
++    context: *const c_char,
++    context_mark: yaml_mark_t,
++    problem: *const c_char,
++    problem_mark: yaml_mark_t,
+ ) -> c_int {
+-    0
++    crate::yaml_parser_loader_set_composer_error_context(parser, context, context_mark, problem, problem_mark) as c_int
+ }
+ 
+ #[no_mangle]

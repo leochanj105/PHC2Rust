@@ -5086,7 +5086,7 @@ unsafe fn loader_error(parser: *mut yaml_parser_t, document: *mut yaml_document_
     0
 }
 
-pub(crate) unsafe fn yaml_parser_loader_set_composer_error(
+unsafe fn yaml_parser_loader_set_composer_error(
     parser: *mut yaml_parser_t,
     problem: *const c_char,
     problem_mark: yaml_mark_t,

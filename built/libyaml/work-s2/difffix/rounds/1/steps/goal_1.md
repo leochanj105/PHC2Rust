@@ -1,34 +1,57 @@
-# Goal 1: Fix scanner — missing block-level token emission
+# Goal 1: Fix token queue length computation (byte count vs element count)
 
 ## Function
-`yaml_parser_fetch_next_token` (and related block-token fetch functions in the scanner)
+`yaml_parser_save_simple_key` (line 6205) and `yaml_parser_fetch_more_tokens` (line 6026)
 
-## Source Files
-- C source: `/home/leochanj/Desktop/libyaml/src/scanner.c`
-- Rust source: `/home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s2/src/lib.rs` (line ~6060, `yaml_parser_fetch_next_token`)
+## C source file
+/home/leochanj/Desktop/libyaml/src/scanner.c
 
-## What's Wrong
-The Rust scanner does not emit block-level tokens: `BLOCK_MAPPING_START` (type 8), `KEY`, `VALUE`, `BLOCK_SEQUENCE_START`, `BLOCK_END`. When scanning YAML like `"key: val\nfoo: bar"`, the C scanner produces `STREAM_START, BLOCK_MAPPING_START, KEY, SCALAR, VALUE, SCALAR, ...` but the Rust scanner skips directly to `SCALAR` (type 21).
+## Rust source file
+/home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s2/src/lib.rs
 
-Evidence:
-- `token_1_type`: C=8 (BLOCK_MAPPING_START), Rust=21 (SCALAR)
-- Rust also emits spurious `token_1_scalar_len: 3` and `token_1_scalar_style: 1`
-- Tokens 4-7 and `scan_token_count` are missing (scanner crashes before reaching them)
+## What's wrong
+**Crash (double-free / abort) — affects 7 test functions: parser_scan, parser_parse, parser_load, max_nest_level, bridge_delete_aliases, custom_read_handler, roundtrip. Causes 324 missing tests.**
 
-This is the **root cause** of ~300 missing tests: without correct tokens, the parser produces wrong events, the loader builds wrong documents, and all parse-dependent tests fail (mapping, sequence, flow_seq, flow_map, anchor_alias, double_quoted, single_quoted, literal_block, folded_block, explicit_doc, version_dir, tag_dir, nested, multi_doc, empty_doc, null_value, int_scalar, tagged_scalar, parse_error, custom_read_handler, roundtrip, and full load tests).
+Two lines compute the number of tokens in the queue by casting typed pointers to `usize` before subtracting, which gives a **byte offset** instead of an **element count**:
 
-## What Needs to Change
-Compare the Rust `yaml_parser_fetch_next_token` (lib.rs:6060) with the C `yaml_parser_fetch_next_token` in scanner.c. The Rust version is likely missing the block-level token logic:
-1. `yaml_parser_unroll_indent` — emitting BLOCK_END tokens when indent decreases
-2. `yaml_parser_roll_indent` — emitting BLOCK_MAPPING_START / BLOCK_SEQUENCE_START when indent increases
-3. Fetch functions for KEY, VALUE, block-entry tokens
-4. Simple key handling that triggers implicit block collection starts
+- **Line 6214**: `token_number: (*parser).tokens_parsed + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize)`
+- **Line 6038**: `(*sk).token_number == (*parser).tokens_parsed + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize)`
 
-The C scanner uses an indent stack (`parser->indents`) and simple key tracking (`parser->simple_keys`) to decide when to emit block tokens. The Rust version must replicate this logic exactly.
+In C (scanner.c line 1119): `parser->tokens_parsed + (parser->tokens.tail - parser->tokens.head)` uses native pointer arithmetic which returns element count.
+
+Since `yaml_token_t` is much larger than 1 byte, the Rust code produces a `token_number` that is `sizeof(yaml_token_t)` times too large. Later, at line 6656:
+```rust
+let idx = (*simple_key).token_number - (*parser).tokens_parsed;
+```
+This subtraction underflows (in release: wrapping to a huge value; in debug: panic "attempt to subtract with overflow"), producing a garbage index for `queue_insert_token`, which corrupts the token queue and leads to double-free on cleanup.
+
+## What needs to change
+Replace the byte-difference computation with proper pointer offset (element count) at both sites:
+
+**Line 6214** — change:
+```rust
+token_number: (*parser).tokens_parsed
+    + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize),
+```
+to:
+```rust
+token_number: (*parser).tokens_parsed
+    + (*parser).tokens.tail.offset_from((*parser).tokens.head) as usize,
+```
+
+**Line 6038** — change:
+```rust
+&& (*sk).token_number == (*parser).tokens_parsed
+    + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize)
+```
+to:
+```rust
+&& (*sk).token_number == (*parser).tokens_parsed
+    + (*parser).tokens.tail.offset_from((*parser).tokens.head) as usize
+```
 
 ## Success Criteria
-- `token_1_type: 8` (BLOCK_MAPPING_START) — matches C
-- All 8 tokens produced for `"key: val\nfoo: bar"` input
-- `scan_token_count: 8` — matches C
-- No FAULT on parser_scan
-- All parser-dependent test groups produce output (mapping, sequence, flow_seq, flow_map, etc.)
+- All 7 previously crashing test functions (parser_scan, parser_parse, parser_load, max_nest_level, bridge_delete_aliases, custom_read_handler, roundtrip) run without crash/abort.
+- All 324 previously missing tests produce output.
+- The Rust output matches the C output line-by-line for these tests.
+- No "double free" or "attempt to subtract with overflow" errors.

@@ -6035,6 +6035,7 @@ pub unsafe extern "C" fn yaml_parser_fetch_more_tokens(parser: *mut yaml_parser_
             while sk != (*parser).simple_keys.top {
                 if (*sk).possible != 0
                     && (*sk).token_number == (*parser).tokens_parsed
+                        + (*parser).tokens.tail.offset_from((*parser).tokens.head) as usize
                 {
                     need_more_tokens = 1;
                     break;

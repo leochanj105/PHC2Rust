@@ -54,7 +54,7 @@ token_2_type: 16
 token_3_type: 21
 token_3_scalar_len: 3
 token_3_scalar_style: 1
-FAULT parser_scan SIGNAL 6
+FAULT parser_scan SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.yo4OiH6ir4/test_r(+0x559bf)[0x5ae913a1e9bf]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7bcf14e42520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7bcf14e969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7bcf14e42476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7bcf14e287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x7bcf14e89677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7bcf14ea0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7bcf14ea30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7bcf14ea5453]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_token_delete+0x32)[0x5ae913a20782]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4f7f9)[0x5ae913a187f9]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4e986)[0x5ae913a17986]|/tmp/tmp.yo4OiH6ir4/test_r(main+0xe7)[0x5ae913a17347]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7bcf14e29d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7bcf14e29e40]|/tmp/tmp.yo4OiH6ir4/test_r(_start+0x25)[0x5ae913a17195]]
 scalar_event_0: 1
 scalar_event_1: 3
 scalar_doc_start_1_implicit: 1
@@ -75,7 +75,7 @@ mapping_scalar_2_plain_implicit: 1
 mapping_event_3: 4
 mapping_parse_error: 4
 mapping_event_count: 4
-FAULT parser_parse SIGNAL 6
+FAULT parser_parse SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.yo4OiH6ir4/test_r(+0x559bf)[0x5ae913a1e9bf]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7bcf14e42520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7bcf14e969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7bcf14e42476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7bcf14e287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x7bcf14e89677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7bcf14ea0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7bcf14ea30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7bcf14ea5453]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_parser_delete+0x1e9)[0x5ae913a1fd49]|/tmp/tmp.yo4OiH6ir4/test_r(+0x55d17)[0x5ae913a1ed17]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4f88b)[0x5ae913a1888b]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4e986)[0x5ae913a17986]|/tmp/tmp.yo4OiH6ir4/test_r(main+0xff)[0x5ae913a1735f]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7bcf14e29d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7bcf14e29e40]|/tmp/tmp.yo4OiH6ir4/test_r(_start+0x25]
 load_doc_0_root_type: 1
 load_doc_0_node_count: 1
 load_doc_0_node_1_type: 1
@@ -83,7 +83,7 @@ load_doc_0_node_1_scalar_len: 3
 load_doc_0_node_1_scalar_style: 1
 load_error: 4
 load_doc_count: 1
-FAULT parser_load SIGNAL 6
+FAULT parser_load SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.yo4OiH6ir4/test_r(+0x559bf)[0x5ae913a1e9bf]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7bcf14e42520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7bcf14e969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7bcf14e42476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7bcf14e287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x7bcf14e89677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7bcf14ea0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7bcf14ea30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7bcf14ea5453]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_parser_delete+0x1de)[0x5ae913a1fd3e]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4fd25)[0x5ae913a18d25]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4e986)[0x5ae913a17986]|/tmp/tmp.yo4OiH6ir4/test_r(main+0x117)[0x5ae913a17377]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7bcf14e29d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7bcf14e29e40]|/tmp/tmp.yo4OiH6ir4/test_r(_start+0x25)[0x5ae913a17195]]
 doc_init_start_implicit: 1
 doc_init_end_implicit: 1
 doc_add_scalar_id: 1
@@ -111,7 +111,7 @@ emitter_dump_ok: 1
 emitter_close_ok: 1
 emitter_dump_len_gt0: 1
 max_nest_error: 4
-FAULT max_nest_level SIGNAL 6
+FAULT max_nest_level SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.yo4OiH6ir4/test_r(+0x559bf)[0x5ae913a1e9bf]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7bcf14e42520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7bcf14e969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7bcf14e42476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7bcf14e287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x7bcf14e89677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7bcf14ea0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7bcf14ea30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7bcf14ea5453]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_token_delete+0x32)[0x5ae913a20782]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_parser_delete+0xbc)[0x5ae913a1fc1c]|/tmp/tmp.yo4OiH6ir4/test_r(+0x50c32)[0x5ae913a19c32]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4e986)[0x5ae913a17986]|/tmp/tmp.yo4OiH6ir4/test_r(main+0x177)[0x5ae913a173d7]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7bcf14e29d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7bcf14e29e40]|/tmp/tmp.yo4OiH6ir4/test]
 encoding_event0_type: 1
 encoding_stream_start_encoding: 1
 utf8_ascii: 1
@@ -209,7 +209,7 @@ selected_scalar_style: 1
 delete_doc_anchors_ok: 1
 anchors_null_after: 1
 delete_aliases_ok: 1
-FAULT bridge_delete_aliases SIGNAL 6
+FAULT bridge_delete_aliases SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.yo4OiH6ir4/test_r(+0x559bf)[0x5ae913a1e9bf]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7bcf14e42520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7bcf14e969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7bcf14e42476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7bcf14e287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x7bcf14e89677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7bcf14ea0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7bcf14ea30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7bcf14ea5453]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_token_delete+0x32)[0x5ae913a20782]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_parser_delete+0xbc)[0x5ae913a1fc1c]|/tmp/tmp.yo4OiH6ir4/test_r(+0x5305a)[0x5ae913a1c05a]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4e986)[0x5ae913a17986]|/tmp/tmp.yo4OiH6ir4/test_r(main+0x45f)[0x5ae913a176bf]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7bcf14e29d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7bcf14e29e40]|/tmp/tmp.yo4OiH6ir4/test]
 maximum_level_reached_ret: 0
 maximum_level_error: 4
 process_empty_scalar_ret: 1
@@ -231,7 +231,7 @@ custom_event_2: 6
 custom_event_3: 4
 custom_read_error: 4
 custom_event_count: 4
-FAULT custom_read_handler SIGNAL 6
+FAULT custom_read_handler SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.yo4OiH6ir4/test_r(+0x559bf)[0x5ae913a1e9bf]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7bcf14e42520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7bcf14e969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7bcf14e42476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7bcf14e287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x7bcf14e89677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7bcf14ea0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7bcf14ea30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7bcf14ea5453]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_token_delete+0x32)[0x5ae913a20782]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_parser_delete+0xbc)[0x5ae913a1fc1c]|/tmp/tmp.yo4OiH6ir4/test_r(+0x537c7)[0x5ae913a1c7c7]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4e986)[0x5ae913a17986]|/tmp/tmp.yo4OiH6ir4/test_r(main+0x4d7)[0x5ae913a17737]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7bcf14e29d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7bcf14e29e40]|/tmp/tmp.yo4OiH6ir4/test]
 custom_write_len_gt0: 1
 unicode_output_len_gt0: 1
 roundtrip_event: 1
@@ -239,7 +239,7 @@ roundtrip_event: 3
 roundtrip_event: 6
 roundtrip_event: 4
 roundtrip_output_len_gt0: 1
-FAULT roundtrip SIGNAL 6
+FAULT roundtrip SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.yo4OiH6ir4/test_r(+0x559bf)[0x5ae913a1e9bf]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x7bcf14e42520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7bcf14e969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x7bcf14e42476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7bcf14e287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x7bcf14e89677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7bcf14ea0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7bcf14ea30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7bcf14ea5453]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_token_delete+0x32)[0x5ae913a20782]|/tmp/tmp.yo4OiH6ir4/test_r(yaml_parser_delete+0xbc)[0x5ae913a1fc1c]|/tmp/tmp.yo4OiH6ir4/test_r(+0x53ea1)[0x5ae913a1cea1]|/tmp/tmp.yo4OiH6ir4/test_r(+0x4e986)[0x5ae913a17986]|/tmp/tmp.yo4OiH6ir4/test_r(main+0x51f)[0x5ae913a1777f]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x7bcf14e29d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x7bcf14e29e40]|/tmp/tmp.yo4OiH6ir4/test]
 scalar_style_1_len_gt0: 1
 scalar_style_2_len_gt0: 1
 scalar_style_3_len_gt0: 1

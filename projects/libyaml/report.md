@@ -428,7 +428,7 @@ despite very different test characteristics:
 | Output lines per function | **~16** | ~2.5 |
 | Baseline failures | 212/403 | 25/173 |
 | Difffix rounds | 2 | 1 |
-| Difffix cost | $2.81 | $12.01 |
+| Difffix cost | $2.81 | $6.19 (re-run) |
 | Judger after fix | 4267 (96.4%) | 4267 (96.4%) |
 | Remaining diffs | 157 | 157 (same 157) |
 
@@ -466,9 +466,26 @@ Difffix model: Claude Sonnet.
 
 ### Rounds
 
+**Original run (no crash details):**
+
 | round | prev_fails | fails | goals | cost |
 |---|---|---|---|---|
 | 1 | 324 | **0** | 3 | $6.50 |
+
+**Re-run (stderr + backtrace):**
+
+| round | prev_fails | fails | goals | cost |
+|---|---|---|---|---|
+| 1 | 324 | 324 (stalled) | 1 | $3.13 |
+| 2 | 324 | 2 | 1 | $4.46 |
+| 3 | 2 | **0** | 2 | $0.70 |
+| **total** | | | | **$8.29** |
+
+Re-run correctly diagnosed the bug from round 1 (backtrace → `yaml_token_delete`)
+but the fixer failed to apply the fix properly, requiring 3 rounds. LLM
+non-determinism in the fixer step made this run more expensive despite better
+diagnosis. This illustrates that crash info helps analysis but doesn't guarantee
+cheaper overall cost — fixer quality also varies between runs.
 
 ### Independent judger verification
 
@@ -478,7 +495,7 @@ Difffix model: Claude Sonnet.
 | diff | **157** |
 | panic | 0 |
 
-s2 fix: pointer arithmetic only (same as s4). 157 diffs identical to s1/s3/s4.
+s2 fix: pointer arithmetic + 1 visibility change. 157 diffs identical to s1/s3/s4.
 
 ## Phase 4 (Sonnet): Difffix with s3 tests
 

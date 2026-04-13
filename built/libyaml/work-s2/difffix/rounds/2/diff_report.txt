@@ -1,0 +1,31 @@
+============================================================
+Differential Test Report (C vs Rust)
+Generated: 2026-04-13 10:53
+============================================================
+
+## OUTPUT COMPARISON
+
+C test output:    573 lines
+Rust test output: 573 lines
+
+C output: 573 test lines
+Rust output: 573 test lines
+
+MISSING (2 tests, 2 functions):
+Functions not in Rust output (not implemented or crashed):
+  composer_error_ctx_type:: 1 tests
+  composer_error_type:: 1 tests
+
+SUMMARY
+Tests passed:     571
+Tests failed:     2
+Missing functions: composer_error_ctx_type:, composer_error_type:
+
+## FUNCTION LOCATION MAP
+
+Use this to find where each function is defined (do NOT read all files):
+
+
+============================================================
+Tests failed:     2
+============================================================

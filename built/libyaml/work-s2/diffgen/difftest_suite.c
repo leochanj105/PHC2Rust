@@ -2403,17 +2403,61 @@ static void test_bridge_emit_node(void)
 #include <sys/wait.h>
 #include <signal.h>
 #include <string.h>
+#include <fcntl.h>
+#include <execinfo.h>
+
+/* Signal handler: print backtrace to stderr, then re-raise to die normally. */
+static void crash_handler(int sig) {
+    void *frames[32];
+    int n = backtrace(frames, 32);
+    backtrace_symbols_fd(frames, n, STDERR_FILENO);
+    /* Re-raise so the parent sees the correct signal */
+    signal(sig, SIG_DFL);
+    raise(sig);
+}
+
+/* Read up to max_len-1 bytes from fd into buf, null-terminate. Non-blocking. */
+static int drain_fd(int fd, char *buf, int max_len) {
+    int total = 0;
+    while (total < max_len - 1) {
+        int n = read(fd, buf + total, max_len - 1 - total);
+        if (n <= 0) break;
+        total += n;
+    }
+    buf[total] = '\0';
+    /* Replace newlines with ' | ' for single-line output */
+    for (int i = 0; i < total; i++) {
+        if (buf[i] == '\n' && i < total - 1) buf[i] = '|';
+    }
+    /* Trim trailing newline/pipe */
+    while (total > 0 && (buf[total-1] == '\n' || buf[total-1] == '|')) {
+        buf[--total] = '\0';
+    }
+    return total;
+}
 
 static void run_test(const char *name, void (*fn)(void), int timeout_sec) {
     fflush(stdout);
     fflush(stderr);
+    /* Pipe to capture child stderr */
+    int errpipe[2];
+    if (pipe(errpipe) < 0) { errpipe[0] = errpipe[1] = -1; }
     pid_t pid = fork();
     if (pid == 0) {
-        /* Child: run the test, exit */
+        /* Child: redirect stderr to pipe, install crash handler, run test */
+        if (errpipe[1] >= 0) {
+            close(errpipe[0]);
+            dup2(errpipe[1], STDERR_FILENO);
+            close(errpipe[1]);
+        }
+        signal(SIGABRT, crash_handler);
+        signal(SIGSEGV, crash_handler);
         fn();
         fflush(stdout);
         _exit(0);
     }
+    /* Parent: close write end of pipe */
+    if (errpipe[1] >= 0) close(errpipe[1]);
     /* Parent: wait with timeout using alarm */
     int status;
     /* First try non-blocking wait — most tests finish instantly */
@@ -2434,13 +2478,27 @@ static void run_test(const char *name, void (*fn)(void), int timeout_sec) {
     waitpid(pid, &status, 0);
     printf("FAULT %s TIMEOUT\n", name);
     fflush(stdout);
+    if (errpipe[0] >= 0) close(errpipe[0]);
     return;
-done:
+done:;
+    /* Drain child stderr */
+    char errbuf[1024];
+    errbuf[0] = '\0';
+    if (errpipe[0] >= 0) {
+        drain_fd(errpipe[0], errbuf, sizeof(errbuf));
+        close(errpipe[0]);
+    }
     if (WIFSIGNALED(status)) {
-        printf("FAULT %s SIGNAL %d\n", name, WTERMSIG(status));
+        if (errbuf[0])
+            printf("FAULT %s SIGNAL %d stderr=[%s]\n", name, WTERMSIG(status), errbuf);
+        else
+            printf("FAULT %s SIGNAL %d\n", name, WTERMSIG(status));
         fflush(stdout);
     } else if (WIFEXITED(status) && WEXITSTATUS(status) != 0) {
-        printf("FAULT %s EXIT %d\n", name, WEXITSTATUS(status));
+        if (errbuf[0])
+            printf("FAULT %s EXIT %d stderr=[%s]\n", name, WEXITSTATUS(status), errbuf);
+        else
+            printf("FAULT %s EXIT %d\n", name, WEXITSTATUS(status));
         fflush(stdout);
     }
 }

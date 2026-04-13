@@ -1,0 +1,25 @@
+============================================================
+Differential Test Report (C vs Rust)
+Generated: 2026-04-13 10:56
+============================================================
+
+## OUTPUT COMPARISON
+
+C test output:    573 lines
+Rust test output: 573 lines
+
+C output: 573 test lines
+Rust output: 573 test lines
+
+SUMMARY
+Tests passed:     573
+Tests failed:     0
+
+## FUNCTION LOCATION MAP
+
+Use this to find where each function is defined (do NOT read all files):
+
+
+============================================================
+Tests failed:     0
+============================================================
