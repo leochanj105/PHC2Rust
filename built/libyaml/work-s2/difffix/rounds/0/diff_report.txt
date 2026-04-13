@@ -1,0 +1,355 @@
+============================================================
+Differential Test Report (C vs Rust)
+Generated: 2026-04-12 23:24
+============================================================
+
+## OUTPUT COMPARISON
+
+C test output:    573 lines
+Rust test output: 278 lines
+
+WARNING: Rust produced fewer output lines (278 vs 573).
+Likely cause: crash or missing functions. Lines after crash are missing.
+
+C output: 573 test lines
+Rust output: 270 test lines
+
+FAULT (7 test functions crashed/timed out):
+  FAULT parser_scan SIGNAL 6
+  FAULT parser_parse SIGNAL 6
+  FAULT parser_load SIGNAL 6
+  FAULT max_nest_level SIGNAL 6
+  FAULT bridge_delete_aliases SIGNAL 6
+  FAULT custom_read_handler SIGNAL 6
+  FAULT roundtrip SIGNAL 6
+
+MISSING (324 tests, 314 functions):
+Functions not in Rust output (not implemented or crashed):
+  anchor_alias_doc_start_1_implicit:: 1 tests
+  anchor_alias_event_0:: 1 tests
+  anchor_alias_event_1:: 1 tests
+  anchor_alias_event_2:: 1 tests
+  anchor_alias_event_3:: 1 tests
+  anchor_alias_event_4:: 1 tests
+  anchor_alias_event_5:: 1 tests
+  anchor_alias_event_6:: 1 tests
+  anchor_alias_event_7:: 1 tests
+  anchor_alias_event_8:: 1 tests
+  anchor_alias_event_9:: 1 tests
+  anchor_alias_event_count:: 1 tests
+  anchor_alias_map_start_2_style:: 1 tests
+  anchor_alias_scalar_3_len:: 1 tests
+  anchor_alias_scalar_3_plain_implicit:: 1 tests
+  anchor_alias_scalar_3_style:: 1 tests
+  anchor_alias_scalar_4_len:: 1 tests
+  anchor_alias_scalar_4_plain_implicit:: 1 tests
+  anchor_alias_scalar_4_style:: 1 tests
+  anchor_alias_scalar_5_len:: 1 tests
+  anchor_alias_scalar_5_plain_implicit:: 1 tests
+  anchor_alias_scalar_5_style:: 1 tests
+  composer_error_ctx_type:: 1 tests
+  composer_error_type:: 1 tests
+  custom_event_2:: 1 tests
+  custom_event_3:: 1 tests
+  custom_event_4:: 1 tests
+  custom_event_5:: 1 tests
+  custom_event_6:: 1 tests
+  custom_event_7:: 1 tests
+  custom_event_count:: 1 tests
+  double_quoted_doc_start_1_implicit:: 1 tests
+  double_quoted_event_0:: 1 tests
+  double_quoted_event_1:: 1 tests
+  double_quoted_event_2:: 1 tests
+  double_quoted_event_3:: 1 tests
+  double_quoted_event_4:: 1 tests
+  double_quoted_event_count:: 1 tests
+  double_quoted_scalar_2_len:: 1 tests
+  double_quoted_scalar_2_plain_implicit:: 1 tests
+  double_quoted_scalar_2_style:: 1 tests
+  empty_doc_doc_start_1_implicit:: 1 tests
+  empty_doc_event_0:: 1 tests
+  empty_doc_event_1:: 1 tests
+  empty_doc_event_2:: 1 tests
+  empty_doc_event_3:: 1 tests
+  empty_doc_event_4:: 1 tests
+  empty_doc_event_count:: 1 tests
+  empty_doc_scalar_2_len:: 1 tests
+  empty_doc_scalar_2_plain_implicit:: 1 tests
+  empty_doc_scalar_2_style:: 1 tests
+  explicit_doc_doc_start_1_implicit:: 1 tests
+  explicit_doc_event_0:: 1 tests
+  explicit_doc_event_1:: 1 tests
+  explicit_doc_event_2:: 1 tests
+  explicit_doc_event_3:: 1 tests
+  explicit_doc_event_4:: 1 tests
+  explicit_doc_event_count:: 1 tests
+  explicit_doc_scalar_2_len:: 1 tests
+  explicit_doc_scalar_2_plain_implicit:: 1 tests
+  explicit_doc_scalar_2_style:: 1 tests
+  flow_map_doc_start_1_implicit:: 1 tests
+  flow_map_event_0:: 1 tests
+  flow_map_event_1:: 1 tests
+  flow_map_event_2:: 1 tests
+  flow_map_event_3:: 1 tests
+  flow_map_event_4:: 1 tests
+  flow_map_event_5:: 1 tests
+  flow_map_event_6:: 1 tests
+  flow_map_event_7:: 1 tests
+  flow_map_event_8:: 1 tests
+  flow_map_event_9:: 1 tests
+  flow_map_event_count:: 1 tests
+  flow_map_map_start_2_style:: 1 tests
+  flow_map_scalar_3_len:: 1 tests
+  flow_map_scalar_3_plain_implicit:: 1 tests
+  flow_map_scalar_3_style:: 1 tests
+  flow_map_scalar_4_len:: 1 tests
+  flow_map_scalar_4_plain_implicit:: 1 tests
+  flow_map_scalar_4_style:: 1 tests
+  flow_map_scalar_5_len:: 1 tests
+  flow_map_scalar_5_plain_implicit:: 1 tests
+  flow_map_scalar_5_style:: 1 tests
+  flow_map_scalar_6_len:: 1 tests
+  flow_map_scalar_6_plain_implicit:: 1 tests
+  flow_map_scalar_6_style:: 1 tests
+  flow_seq_doc_start_1_implicit:: 1 tests
+  flow_seq_event_0:: 1 tests
+  flow_seq_event_1:: 1 tests
+  flow_seq_event_2:: 1 tests
+  flow_seq_event_3:: 1 tests
+  flow_seq_event_4:: 1 tests
+  flow_seq_event_5:: 1 tests
+  flow_seq_event_6:: 1 tests
+  flow_seq_event_7:: 1 tests
+  flow_seq_event_8:: 1 tests
+  flow_seq_event_count:: 1 tests
+  flow_seq_scalar_3_len:: 1 tests
+  flow_seq_scalar_3_plain_implicit:: 1 tests
+  flow_seq_scalar_3_style:: 1 tests
+  flow_seq_scalar_4_len:: 1 tests
+  flow_seq_scalar_4_plain_implicit:: 1 tests
+  flow_seq_scalar_4_style:: 1 tests
+  flow_seq_scalar_5_len:: 1 tests
+  flow_seq_scalar_5_plain_implicit:: 1 tests
+  flow_seq_scalar_5_style:: 1 tests
+  flow_seq_seq_start_2_style:: 1 tests
+  folded_block_doc_start_1_implicit:: 1 tests
+  folded_block_event_0:: 1 tests
+  folded_block_event_1:: 1 tests
+  folded_block_event_2:: 1 tests
+  folded_block_event_3:: 1 tests
+  folded_block_event_4:: 1 tests
+  folded_block_event_count:: 1 tests
+  folded_block_scalar_2_len:: 1 tests
+  folded_block_scalar_2_plain_implicit:: 1 tests
+  folded_block_scalar_2_style:: 1 tests
+  int_scalar_doc_start_1_implicit:: 1 tests
+  int_scalar_event_0:: 1 tests
+  int_scalar_event_1:: 1 tests
+  int_scalar_event_2:: 1 tests
+  int_scalar_event_3:: 1 tests
+  int_scalar_event_4:: 1 tests
+  int_scalar_event_count:: 1 tests
+  int_scalar_scalar_2_len:: 1 tests
+  int_scalar_scalar_2_plain_implicit:: 1 tests
+  int_scalar_scalar_2_style:: 1 tests
+  literal_block_doc_start_1_implicit:: 1 tests
+  literal_block_event_0:: 1 tests
+  literal_block_event_1:: 1 tests
+  literal_block_event_2:: 1 tests
+  literal_block_event_3:: 1 tests
+  literal_block_event_4:: 1 tests
+  literal_block_event_count:: 1 tests
+  literal_block_scalar_2_len:: 1 tests
+  literal_block_scalar_2_plain_implicit:: 1 tests
+  literal_block_scalar_2_style:: 1 tests
+  load_doc_0_node_1_type:: 1 tests
+  load_doc_0_node_2_scalar_len:: 1 tests
+  load_doc_0_node_2_scalar_style:: 1 tests
+  load_doc_0_node_2_type:: 1 tests
+  load_doc_0_node_3_scalar_len:: 1 tests
+  load_doc_0_node_3_scalar_style:: 1 tests
+  load_doc_0_node_3_type:: 1 tests
+  load_doc_0_node_4_scalar_len:: 1 tests
+  load_doc_0_node_4_scalar_style:: 1 tests
+  load_doc_0_node_4_type:: 1 tests
+  load_doc_0_node_5_type:: 1 tests
+  load_doc_0_node_6_scalar_len:: 1 tests
+  load_doc_0_node_6_scalar_style:: 1 tests
+  load_doc_0_node_6_type:: 1 tests
+  load_doc_0_node_7_scalar_len:: 1 tests
+  load_doc_0_node_7_scalar_style:: 1 tests
+  load_doc_0_node_7_type:: 1 tests
+  load_doc_0_node_count:: 1 tests
+  load_doc_0_root_type:: 1 tests
+  mapping_event_2:: 1 tests
+  mapping_event_3:: 1 tests
+  mapping_event_4:: 1 tests
+  mapping_event_5:: 1 tests
+  mapping_event_6:: 1 tests
+  mapping_event_7:: 1 tests
+  mapping_event_8:: 1 tests
+  mapping_event_9:: 1 tests
+  mapping_event_count:: 1 tests
+  mapping_map_start_2_style:: 1 tests
+  mapping_scalar_3_len:: 1 tests
+  mapping_scalar_3_plain_implicit:: 1 tests
+  mapping_scalar_3_style:: 1 tests
+  mapping_scalar_4_len:: 1 tests
+  mapping_scalar_4_plain_implicit:: 1 tests
+  mapping_scalar_4_style:: 1 tests
+  mapping_scalar_5_len:: 1 tests
+  mapping_scalar_5_plain_implicit:: 1 tests
+  mapping_scalar_5_style:: 1 tests
+  mapping_scalar_6_len:: 1 tests
+  mapping_scalar_6_plain_implicit:: 1 tests
+  mapping_scalar_6_style:: 1 tests
+  multi_doc_doc_start_1_implicit:: 1 tests
+  multi_doc_doc_start_4_implicit:: 1 tests
+  multi_doc_event_0:: 1 tests
+  multi_doc_event_1:: 1 tests
+  multi_doc_event_2:: 1 tests
+  multi_doc_event_3:: 1 tests
+  multi_doc_event_4:: 1 tests
+  multi_doc_event_5:: 1 tests
+  multi_doc_event_6:: 1 tests
+  multi_doc_event_7:: 1 tests
+  multi_doc_event_count:: 1 tests
+  multi_doc_scalar_2_len:: 1 tests
+  multi_doc_scalar_2_plain_implicit:: 1 tests
+  multi_doc_scalar_2_style:: 1 tests
+  multi_doc_scalar_5_len:: 1 tests
+  multi_doc_scalar_5_plain_implicit:: 1 tests
+  multi_doc_scalar_5_style:: 1 tests
+  nested_doc_start_1_implicit:: 1 tests
+  nested_event_0:: 1 tests
+  nested_event_10:: 1 tests
+  nested_event_11:: 1 tests
+  nested_event_12:: 1 tests
+  nested_event_13:: 1 tests
+  nested_event_1:: 1 tests
+  nested_event_2:: 1 tests
+  nested_event_3:: 1 tests
+  nested_event_4:: 1 tests
+  nested_event_5:: 1 tests
+  nested_event_6:: 1 tests
+  nested_event_7:: 1 tests
+  nested_event_8:: 1 tests
+  nested_event_9:: 1 tests
+  nested_event_count:: 1 tests
+  nested_map_start_2_style:: 1 tests
+  nested_map_start_4_style:: 1 tests
+  nested_map_start_6_style:: 1 tests
+  nested_scalar_3_len:: 1 tests
+  nested_scalar_3_plain_implicit:: 1 tests
+  nested_scalar_3_style:: 1 tests
+  nested_scalar_5_len:: 1 tests
+  nested_scalar_5_plain_implicit:: 1 tests
+  nested_scalar_5_style:: 1 tests
+  nested_scalar_7_len:: 1 tests
+  nested_scalar_7_plain_implicit:: 1 tests
+  nested_scalar_7_style:: 1 tests
+  nested_scalar_8_len:: 1 tests
+  nested_scalar_8_plain_implicit:: 1 tests
+  nested_scalar_8_style:: 1 tests
+  null_value_doc_start_1_implicit:: 1 tests
+  null_value_event_0:: 1 tests
+  null_value_event_1:: 1 tests
+  null_value_event_2:: 1 tests
+  null_value_event_3:: 1 tests
+  null_value_event_4:: 1 tests
+  null_value_event_5:: 1 tests
+  null_value_event_6:: 1 tests
+  null_value_event_7:: 1 tests
+  null_value_event_count:: 1 tests
+  null_value_map_start_2_style:: 1 tests
+  null_value_scalar_3_len:: 1 tests
+  null_value_scalar_3_plain_implicit:: 1 tests
+  null_value_scalar_3_style:: 1 tests
+  null_value_scalar_4_len:: 1 tests
+  null_value_scalar_4_plain_implicit:: 1 tests
+  null_value_scalar_4_style:: 1 tests
+  parse_error_type:: 1 tests
+  roundtrip_event:: 11 tests
+  scan_token_count:: 1 tests
+  sequence_doc_start_1_implicit:: 1 tests
+  sequence_event_0:: 1 tests
+  sequence_event_1:: 1 tests
+  sequence_event_2:: 1 tests
+  sequence_event_3:: 1 tests
+  sequence_event_4:: 1 tests
+  sequence_event_5:: 1 tests
+  sequence_event_6:: 1 tests
+  sequence_event_7:: 1 tests
+  sequence_event_8:: 1 tests
+  sequence_event_count:: 1 tests
+  sequence_scalar_3_len:: 1 tests
+  sequence_scalar_3_plain_implicit:: 1 tests
+  sequence_scalar_3_style:: 1 tests
+  sequence_scalar_4_len:: 1 tests
+  sequence_scalar_4_plain_implicit:: 1 tests
+  sequence_scalar_4_style:: 1 tests
+  sequence_scalar_5_len:: 1 tests
+  sequence_scalar_5_plain_implicit:: 1 tests
+  sequence_scalar_5_style:: 1 tests
+  sequence_seq_start_2_style:: 1 tests
+  single_quoted_doc_start_1_implicit:: 1 tests
+  single_quoted_event_0:: 1 tests
+  single_quoted_event_1:: 1 tests
+  single_quoted_event_2:: 1 tests
+  single_quoted_event_3:: 1 tests
+  single_quoted_event_4:: 1 tests
+  single_quoted_event_count:: 1 tests
+  single_quoted_scalar_2_len:: 1 tests
+  single_quoted_scalar_2_plain_implicit:: 1 tests
+  single_quoted_scalar_2_style:: 1 tests
+  tag_dir_doc_start_1_implicit:: 1 tests
+  tag_dir_event_0:: 1 tests
+  tag_dir_event_1:: 1 tests
+  tag_dir_event_2:: 1 tests
+  tag_dir_event_3:: 1 tests
+  tag_dir_event_4:: 1 tests
+  tag_dir_event_count:: 1 tests
+  tag_dir_scalar_2_len:: 1 tests
+  tag_dir_scalar_2_plain_implicit:: 1 tests
+  tag_dir_scalar_2_style:: 1 tests
+  tagged_scalar_doc_start_1_implicit:: 1 tests
+  tagged_scalar_event_0:: 1 tests
+  tagged_scalar_event_1:: 1 tests
+  tagged_scalar_event_2:: 1 tests
+  tagged_scalar_event_3:: 1 tests
+  tagged_scalar_event_4:: 1 tests
+  tagged_scalar_event_count:: 1 tests
+  tagged_scalar_scalar_2_len:: 1 tests
+  tagged_scalar_scalar_2_plain_implicit:: 1 tests
+  tagged_scalar_scalar_2_style:: 1 tests
+  token_1_type:: 1 tests
+  token_4_type:: 1 tests
+  token_5_scalar_len:: 1 tests
+  token_5_scalar_style:: 1 tests
+  token_5_type:: 1 tests
+  token_6_type:: 1 tests
+  token_7_type:: 1 tests
+  version_dir_doc_start_1_implicit:: 1 tests
+  version_dir_event_0:: 1 tests
+  version_dir_event_1:: 1 tests
+  version_dir_event_2:: 1 tests
+  version_dir_event_3:: 1 tests
+  version_dir_event_4:: 1 tests
+  version_dir_event_count:: 1 tests
+  version_dir_scalar_2_len:: 1 tests
+  version_dir_scalar_2_plain_implicit:: 1 tests
+  version_dir_scalar_2_style:: 1 tests
+
+SUMMARY
+Tests passed:     249
+Tests failed:     324
+Missing functions: anchor_alias_doc_start_1_implicit:, anchor_alias_event_0:, anchor_alias_event_1:, anchor_alias_event_2:, anchor_alias_event_3:, anchor_alias_event_4:, anchor_alias_event_5:, anchor_alias_event_6:, anchor_alias_event_7:, anchor_alias_event_8:, anchor_alias_event_9:, anchor_alias_event_count:, anchor_alias_map_start_2_style:, anchor_alias_scalar_3_len:, anchor_alias_scalar_3_plain_implicit:, anchor_alias_scalar_3_style:, anchor_alias_scalar_4_len:, anchor_alias_scalar_4_plain_implicit:, anchor_alias_scalar_4_style:, anchor_alias_scalar_5_len:, anchor_alias_scalar_5_plain_implicit:, anchor_alias_scalar_5_style:, composer_error_ctx_type:, composer_error_type:, custom_event_2:, custom_event_3:, custom_event_4:, custom_event_5:, custom_event_6:, custom_event_7:, custom_event_count:, double_quoted_doc_start_1_implicit:, double_quoted_event_0:, double_quoted_event_1:, double_quoted_event_2:, double_quoted_event_3:, double_quoted_event_4:, double_quoted_event_count:, double_quoted_scalar_2_len:, double_quoted_scalar_2_plain_implicit:, double_quoted_scalar_2_style:, empty_doc_doc_start_1_implicit:, empty_doc_event_0:, empty_doc_event_1:, empty_doc_event_2:, empty_doc_event_3:, empty_doc_event_4:, empty_doc_event_count:, empty_doc_scalar_2_len:, empty_doc_scalar_2_plain_implicit:, empty_doc_scalar_2_style:, explicit_doc_doc_start_1_implicit:, explicit_doc_event_0:, explicit_doc_event_1:, explicit_doc_event_2:, explicit_doc_event_3:, explicit_doc_event_4:, explicit_doc_event_count:, explicit_doc_scalar_2_len:, explicit_doc_scalar_2_plain_implicit:, explicit_doc_scalar_2_style:, flow_map_doc_start_1_implicit:, flow_map_event_0:, flow_map_event_1:, flow_map_event_2:, flow_map_event_3:, flow_map_event_4:, flow_map_event_5:, flow_map_event_6:, flow_map_event_7:, flow_map_event_8:, flow_map_event_9:, flow_map_event_count:, flow_map_map_start_2_style:, flow_map_scalar_3_len:, flow_map_scalar_3_plain_implicit:, flow_map_scalar_3_style:, flow_map_scalar_4_len:, flow_map_scalar_4_plain_implicit:, flow_map_scalar_4_style:, flow_map_scalar_5_len:, flow_map_scalar_5_plain_implicit:, flow_map_scalar_5_style:, flow_map_scalar_6_len:, flow_map_scalar_6_plain_implicit:, flow_map_scalar_6_style:, flow_seq_doc_start_1_implicit:, flow_seq_event_0:, flow_seq_event_1:, flow_seq_event_2:, flow_seq_event_3:, flow_seq_event_4:, flow_seq_event_5:, flow_seq_event_6:, flow_seq_event_7:, flow_seq_event_8:, flow_seq_event_count:, flow_seq_scalar_3_len:, flow_seq_scalar_3_plain_implicit:, flow_seq_scalar_3_style:, flow_seq_scalar_4_len:, flow_seq_scalar_4_plain_implicit:, flow_seq_scalar_4_style:, flow_seq_scalar_5_len:, flow_seq_scalar_5_plain_implicit:, flow_seq_scalar_5_style:, flow_seq_seq_start_2_style:, folded_block_doc_start_1_implicit:, folded_block_event_0:, folded_block_event_1:, folded_block_event_2:, folded_block_event_3:, folded_block_event_4:, folded_block_event_count:, folded_block_scalar_2_len:, folded_block_scalar_2_plain_implicit:, folded_block_scalar_2_style:, int_scalar_doc_start_1_implicit:, int_scalar_event_0:, int_scalar_event_1:, int_scalar_event_2:, int_scalar_event_3:, int_scalar_event_4:, int_scalar_event_count:, int_scalar_scalar_2_len:, int_scalar_scalar_2_plain_implicit:, int_scalar_scalar_2_style:, literal_block_doc_start_1_implicit:, literal_block_event_0:, literal_block_event_1:, literal_block_event_2:, literal_block_event_3:, literal_block_event_4:, literal_block_event_count:, literal_block_scalar_2_len:, literal_block_scalar_2_plain_implicit:, literal_block_scalar_2_style:, load_doc_0_node_1_type:, load_doc_0_node_2_scalar_len:, load_doc_0_node_2_scalar_style:, load_doc_0_node_2_type:, load_doc_0_node_3_scalar_len:, load_doc_0_node_3_scalar_style:, load_doc_0_node_3_type:, load_doc_0_node_4_scalar_len:, load_doc_0_node_4_scalar_style:, load_doc_0_node_4_type:, load_doc_0_node_5_type:, load_doc_0_node_6_scalar_len:, load_doc_0_node_6_scalar_style:, load_doc_0_node_6_type:, load_doc_0_node_7_scalar_len:, load_doc_0_node_7_scalar_style:, load_doc_0_node_7_type:, load_doc_0_node_count:, load_doc_0_root_type:, mapping_event_2:, mapping_event_3:, mapping_event_4:, mapping_event_5:, mapping_event_6:, mapping_event_7:, mapping_event_8:, mapping_event_9:, mapping_event_count:, mapping_map_start_2_style:, mapping_scalar_3_len:, mapping_scalar_3_plain_implicit:, mapping_scalar_3_style:, mapping_scalar_4_len:, mapping_scalar_4_plain_implicit:, mapping_scalar_4_style:, mapping_scalar_5_len:, mapping_scalar_5_plain_implicit:, mapping_scalar_5_style:, mapping_scalar_6_len:, mapping_scalar_6_plain_implicit:, mapping_scalar_6_style:, multi_doc_doc_start_1_implicit:, multi_doc_doc_start_4_implicit:, multi_doc_event_0:, multi_doc_event_1:, multi_doc_event_2:, multi_doc_event_3:, multi_doc_event_4:, multi_doc_event_5:, multi_doc_event_6:, multi_doc_event_7:, multi_doc_event_count:, multi_doc_scalar_2_len:, multi_doc_scalar_2_plain_implicit:, multi_doc_scalar_2_style:, multi_doc_scalar_5_len:, multi_doc_scalar_5_plain_implicit:, multi_doc_scalar_5_style:, nested_doc_start_1_implicit:, nested_event_0:, nested_event_10:, nested_event_11:, nested_event_12:, nested_event_13:, nested_event_1:, nested_event_2:, nested_event_3:, nested_event_4:, nested_event_5:, nested_event_6:, nested_event_7:, nested_event_8:, nested_event_9:, nested_event_count:, nested_map_start_2_style:, nested_map_start_4_style:, nested_map_start_6_style:, nested_scalar_3_len:, nested_scalar_3_plain_implicit:, nested_scalar_3_style:, nested_scalar_5_len:, nested_scalar_5_plain_implicit:, nested_scalar_5_style:, nested_scalar_7_len:, nested_scalar_7_plain_implicit:, nested_scalar_7_style:, nested_scalar_8_len:, nested_scalar_8_plain_implicit:, nested_scalar_8_style:, null_value_doc_start_1_implicit:, null_value_event_0:, null_value_event_1:, null_value_event_2:, null_value_event_3:, null_value_event_4:, null_value_event_5:, null_value_event_6:, null_value_event_7:, null_value_event_count:, null_value_map_start_2_style:, null_value_scalar_3_len:, null_value_scalar_3_plain_implicit:, null_value_scalar_3_style:, null_value_scalar_4_len:, null_value_scalar_4_plain_implicit:, null_value_scalar_4_style:, parse_error_type:, roundtrip_event:, scan_token_count:, sequence_doc_start_1_implicit:, sequence_event_0:, sequence_event_1:, sequence_event_2:, sequence_event_3:, sequence_event_4:, sequence_event_5:, sequence_event_6:, sequence_event_7:, sequence_event_8:, sequence_event_count:, sequence_scalar_3_len:, sequence_scalar_3_plain_implicit:, sequence_scalar_3_style:, sequence_scalar_4_len:, sequence_scalar_4_plain_implicit:, sequence_scalar_4_style:, sequence_scalar_5_len:, sequence_scalar_5_plain_implicit:, sequence_scalar_5_style:, sequence_seq_start_2_style:, single_quoted_doc_start_1_implicit:, single_quoted_event_0:, single_quoted_event_1:, single_quoted_event_2:, single_quoted_event_3:, single_quoted_event_4:, single_quoted_event_count:, single_quoted_scalar_2_len:, single_quoted_scalar_2_plain_implicit:, single_quoted_scalar_2_style:, tag_dir_doc_start_1_implicit:, tag_dir_event_0:, tag_dir_event_1:, tag_dir_event_2:, tag_dir_event_3:, tag_dir_event_4:, tag_dir_event_count:, tag_dir_scalar_2_len:, tag_dir_scalar_2_plain_implicit:, tag_dir_scalar_2_style:, tagged_scalar_doc_start_1_implicit:, tagged_scalar_event_0:, tagged_scalar_event_1:, tagged_scalar_event_2:, tagged_scalar_event_3:, tagged_scalar_event_4:, tagged_scalar_event_count:, tagged_scalar_scalar_2_len:, tagged_scalar_scalar_2_plain_implicit:, tagged_scalar_scalar_2_style:, token_1_type:, token_4_type:, token_5_scalar_len:, token_5_scalar_style:, token_5_type:, token_6_type:, token_7_type:, version_dir_doc_start_1_implicit:, version_dir_event_0:, version_dir_event_1:, version_dir_event_2:, version_dir_event_3:, version_dir_event_4:, version_dir_event_count:, version_dir_scalar_2_len:, version_dir_scalar_2_plain_implicit:, version_dir_scalar_2_style:
+
+## FUNCTION LOCATION MAP
+
+Use this to find where each function is defined (do NOT read all files):
+
+
+============================================================
+Tests failed:     324
+============================================================
