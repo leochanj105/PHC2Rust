@@ -1,36 +1,27 @@
-# Goal 2: Fix simple key token_number comparison in yaml_parser_fetch_more_tokens
+# Goal 2: Fix flow_level off-by-one in increase/decrease flow level
 
-## Function(s)
-`yaml_parser_fetch_more_tokens`
+## Function
+`yaml_parser_increase_flow_level`, `yaml_parser_decrease_flow_level`
 
-## Source Files
-- C source: `/home/leochanj/Desktop/libyaml/src/scanner.c` (yaml_parser_fetch_more_tokens, line 801)
-- Rust source: `/home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s4/src/lib.rs` (yaml_parser_fetch_more_tokens, line 6026)
+## C source
+- `/home/leochanj/Desktop/libyaml/src/scanner.c` (search for `increase_flow_level` and `decrease_flow_level`)
 
-## What's Wrong
-The Rust code at line 6037-6038 has an incorrect simple key check:
-```rust
-(*sk).token_number == (*parser).tokens_parsed
-    + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize)
-```
+## Rust source
+- `/home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s4/src/lib.rs` (search for `yaml_parser_increase_flow_level` and `yaml_parser_decrease_flow_level`)
 
-The C code at scanner.c:832-833 is simply:
-```c
-simple_key->token_number == parser->tokens_parsed
-```
+## What's wrong
+MISMATCH in `test_bridge_parser_flow_levels`:
+- C output: `increase_flow_ok: 1 level: 1` / `decrease_flow_ok: 1 level: 0`
+- Rust output: `increase_flow_ok: 1 level: 2` / `decrease_flow_ok: 1 level: 1`
 
-Two bugs:
-1. The Rust adds `(tail as usize - head as usize)` which does NOT exist in the C original.
-2. Even if the addition were intended, `tail as usize - head as usize` computes a byte offset, not an element count (pointer arithmetic in C gives element count, but casting to usize in Rust gives byte offset).
+The Rust flow_level is consistently 1 higher than C. The test initializes a parser (flow_level starts at 0), calls increase (should go to 1), then calls decrease (should go back to 0). Rust reports 2 and 1 respectively, suggesting either:
+- The parser initializes flow_level to 1 instead of 0, or
+- `increase_flow_level` increments before the check instead of after, or
+- Some other off-by-one in the flow_level logic
 
-This causes the scanner to incorrectly determine whether more tokens need to be fetched for simple key resolution, leading to incomplete/wrong scanning of YAML with implicit keys.
-
-## What Needs to Change
-Remove the `+ ((*parser).tokens.tail as usize - (*parser).tokens.head as usize)` term from the comparison. The corrected line should be:
-```rust
-(*sk).token_number == (*parser).tokens_parsed
-```
-matching the C exactly.
+## What needs to change
+Compare the Rust `yaml_parser_increase_flow_level` and `yaml_parser_decrease_flow_level` with the C versions in scanner.c. Fix the off-by-one so flow_level values match C exactly.
 
 ## Success Criteria
-The simple key check in `yaml_parser_fetch_more_tokens` matches the C logic: `simple_key->token_number == parser->tokens_parsed`. Tests that depend on implicit key scanning (block mappings, complex documents) produce correct token/event counts.
+- `increase_flow_ok: 1 level: 1` (matches C)
+- `decrease_flow_ok: 1 level: 0` (matches C)

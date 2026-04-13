@@ -31,7 +31,7 @@ test_event_initialize
   map_start_type: 9
   map_end_type: 10
 test_parser_scan
-FAULT parser_scan SIGNAL 6
+FAULT parser_scan SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(+0x4f35d)[0x598c4f58335d]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0xc5)[0x598c4f582355]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_r(_start+0x25)[0x598c4f5821c5]]
 test_parser_parse
   event: STREAM_START
   event: DOCUMENT_START
@@ -46,7 +46,7 @@ test_parser_parse
 test_parser_load
   root_type: 1
   node1_ok: 1
-FAULT parser_load SIGNAL 6
+FAULT parser_load SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(yaml_parser_delete+0xbc)[0x598c4f5895fc]|/tmp/tmp.URWVyKG237/test_r(+0x4f63f)[0x598c4f58363f]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0xf5)[0x598c4f582385]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_]
 test_parser_encoding
   first_event: 1
   ok: 1
@@ -56,7 +56,7 @@ test_parser_set_input
 test_set_max_nest_level
   set_ok: 1
   load_ok: 1
-FAULT set_max_nest_level SIGNAL 6
+FAULT set_max_nest_level SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(yaml_parser_delete+0xbc)[0x598c4f5895fc]|/tmp/tmp.URWVyKG237/test_r(+0x4f8b0)[0x598c4f5838b0]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x13d)[0x598c4f5823cd]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test]
 test_emitter_basic
   written: 11
   output: key: value
@@ -144,12 +144,12 @@ test_bridge_parser_flow_levels
   increase_flow_ok: 1 level: 2
   decrease_flow_ok: 1 level: 1
 test_bridge_parser_scan_full
-FAULT bridge_parser_scan_full SIGNAL 6
+FAULT bridge_parser_scan_full SIGNAL 6 stderr=[double free or corruption (fasttop)|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa29ca)[0x7291730a29ca]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(+0x5188e)[0x598c4f58588e]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x34d)[0x598c4f5825dd]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_r(_start+0x25)[0x598c4f5821c5]]
 test_bridge_parser_parse_full
   scalar: mapping
   parse_error: did not find expected <document start>
   event_count: 4
-FAULT bridge_parser_parse_full SIGNAL 6
+FAULT bridge_parser_parse_full SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_parser_delete+0x1e9)[0x598c4f589729]|/tmp/tmp.URWVyKG237/test_r(+0x51a0b)[0x598c4f585a0b]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x365)[0x598c4f5825f5]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_r(_start+0x25)[0x598c4f5821c5]]
 test_bridge_parser_load_aliases
   load_ok: 1
   root_type: 2
@@ -159,17 +159,17 @@ test_bridge_parser_determine_encoding
   determine_encoding_ok: 1 encoding: 1
 test_bridge_parser_scan_tokens
   fetch_next_token_ok: 1
-FAULT bridge_parser_scan_tokens SIGNAL 6
+FAULT bridge_parser_scan_tokens SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(+0x51ce2)[0x598c4f585ce2]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x3ad)[0x598c4f58263d]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_r(_start+0x25)[0x598c4f5821c5]]
 test_bridge_parser_roll_indent
   roll_indent_ok: 1
   unroll_indent_ok: 1
 test_bridge_parser_fetch_stream
   fetch_stream_start_ok: 1
-FAULT bridge_parser_fetch_stream SIGNAL 6
+FAULT bridge_parser_fetch_stream SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(+0x51f29)[0x598c4f585f29]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x3dd)[0x598c4f58266d]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_r(_start+0x25)[0x598c4f5821c5]]
 test_bridge_parser_fetch_document_indicators
-FAULT bridge_parser_fetch_document_indicators SIGNAL 6
+FAULT bridge_parser_fetch_document_indicators SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(+0x5200c)[0x598c4f58600c]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x3f5)[0x598c4f582685]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_r(_start+0x25)[0x598c4f5821c5]]
 test_bridge_parser_fetch_collections
-FAULT bridge_parser_fetch_collections SIGNAL 6
+FAULT bridge_parser_fetch_collections SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(+0x520fc)[0x598c4f5860fc]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x40d)[0x598c4f58269d]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_r(_start+0x25)[0x598c4f5821c5]]
 test_bridge_parser_fetch_block_entry_key_value
   tokens: 10
 test_bridge_parser_fetch_anchors_tags
@@ -184,7 +184,7 @@ test_bridge_parser_fetch_scalars
   scalar: plain_scalar
   token_count: 14
 test_bridge_parser_scan_directives
-FAULT bridge_parser_scan_directives SIGNAL 6
+FAULT bridge_parser_scan_directives SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(+0x524cc)[0x598c4f5864cc]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x46d)[0x598c4f5826fd]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_r(_start+0x25)[0x598c4f5821c5]]
 test_bridge_parser_scan_uri_escapes
   tokens: 7
 test_bridge_parser_process_directives
@@ -210,10 +210,10 @@ test_bridge_emitter_block_scalar_hints
   write_block_scalar_hints_ok: 1
 test_bridge_parser_parse_states
   event_count: 4
-FAULT bridge_parser_parse_states SIGNAL 6
+FAULT bridge_parser_parse_states SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_parser_delete+0x1e9)[0x598c4f589729]|/tmp/tmp.URWVyKG237/test_r(+0x5303b)[0x598c4f58703b]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x55d)[0x598c4f5827ed]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test_r(_start+0x25)[0x598c4f5821c5]]
 test_bridge_parser_process_empty_scalar
   events: 4
-FAULT bridge_parser_process_empty_scalar SIGNAL 6
+FAULT bridge_parser_process_empty_scalar SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(yaml_parser_delete+0xbc)[0x598c4f5895fc]|/tmp/tmp.URWVyKG237/test_r(+0x5314c)[0x598c4f58714c]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x575)[0x598c4f582805]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test]
 test_bridge_parser_register_anchor
   load_ok: 1
 test_bridge_emitter_emit_nodes
@@ -224,10 +224,10 @@ test_bridge_emitter_emit_alias
   written: 30
 test_bridge_parser_flow_sequence_mapping_entries
   events: 6
-FAULT bridge_parser_flow_sequence_mapping_entries SIGNAL 6
+FAULT bridge_parser_flow_sequence_mapping_entries SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(yaml_parser_delete+0xbc)[0x598c4f5895fc]|/tmp/tmp.URWVyKG237/test_r(+0x5390b)[0x598c4f58790b]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x5d5)[0x598c4f582865]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test]
 test_bridge_parser_indentless_sequence
   events: 4
-FAULT bridge_parser_indentless_sequence SIGNAL 6
+FAULT bridge_parser_indentless_sequence SIGNAL 6 stderr=[free(): double free detected in tcache 2|/tmp/tmp.URWVyKG237/test_r(+0x547af)[0x598c4f5887af]|/lib/x86_64-linux-gnu/libc.so.6(+0x42520)[0x729173042520]|/lib/x86_64-linux-gnu/libc.so.6(pthread_kill+0x12c)[0x7291730969fc]|/lib/x86_64-linux-gnu/libc.so.6(raise+0x16)[0x729173042476]|/lib/x86_64-linux-gnu/libc.so.6(abort+0xd3)[0x7291730287f3]|/lib/x86_64-linux-gnu/libc.so.6(+0x89677)[0x729173089677]|/lib/x86_64-linux-gnu/libc.so.6(+0xa0cfc)[0x7291730a0cfc]|/lib/x86_64-linux-gnu/libc.so.6(+0xa30ab)[0x7291730a30ab]|/lib/x86_64-linux-gnu/libc.so.6(free+0x73)[0x7291730a5453]|/tmp/tmp.URWVyKG237/test_r(yaml_token_delete+0x32)[0x598c4f58a162]|/tmp/tmp.URWVyKG237/test_r(yaml_parser_delete+0xbc)[0x598c4f5895fc]|/tmp/tmp.URWVyKG237/test_r(+0x539fb)[0x598c4f5879fb]|/tmp/tmp.URWVyKG237/test_r(+0x4e9d6)[0x598c4f5829d6]|/tmp/tmp.URWVyKG237/test_r(main+0x5ed)[0x598c4f58287d]|/lib/x86_64-linux-gnu/libc.so.6(+0x29d90)[0x729173029d90]|/lib/x86_64-linux-gnu/libc.so.6(__libc_start_main+0x80)[0x729173029e40]|/tmp/tmp.URWVyKG237/test]
 test_multiple_documents
   load_error: did not find expected <document start>
   doc_count: 1

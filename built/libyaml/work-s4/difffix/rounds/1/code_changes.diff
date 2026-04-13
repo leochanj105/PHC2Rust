@@ -1,6 +1,6 @@
 diff -ru /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s4/difffix/rounds/1/src_pre/lib.rs /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s4/src/lib.rs
---- /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s4/difffix/rounds/1/src_pre/lib.rs	2026-04-12 14:56:59.736351728 -0400
-+++ /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s4/src/lib.rs	2026-04-12 15:19:00.749023240 -0400
+--- /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s4/difffix/rounds/1/src_pre/lib.rs	2026-04-13 00:42:38.188932911 -0400
++++ /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s4/src/lib.rs	2026-04-13 01:00:54.084885011 -0400
 @@ -6035,7 +6035,6 @@
              while sk != (*parser).simple_keys.top {
                  if (*sk).possible != 0

@@ -254,16 +254,38 @@ Sonnet transpile. Difffix model: Claude Sonnet.
 
 ### Round 1
 
+**Original run (no crash details in report):**
+
 | metric | value |
 |---|---|
 | Goals generated | 5 |
-| Fixes applied | 5 |
+| Goal 1 turns | 305 (rabbit hole: misdiagnosed as double-free in cleanup) |
+| Cost | $12.01 |
+
+**Re-run (stderr + backtrace in FAULT lines):**
+
+| metric | value |
+|---|---|
+| Goals generated | 3 |
+| Goal 1 turns | 75 (backtrace pointed at `yaml_token_delete` directly) |
 | Tests passed | **173** |
 | Tests failed | **0** |
-| Cost | $12.01 |
-| Tokens out | 166K |
-| Code changes | 20 lines diff |
-| Cheat audit | CLEAN — 0 forbidden path references |
+| Cost | **$6.19** |
+| Cheat audit | CLEAN |
+
+The original run's analysis had no crash info beyond `FAULT test_name SIGNAL 6`.
+It misdiagnosed the root cause as "double-free in cleanup" and generated 5 goals,
+with goal 1 spending 305 turns auditing every delete path. The re-run's analysis
+saw `stderr=[free(): double free...]` + backtrace showing `free → yaml_token_delete`,
+correctly targeted the crash location, and finished in half the cost.
+
+**Harness bug found:** `wrap_tests_independent.py` fork wrapper discarded child
+stderr. `run_difftest.sh` promised backtraces in the report but only provided
+`FAULT name SIGNAL N`. Fixed by: (1) capturing child stderr via pipe,
+(2) installing `SIGABRT`/`SIGSEGV` handler with `backtrace()` in child,
+(3) adding `-rdynamic` to link flags for symbol names. Previous s1/s2/s3/s5
+results unaffected in correctness (judger results unchanged), but their difffix
+cost may also have been inflated by the same issue.
 
 ### Independent judger verification (yaml-test-suite, 4424 cases)
 
@@ -319,7 +341,7 @@ Built on top of s4's test suite (68 tests, 2538 lines, 53.1% branch coverage).
 | Sonnet transpile (isolated) | 74.7 min | $20.82 |
 | Testgen s4 (2 rounds, from Opus era) | 13.5 min | $2.26 |
 | Testgen s5 (5 rounds, branch-guided) | ~40 min | $15.97 |
-| Difffix round 1 (s4 tests) | ~15 min | $12.01 |
+| Difffix round 1 (s4 tests, re-run with crash info) | ~15 min | $6.19 |
 | **Total so far** | **~145 min** | **$51.06** |
 
 ## Phase 4 (Sonnet): Difffix with s5 tests

@@ -110,7 +110,7 @@ else
     echo "Compiling test against Rust library..."
     # Rust binary: link with Rust lib ONLY. No C fallback, no C bridge.
     # The Rust lib provides its own bridge exports via test_bridge.rs.
-    if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -Wno-implicit-function-declaration \
+    if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -Wno-implicit-function-declaration -rdynamic \
         "$DIFFTEST" "$RUST_LIB" \
         -lm -lpthread -ldl \
         -o "${BDIR}/test_r" 2>"${BDIR}/r_compile_err.txt"; then
