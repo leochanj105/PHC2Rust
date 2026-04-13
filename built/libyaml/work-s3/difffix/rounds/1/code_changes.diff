@@ -1,0 +1,95 @@
+diff -ru /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s3/difffix/rounds/1/src_pre/lib.rs /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s3/src/lib.rs
+--- /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s3/difffix/rounds/1/src_pre/lib.rs	2026-04-12 22:45:23.896139533 -0400
++++ /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s3/src/lib.rs	2026-04-12 22:45:59.901510498 -0400
+@@ -5086,7 +5086,7 @@
+     0
+ }
+ 
+-unsafe fn yaml_parser_loader_set_composer_error(
++pub(crate) unsafe fn yaml_parser_loader_set_composer_error(
+     parser: *mut yaml_parser_t,
+     problem: *const c_char,
+     problem_mark: yaml_mark_t,
+@@ -5097,7 +5097,7 @@
+     0
+ }
+ 
+-unsafe fn yaml_parser_loader_set_composer_error_context(
++pub(crate) unsafe fn yaml_parser_loader_set_composer_error_context(
+     parser: *mut yaml_parser_t,
+     context: *const c_char,
+     context_mark: yaml_mark_t,
+@@ -5112,7 +5112,7 @@
+     0
+ }
+ 
+-unsafe fn loader_delete_aliases(parser: *mut yaml_parser_t) {
++pub(crate) unsafe fn loader_delete_aliases(parser: *mut yaml_parser_t) {
+     while !stack_empty((*parser).aliases.start, (*parser).aliases.top) {
+         let a = stack_pop(&mut (*parser).aliases.top);
+         yaml_free(a.anchor as *mut c_void);
+@@ -6035,7 +6035,6 @@
+             while sk != (*parser).simple_keys.top {
+                 if (*sk).possible != 0
+                     && (*sk).token_number == (*parser).tokens_parsed
+-                        + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize)
+                 {
+                     need_more_tokens = 1;
+                     break;
+@@ -6211,7 +6210,7 @@
+             possible: 1,
+             required,
+             token_number: (*parser).tokens_parsed
+-                + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize),
++                + (*parser).tokens.tail.offset_from((*parser).tokens.head) as usize,
+             mark: (*parser).mark,
+         };
+ 
+diff -ru /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s3/difffix/rounds/1/src_pre/test_bridge.rs /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s3/src/test_bridge.rs
+--- /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s3/difffix/rounds/1/src_pre/test_bridge.rs	2026-04-12 22:45:23.896139533 -0400
++++ /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s3/src/test_bridge.rs	2026-04-12 22:46:07.171585156 -0400
+@@ -1183,32 +1183,29 @@
+     crate::yaml_emitter_set_writer_error(emitter, problem)
+ }
+ 
+-// ── stubs for functions Sonnet did not implement ──
+-// These return 0 / do nothing — the Rust transpile is missing these functions.
+-// The C side has real implementations, so any test calling these will show a diff.
+-
+ #[no_mangle]
+ pub unsafe extern "C" fn bridge_yaml_parser_set_composer_error(
+-    _parser: *mut yaml_parser_t,
+-    _problem: *const c_char,
+-    _problem_mark: yaml_mark_t,
++    parser: *mut yaml_parser_t,
++    problem: *const c_char,
++    problem_mark: yaml_mark_t,
+ ) -> c_int {
+-    0
++    crate::yaml_parser_loader_set_composer_error(parser, problem, problem_mark)
+ }
+ 
+ #[no_mangle]
+ pub unsafe extern "C" fn bridge_yaml_parser_set_composer_error_context(
+-    _parser: *mut yaml_parser_t,
+-    _context: *const c_char,
+-    _context_mark: yaml_mark_t,
+-    _problem: *const c_char,
+-    _problem_mark: yaml_mark_t,
++    parser: *mut yaml_parser_t,
++    context: *const c_char,
++    context_mark: yaml_mark_t,
++    problem: *const c_char,
++    problem_mark: yaml_mark_t,
+ ) -> c_int {
+-    0
++    crate::yaml_parser_loader_set_composer_error_context(parser, context, context_mark, problem, problem_mark)
+ }
+ 
+ #[no_mangle]
+ pub unsafe extern "C" fn bridge_yaml_parser_delete_aliases(
+-    _parser: *mut yaml_parser_t,
++    parser: *mut yaml_parser_t,
+ ) {
++    crate::loader_delete_aliases(parser)
+ }

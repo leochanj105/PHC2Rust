@@ -1,0 +1,749 @@
+=== version ===
+version_string_nonempty=1
+major=0 minor=2 patch=5
+=== scan_basic ===
+token 1 enc=1
+token 8
+token 16
+token 21 style=1 len=3 val=key
+token 17
+token 21 style=1 len=5 val=value
+token 9
+token 2
+=== scan_empty ===
+token 1 enc=1
+token 2
+=== scan_flow ===
+token 1 enc=1
+token 12
+token 16
+token 21 style=1 len=1 val=a
+token 17
+token 21 style=1 len=1 val=1
+token 15
+token 16
+token 21 style=1 len=1 val=b
+token 17
+token 10
+token 21 style=1 len=1 val=2
+token 15
+token 21 style=1 len=1 val=3
+token 11
+token 13
+token 2
+=== scan_directive ===
+token 1 enc=1
+token 3 major=1 minor=1
+token 5
+token 21 style=1 len=6 val=scalar
+token 2
+=== scan_anchor_alias ===
+token 1 enc=1
+token 7
+token 14
+token 19 val=a
+token 21 style=1 len=3 val=val
+token 14
+token 18 val=a
+token 9
+token 2
+=== scan_tag ===
+token 1 enc=1
+token 20 handle=!! suffix=str
+token 21 style=1 len=5 val=value
+token 2
+=== scan_block_scalar ===
+token 1 enc=1
+token 21 style=4 len=12 val=line1
+line2
+
+token 2
+token 1 enc=1
+token 21 style=5 len=6 val=folded
+token 2
+=== scan_flow_scalar ===
+token 1 enc=1
+token 21 style=2 len=13 val=single quoted
+token 2
+token 1 enc=1
+token 21 style=3 len=13 val=double quoted
+token 2
+=== scan_malformed_utf8 ===
+token 1 enc=2
+token 2
+scan_error 2
+scan_error 2
+=== parse_basic ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=3 style=1 plain=1 quoted=0 val=key
+event 6 len=5 style=1 plain=1 quoted=0 val=value
+event 10
+event 4 implicit=1
+event 2
+=== parse_empty ===
+event 1 enc=1
+event 2
+=== parse_sequence ===
+event 1 enc=1
+event 3 implicit=1
+event 7 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 6 len=1 style=1 plain=1 quoted=0 val=b
+event 6 len=1 style=1 plain=1 quoted=0 val=c
+event 8
+event 4 implicit=1
+event 2
+=== parse_mapping ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 6 len=1 style=1 plain=1 quoted=0 val=1
+event 6 len=1 style=1 plain=1 quoted=0 val=b
+event 6 len=1 style=1 plain=1 quoted=0 val=2
+event 10
+event 4 implicit=1
+event 2
+=== parse_nested ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=b
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=c
+event 6 len=1 style=1 plain=1 quoted=0 val=d
+event 10
+event 10
+event 10
+event 4 implicit=1
+event 2
+=== parse_flow ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=2 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 7 style=2 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=1
+event 6 len=1 style=1 plain=1 quoted=0 val=2
+event 8
+event 6 len=1 style=1 plain=1 quoted=0 val=b
+event 9 style=2 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=c
+event 6 len=1 style=1 plain=1 quoted=0 val=d
+event 10
+event 10
+event 4 implicit=1
+event 2
+=== parse_anchor_alias ===
+event 1 enc=1
+event 3 implicit=1
+event 7 style=1 implicit=1
+event 6 len=3 style=1 plain=1 quoted=0 val=val anchor=a
+event 5 anchor=a
+event 8
+event 4 implicit=1
+event 2
+=== parse_duplicate_anchor ===
+parse_error 2
+=== parse_undefined_alias ===
+event 1 enc=1
+event 3 implicit=1
+event 7 style=1 implicit=1
+event 5 anchor=undef
+event 8
+event 4 implicit=1
+event 2
+=== parse_multi_document ===
+event 1 enc=1
+event 3 implicit=0
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 6 len=1 style=1 plain=1 quoted=0 val=1
+event 10
+event 4 implicit=1
+event 3 implicit=0
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=b
+event 6 len=1 style=1 plain=1 quoted=0 val=2
+event 10
+event 4 implicit=0
+event 2
+=== parse_explicit_document ===
+event 1 enc=1
+event 3 implicit=0
+event 9 style=1 implicit=1
+event 6 len=3 style=1 plain=1 quoted=0 val=key
+event 6 len=3 style=1 plain=1 quoted=0 val=val
+event 10
+event 4 implicit=0
+event 2
+=== parse_version_directive ===
+event 1 enc=1
+event 3 implicit=0 ver=1.1
+event 6 len=6 style=1 plain=1 quoted=0 val=scalar
+event 4 implicit=1
+event 2
+=== parse_tag_directive ===
+event 1 enc=1
+event 3 implicit=0
+event 6 len=3 style=1 plain=0 quoted=0 val=bar tag=tag:example.com,2000:foo
+event 4 implicit=1
+event 2
+=== parse_long_scalar ===
+event 1 enc=1
+event 3 implicit=1
+event 6 len=3999 style=3 plain=0 quoted=1 val=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+event 4 implicit=1
+event 2
+=== parse_deep_nest ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+parse_error 3
+=== parse_flow_sequence ===
+event 1 enc=1
+event 3 implicit=1
+event 7 style=2 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=1
+event 6 len=1 style=1 plain=1 quoted=0 val=2
+event 6 len=1 style=1 plain=1 quoted=0 val=3
+event 9 style=2 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 6 len=1 style=1 plain=1 quoted=0 val=b
+event 10
+event 7 style=2 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=x
+event 6 len=1 style=1 plain=1 quoted=0 val=y
+event 8
+event 8
+event 4 implicit=1
+event 2
+=== parse_flow_mapping_ordered ===
+parse_error 2
+=== parse_block_sequence ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 7 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=x
+event 6 len=1 style=1 plain=1 quoted=0 val=y
+event 8
+event 10
+event 4 implicit=1
+event 2
+=== parse_indentless_sequence ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 7 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=x
+event 6 len=1 style=1 plain=1 quoted=0 val=y
+event 8
+event 10
+event 4 implicit=1
+event 2
+=== parse_null_scalar ===
+event 1 enc=1
+event 3 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=~
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=4 style=1 plain=1 quoted=0 val=null
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 2
+=== parse_bool_scalar ===
+event 1 enc=1
+event 3 implicit=1
+event 6 len=4 style=1 plain=1 quoted=0 val=true
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=5 style=1 plain=1 quoted=0 val=false
+event 4 implicit=1
+event 2
+=== parse_int_float ===
+event 1 enc=1
+event 3 implicit=1
+event 6 len=2 style=1 plain=1 quoted=0 val=42
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=4 style=1 plain=1 quoted=0 val=3.14
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=4 style=1 plain=1 quoted=0 val=0x1F
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=4 style=1 plain=1 quoted=0 val=0o17
+event 4 implicit=1
+event 2
+=== parse_special_chars ===
+event 1 enc=1
+event 3 implicit=1
+event 6 len=9 style=3 plain=0 quoted=1 val=tab:	here
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=9 style=3 plain=0 quoted=1 val=newline:
+
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=6 style=3 plain=0 quoted=1 val=null:
+event 4 implicit=1
+event 2
+=== parse_set_encoding ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 6 len=1 style=1 plain=1 quoted=0 val=b
+event 10
+event 4 implicit=1
+event 2
+=== load_basic ===
+node type=3 tag=tag:yaml.org,2002:map style=1
+  node type=1 tag=tag:yaml.org,2002:str len=3 style=1 val=key
+  node type=1 tag=tag:yaml.org,2002:str len=5 style=1 val=value
+=== load_empty ===
+=== load_sequence ===
+node type=2 tag=tag:yaml.org,2002:seq style=1
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=a
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=b
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=c
+=== load_mapping ===
+node type=3 tag=tag:yaml.org,2002:map style=1
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=x
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=1
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=y
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=2
+=== load_anchor_alias ===
+node type=2 tag=tag:yaml.org,2002:seq style=1
+  node type=1 tag=tag:yaml.org,2002:str len=3 style=1 val=val
+  node type=1 tag=tag:yaml.org,2002:str len=3 style=1 val=val
+=== load_multi ===
+node type=3 tag=tag:yaml.org,2002:map style=1
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=a
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=1
+node type=3 tag=tag:yaml.org,2002:map style=1
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=b
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=2
+=== load_nested ===
+node type=3 tag=tag:yaml.org,2002:map style=1
+  node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=a
+  node type=3 tag=tag:yaml.org,2002:map style=1
+    node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=b
+    node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=c
+    node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=d
+    node type=2 tag=tag:yaml.org,2002:seq style=1
+      node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=1
+      node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=2
+=== load_undefined_alias ===
+load_error 5
+=== load_duplicate_anchor ===
+load_error 2
+=== emit_basic ===
+hello
+=== emit_sequence ===
+- item1
+- item2
+=== emit_mapping ===
+key: val
+=== emit_anchor_alias ===
+- &anchor val
+- *anchor
+=== emit_canonical ===
+---
+!!map {
+  ? !!str "k"
+  : !!str "v",
+}
+...
+=== emit_scalar_styles ===
+plain value
+'single quoted'
+"double quoted"
+|-
+  literal
+  scalar
+>-
+  folded scalar
+=== emit_tag_directive ===
+%TAG ! tag:example.com,2000:
+--- value
+...
+=== emit_version_directive ===
+%YAML 1.1
+--- v
+...
+=== emit_unicode ===
+☺
+=== emit_settings ===
+a:
+- x
+- y
+=== dump_basic ===
+root_id=1
+hello
+=== dump_sequence ===
+seq=1 s1=2 s2=3
+- a
+- b
+=== dump_mapping ===
+mp=1 k=2 v=3
+key: value
+=== dump_nested ===
+items:
+- x
+- y
+=== dump_empty_doc ===
+
+=== document_api ===
+version=1.1
+scalar_node type=1
+seq_node type=2
+map_node type=3
+root_node type=1
+node0 is_null=1
+=== event_init ===
+stream_start type=1 enc=1
+stream_end type=2
+doc_start type=3 impl=1
+doc_end type=4 impl=0
+alias type=5 anchor=myanchor
+scalar type=6 len=5 style=1 plain=1
+seq_start type=7 style=1
+seq_end type=8
+map_start type=9 style=1
+map_end type=10
+=== token_delete ===
+token_type_after_delete=0
+anchor_type_after_delete=0
+alias_type_after_delete=0
+tag_type_after_delete=0
+=== bridge_check_utf8 ===
+ascii=1
+utf8_2byte=1
+utf8_3byte=1
+utf8_4byte=1
+lone_cont=0
+overlong=0
+truncated=0
+empty=1
+ff_byte=0
+=== bridge_read_handlers ===
+str_read=1 size=3
+str_read2=1 size=2
+str_eof=1 size=0
+=== bridge_write_handlers ===
+str_write=1
+written=5
+=== bridge_error_setters ===
+reader_error=2
+scanner_error=3
+parser_error=4
+parser_ctx_error=4
+emitter_error=7
+writer_error=6
+=== bridge_parser_internals ===
+determine_encoding=1 enc=1
+update_raw_buffer=1
+max_level=0
+stale_simple_keys=1
+increase_flow=1 level=1
+decrease_flow=1 level=0
+=== bridge_fetch_stream ===
+fetch_stream_start=1
+=== bridge_scanner_scan ===
+save_simple_key=1
+remove_simple_key=1
+scan_to_next_token=1
+fetch_next_token=1
+=== bridge_scan_directives ===
+scan_directives_done=1
+process_directives=1
+ver_token=1.1
+=== bridge_scan_anchor_tag ===
+anchor=myanchor
+tag_handle=!! suffix=str
+=== bridge_scan_scalars ===
+block_scalar style=4 val=line1
+line2
+
+flow_sq style=2 val=hello world
+flow_dq style=3
+plain style=1
+=== bridge_scan_uri_escapes ===
+tag_handle= suffix=AB
+=== bridge_parser_state_machine ===
+sm1 ret=1 type=1
+sm2 ret=1 type=3
+=== bridge_parse_fns ===
+parse_stream_start=1 type=1
+empty_scalar=1 type=6
+=== bridge_emitter_analyze ===
+analyze_ver=1
+analyze_tag_dir=1
+analyze_anchor=1
+analyze_alias=1
+analyze_tag=1
+analyze_scalar=1 multiline=0
+flow_plain=1 block_plain=1 sq=1 block=1
+analyze_multiline=1 multiline=1
+=== bridge_emitter_checks ===
+check_empty_doc=0
+need_more_events=1
+check_empty_seq=0
+check_empty_map=0
+check_simple_key=0
+=== bridge_emitter_indent ===
+increase_indent=1 indent=0
+=== bridge_emitter_append_tag_dir ===
+append_tag=1
+dup_tag_no_allow=0 err=7
+=== bridge_emitter_generate_anchor ===
+anchor1=id001
+anchor2=id002
+anchor100=id100
+=== bridge_emitter_write_fns ===
+write_bom=1
+write_indent=1
+write_indicator=1
+write_anchor=1
+write_tag_handle=1
+write_tag_content=1
+write_plain=1
+write_sq=1
+write_dq=1
+write_block_hints=1
+write_literal=1
+write_folded=1
+=== bridge_emitter_state_machine ===
+sm_stream_start=1 state=1
+sm_doc_start=1 state=3
+sm_scalar=1 state=4
+sm_doc_end=1 state=2
+sm_stream_end=1 state=17
+=== bridge_emitter_emit_fns ===
+emit_stream_start=1
+emit_doc_start=1
+emit_doc_content=1
+=== bridge_emitter_select_style ===
+select_style=1 style=1
+=== bridge_emitter_analyze_event ===
+analyze_event_scalar=1
+analyze_event_seq=1
+=== bridge_emitter_process_fns ===
+process_anchor=1
+process_tag=1
+process_scalar=1
+=== bridge_loader ===
+delete_aliases_done=1
+register_anchor=exercised_via_load
+composer_error=5
+composer_ctx_error=5
+bridge_load_node_type=3
+=== bridge_dumper ===
+anchor_node_done=1
+- item
+delete_doc_anchors=exercised_via_dump
+=== bridge_dump_node ===
+dump_scalar=1
+scalar_val
+dump_sequence=1
+- item
+dump_mapping=1
+k: v
+dump_alias=1
+- &id001 val
+- *id001
+=== bridge_reader_writer ===
+file_read=1 size=4
+file_write=1
+=== max_nest_level ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+event 9 style=1 implicit=1
+event 6 len=1 style=1 plain=1 quoted=0 val=k
+parse_error 4
+max_nest_restored=1
+=== edge_empty_scalar ===
+event 1 enc=1
+event 3 implicit=1
+event 6 len=0 style=2 plain=0 quoted=1 val=
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=0 style=3 plain=0 quoted=1 val=
+event 4 implicit=1
+event 2
+=== edge_special_float ===
+event 1 enc=1
+event 3 implicit=1
+event 6 len=4 style=1 plain=1 quoted=0 val=.inf
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=5 style=1 plain=1 quoted=0 val=-.inf
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=4 style=1 plain=1 quoted=0 val=.nan
+event 4 implicit=1
+event 2
+=== edge_multiline_mapping_key ===
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=3 style=1 plain=1 quoted=0 val=key
+event 6 len=3 style=1 plain=1 quoted=0 val=val
+event 10
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 9 style=1 implicit=1
+event 6 len=3 style=1 plain=1 quoted=0 val=a b
+event 6 len=1 style=1 plain=1 quoted=0 val=c
+event 10
+event 4 implicit=1
+event 2
+=== edge_flow_mapping_empty_value ===
+event 1 enc=1
+parse_error 3
+event 1 enc=1
+parse_error 3
+=== edge_block_scalar_chomping ===
+token 1 enc=1
+token 21 style=4 len=5 val=line
+
+token 2
+token 1 enc=1
+token 21 style=4 len=4 val=line
+token 2
+token 1 enc=1
+token 21 style=4 len=4 val=line
+token 2
+=== edge_tag_forms ===
+event 1 enc=1
+event 3 implicit=1
+event 6 len=1 style=1 plain=0 quoted=0 val=~ tag=tag:yaml.org,2002:null
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=5 style=1 plain=0 quoted=0 val=value tag=tag:example
+event 4 implicit=1
+event 2
+event 1 enc=1
+event 3 implicit=1
+event 6 len=5 style=1 plain=0 quoted=0 val=value tag=!local
+event 4 implicit=1
+event 2
+=== edge_long_anchor ===
+event 1 enc=1
+event 3 implicit=1
+event 6 len=5 style=1 plain=1 quoted=0 val=value anchor=0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+event 4 implicit=1
+event 2
+=== edge_repeated_docs ===
+event 1 enc=1
+event 3 implicit=0
+event 6 len=1 style=1 plain=1 quoted=0 val=a
+event 4 implicit=1
+event 3 implicit=0
+event 6 len=1 style=1 plain=1 quoted=0 val=b
+event 4 implicit=1
+event 3 implicit=0
+event 6 len=1 style=1 plain=1 quoted=0 val=c
+event 4 implicit=1
+event 2
+=== edge_nested_flow ===
+event 1 enc=1
+parse_error 3

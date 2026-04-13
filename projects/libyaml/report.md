@@ -417,6 +417,47 @@ judger's 157 diffs — those are caused by the 2 bugs only s5 surfaces.
 (s1: ~16 lines each) both plateau at the same ceiling without branch-level
 guidance. Only explicit branch-coverage feedback (s5) breaks through.
 
+## Phase 4 (Sonnet): Difffix with s3 tests
+
+Fresh copy of Sonnet's buggy transpile (`rust-baseline-test` → `rust-s3`).
+Difffix model: Claude Sonnet.
+
+Note: first s3 difffix attempt reported 0 failures due to a bug in
+`compare_outputs.py` — the script crashed on non-UTF-8 bytes in test output
+(s3 specifically tests malformed UTF-8). The `|| echo 0` fallback silently
+reported success. Fixed with `open(filepath, errors='replace')`. Previous
+s1/s4/s5 results unaffected (their outputs were clean UTF-8).
+
+### Baseline (round 0)
+
+| metric | value |
+|---|---|
+| Tests passed | 287 |
+| Tests failed | **206** (19 crashes + 116 missing + 71 mismatches) |
+| Crashes | 19 functions hit SIGABRT |
+
+### Rounds
+
+| round | prev_fails | fails | goals | cost |
+|---|---|---|---|---|
+| 1 | 206 | **0** | 4 | $3.43 |
+
+### s3 outcome
+
+All 493 test lines pass after 1 round. s3's edge-case tests (malformed UTF-8,
+deep nesting, boundary values) exposed bugs that Sonnet fixed in a single pass.
+
+### Independent judger verification
+
+| metric | value |
+|---|---|
+| match | **4267 (96.4%)** |
+| diff | **157** |
+| panic | 0 |
+
+Same 96.4% / 157 diffs as s1 and s4 — s3's edge-case focus does not break
+through the plateau either. Only s5's branch-coverage guidance reaches 100%.
+
 ### Causal analysis: why s5 succeeded where s4 didn't
 
 s4 difffix left 157 judger diffs. s5 difffix closed all 157. The 157 cases

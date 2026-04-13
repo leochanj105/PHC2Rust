@@ -1,0 +1,94 @@
+============================================================
+Differential Test Report (C vs Rust)
+Generated: 2026-04-12 22:34
+============================================================
+
+## OUTPUT COMPARISON
+
+C test output:    749 lines
+Rust test output: 627 lines
+
+WARNING: Rust produced fewer output lines (627 vs 749).
+Likely cause: crash or missing functions. Lines after crash are missing.
+
+C output: 493 test lines
+Rust output: 379 test lines
+
+FAULT (19 test functions crashed/timed out):
+  FAULT scan_basic SIGNAL 6
+  FAULT scan_flow SIGNAL 6
+  FAULT parse_basic SIGNAL 6
+  FAULT parse_mapping SIGNAL 6
+  FAULT parse_nested SIGNAL 6
+  FAULT parse_flow SIGNAL 6
+  FAULT parse_multi_document SIGNAL 6
+  FAULT parse_explicit_document SIGNAL 6
+  FAULT parse_deep_nest SIGNAL 6
+  FAULT parse_flow_sequence SIGNAL 6
+  FAULT parse_block_sequence SIGNAL 6
+  FAULT parse_indentless_sequence SIGNAL 6
+  FAULT parse_set_encoding SIGNAL 6
+  FAULT load_basic SIGNAL 6
+  FAULT load_mapping SIGNAL 6
+  FAULT load_nested SIGNAL 6
+  FAULT bridge_loader SIGNAL 6
+  FAULT max_nest_level SIGNAL 6
+  FAULT edge_flow_mapping_empty_value SIGNAL 6
+
+MISSING (116 tests, 4 functions):
+Functions not in Rust output (not implemented or crashed):
+  event: 93 tests
+  max_nest_restored: 1 tests
+  node: 19 tests
+  token: 3 tests
+
+MISMATCH (90 tests, 6 functions):
+C and Rust produce different results:
+  bridge_load_node_type: 1 mismatches
+    C:    bridge_load_node_type=3
+    Rust: bridge_load_node_type=1
+  composer_ctx_error: 1 mismatches
+    C:    composer_ctx_error=5
+    Rust: composer_ctx_error=0
+  composer_error: 1 mismatches
+    C:    composer_error=5
+    Rust: composer_error=0
+  event: 64 mismatches
+    C:    event 9 style=1 implicit=1
+    Rust: event 9 style=2 implicit=1
+    C:    event 6 len=5 style=1 plain=1 quoted=0 val=value
+    Rust: event 6 len=1 style=1 plain=1 quoted=0 val=a
+    C:    event 6 len=1 style=1 plain=1 quoted=0 val=a
+    Rust: event 6 len=1 style=1 plain=1 quoted=0 val=b
+    ... (61 more)
+  node: 11 mismatches
+    C:    node type=3 tag=tag:yaml.org,2002:map style=1
+    Rust: node type=1 tag=tag:yaml.org,2002:str len=3 style=1 val=key
+    C:    node type=1 tag=tag:yaml.org,2002:str len=3 style=1 val=key
+    Rust: node type=2 tag=tag:yaml.org,2002:seq style=1
+    C:    node type=1 tag=tag:yaml.org,2002:str len=5 style=1 val=value
+    Rust: node type=1 tag=tag:yaml.org,2002:str len=1 style=1 val=a
+    ... (8 more)
+  token: 12 mismatches
+    C:    token 21 style=1 len=5 val=value
+    Rust: token 21 style=1 len=3 val=�ߒ
+    C:    token 21 style=1 len=1 val=1
+    Rust: token 21 style=1 len=1 val=�ߒ
+    C:    token 21 style=1 len=1 val=b
+    Rust: token 21 style=1 len=6 val=scalar
+    ... (9 more)
+
+SUMMARY
+Tests passed:     287
+Tests failed:     206
+Missing functions: event, max_nest_restored, node, token
+Mismatched functions: bridge_load_node_type, composer_ctx_error, composer_error, event, node, token
+
+## FUNCTION LOCATION MAP
+
+Use this to find where each function is defined (do NOT read all files):
+
+
+============================================================
+Tests failed:     206
+============================================================

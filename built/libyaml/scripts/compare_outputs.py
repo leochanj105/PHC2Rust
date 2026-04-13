@@ -50,7 +50,7 @@ def parse_output(filepath, ignored=None):
         ignored = _ignore_keys()
     test_lines = []
     fault_lines = []
-    with open(filepath) as f:
+    with open(filepath, errors='replace') as f:
         for line in f:
             line = line.strip()
             if not line:
