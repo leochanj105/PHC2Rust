@@ -24,6 +24,10 @@ print the result in %a hex float format, e.g.:
     bridge___ctans(double _Complex z)
     bridge___ctansf(float _Complex z)
     bridge___sin_pif(float x)
+==__EDGE_CASE_HINT__==
+For each function, include multiple inputs to cover edge cases:
+NaN, +Inf, -Inf, +0.0, -0.0, denormals, very large values, very small values,
+and boundary values.
 ==__ADDITIONAL_RULES__==
 - Print all results in %a hex float format.
 ==__ADDITIONAL_PROMPT__==

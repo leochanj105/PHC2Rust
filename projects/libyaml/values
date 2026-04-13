@@ -15,6 +15,10 @@ printing events, scalar values, and emitted output as plain text so that
 C and Rust outputs can be diffed line-by-line.
 ==__BRIDGE_WRAPPERS__==
     (See test_bridge.h for the full list — too many to inline here.)
+==__EDGE_CASE_HINT__==
+For each function, include multiple inputs to cover edge cases:
+empty input, malformed UTF-8, deeply nested structures, very long scalars,
+duplicate anchors, undefined aliases, and boundary values.
 ==__ADDITIONAL_RULES__==
 - Do NOT print human-readable strings from library internals (e.g. parser.problem,
   emitter.problem, error message text). Print the numeric/enum value instead

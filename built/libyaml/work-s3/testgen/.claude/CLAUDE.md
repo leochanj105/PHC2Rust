@@ -1,16 +1,11 @@
 # Project Context
 
 ## Library
-Libmcs — a C math library (libm implementation). IEEE 754 compliant.
+libyaml — a C YAML 1.1 parser and emitter library.
 
 ## Comparison rule
-All outputs must be bitwise exact. Use %a hex float format. Zero tolerance.
+All outputs must match line-by-line. Zero tolerance.
 
 ## Source layout
-- /home/leochanj/Desktop/libmcs/libm/mathd/       — double-precision functions
-- /home/leochanj/Desktop/libmcs/libm/mathf/       — float-precision functions
-- /home/leochanj/Desktop/libmcs/libm/complexd/    — complex double functions
-- /home/leochanj/Desktop/libmcs/libm/complexf/    — complex float functions
-- /home/leochanj/Desktop/libmcs/libm/common/      — shared utilities
-- /home/leochanj/Desktop/libmcs/libm/include/     — headers (math.h, complex.h, fenv.h)
-Each directory has an internal/ subdirectory with helper functions.
+- /home/leochanj/Desktop/libyaml/src/        — all .c sources (parser, scanner, emitter, ...)
+- /home/leochanj/Desktop/libyaml/include/    — public headers (yaml.h)
