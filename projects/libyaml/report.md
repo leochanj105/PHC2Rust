@@ -53,9 +53,21 @@ Two clean runs completed; most recent kept as the current `work-s1/testgen/test_
 The first s1 run produced 38 test functions / 1097 lines / 16 bridge calls.
 Claude makes different choices each invocation, so the count varies run-to-run.
 
-### s3_edgecase — killed by user, not completed
+### s3_edgecase — one-shot with YAML-specific edge cases
 
-8 tool uses, no result. Not counted toward cost. Will re-run later.
+| metric | value |
+|---|---|
+| mode | one-shot (no coverage feedback) |
+| model | Claude Sonnet |
+| test functions | 99 |
+| lines | 2466 |
+| printf calls | 309 |
+| edge cases | empty input, malformed UTF-8, deeply nested structures, very long scalars, duplicate anchors, undefined aliases, boundary values |
+| permission audit | 0 forbidden-path hits |
+
+Note: first attempt was killed (had wrong edge-case hints from libmcs — "NaN, +Inf" etc.).
+Re-run after fixing `_hint_edge_cases.md` to use `__EDGE_CASE_HINT__` placeholder with
+YAML-specific values. libmcs baked prompt verified hash-identical before/after framework change.
 
 ### s4_function — coverage-guided loop (the working run)
 
@@ -92,8 +104,9 @@ Final `test_suite.c`: **2538 lines, 68 test functions, 69 bridge calls.**
 |---|---|---|
 | Transpile | 26.0 min | $19.07 |
 | Testgen s1 (last run) | 4.8 min | $0.96 |
+| Testgen s3 (one-shot, edge cases) | 33.5 min | $6.03 |
 | Testgen s4 (both rounds, runtime-coverage run) | 13.5 min | $2.26 |
-| **Total** | **44.3 min** | **$22.29** |
+| **Total** | **77.8 min** | **$28.32** |
 
 Not included: earlier failed/debug runs of s4 (3 attempts totaling ~10 min,
 roughly $1–2 of exploratory cost) and the killed s3 run.
