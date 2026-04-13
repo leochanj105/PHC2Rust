@@ -41,11 +41,10 @@ export ANALYSIS_CMD="${ANALYSIS_CMD:-claude}"
 _ensure_claude_setup() {
     local claude_dir="${HARNESS_DIR}/.claude"
 
-    # Skip if already set up (avoids race condition with parallel scripts)
-    if [ -f "${claude_dir}/CLAUDE.md" ] && [ -f "${claude_dir}/settings.json" ]; then
-        return
-    fi
-
+    # Always overwrite: different projects share HARNESS_DIR, so a stale
+    # settings.json from a prior project (e.g. libmcs) would block access
+    # to the current project's paths. Baking ensures the heredoc below
+    # reflects the current project's CLAUDE_MD / SETTINGS_JSON values.
     mkdir -p "$claude_dir"
 
     # Lightweight CLAUDE.md — instructions only, no embedded source
@@ -176,10 +175,11 @@ setup_scenario_workdir() {
         expand_prompt "$src" "${work_dir}/prompts/${prompt}.md" "$rust_dir"
     done
 
-    # Copy lightweight .claude/ from harness for prompt caching + permissions
-    if [ ! -d "${work_dir}/.claude" ]; then
-        cp -r "${HARNESS_DIR}/.claude" "${work_dir}/.claude"
-    fi
+    # Copy lightweight .claude/ from harness for prompt caching + permissions.
+    # Always refresh (rm -rf + cp) so stale settings from a prior project
+    # do not leak into this scenario.
+    rm -rf "${work_dir}/.claude"
+    cp -r "${HARNESS_DIR}/.claude" "${work_dir}/.claude"
 
     # Copy bridge files to testgen dir. Supports both layouts:
     #   - single-file: test_bridge.h + test_bridge.c (libmcs)

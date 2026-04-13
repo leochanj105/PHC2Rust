@@ -13,8 +13,8 @@ Cover ALL functions in this library, including internal static functions
 that are not declared in headers.
 
 For each function, include multiple inputs to cover edge cases:
-NaN, +Inf, -Inf, +0.0, -0.0, denormals, very large values, very small values,
-and boundary values.
+empty input, malformed UTF-8, deeply nested structures, very long scalars,
+duplicate anchors, undefined aliases, and boundary values.
 
 ## Static functions
 

@@ -40,15 +40,20 @@ prepare_difftest() {
     python3 "${EXP_DIR}/scripts/wrap_tests_independent.py" \
         "${diffgen_dir}/difftest_suite_raw.c" \
         "${diffgen_dir}/difftest_suite.c" 2
-    # Copy bridge
-    [ -f "${testgen_dir}/test_bridge.c" ] && cp "${testgen_dir}/test_bridge.c" "${diffgen_dir}/test_bridge.c"
+    # Copy bridge files. Supports single-file (test_bridge.c, libmcs) and
+    # per-file (bridge_*.c, libyaml) layouts. The header is always copied.
     [ -f "${testgen_dir}/test_bridge.h" ] && cp "${testgen_dir}/test_bridge.h" "${diffgen_dir}/test_bridge.h"
+    [ -f "${testgen_dir}/test_bridge.c" ] && cp "${testgen_dir}/test_bridge.c" "${diffgen_dir}/test_bridge.c"
+    for _bf in "${testgen_dir}"/bridge_*.c; do
+        [ -f "$_bf" ] && cp "$_bf" "${diffgen_dir}/"
+    done
 
     echo "  difftest_suite.c = test_suite.c wrapped ($(grep -c 'printf(' "${diffgen_dir}/difftest_suite.c") prints)"
 
     # Compile check against C lib
     local INC_FLAGS=""
     for d in $C_INCLUDE_DIRS; do INC_FLAGS="$INC_FLAGS -I$d"; done
+    for d in $C_SRC_DIRS; do INC_FLAGS="$INC_FLAGS -I$d"; done
 
     local C_SRCS=""
     for d in $C_SRC_DIRS; do
@@ -65,12 +70,21 @@ prepare_difftest() {
         $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -c $C_SRCS 2>/dev/null
         ar rcs libc_impl.a ./*.o 2>/dev/null
         rm -f ./*.o
-        BRIDGE_OBJ=""
-        [ -f "${diffgen_dir}/test_bridge.c" ] && \
-            $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -c "${diffgen_dir}/test_bridge.c" -o bridge.o 2>/dev/null && \
-            BRIDGE_OBJ="bridge.o"
+        # Compile bridge(s). Supports two layouts:
+        #   single-file: test_bridge.c               (libmcs)
+        #   per-file:    bridge_*.c (many files)     (libyaml)
+        BRIDGE_OBJS=""
+        _bridge_inc=""
+        for _sd in $C_SRC_DIRS; do _bridge_inc="$_bridge_inc -I$_sd"; done
+        for _bf in "${diffgen_dir}/test_bridge.c" "${diffgen_dir}"/bridge_*.c; do
+            [ -f "$_bf" ] || continue
+            _bo="$(basename "${_bf%.c}").o"
+            if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} $_bridge_inc -c "$_bf" -o "$_bo" 2>/dev/null; then
+                BRIDGE_OBJS="$BRIDGE_OBJS $_bo"
+            fi
+        done
         if $CC $INC_FLAGS ${CC_EXTRA_FLAGS:-} -Wno-implicit-function-declaration \
-            "${diffgen_dir}/difftest_suite.c" $BRIDGE_OBJ libc_impl.a -lm \
+            "${diffgen_dir}/difftest_suite.c" $BRIDGE_OBJS libc_impl.a -lm \
             -Wl,--allow-multiple-definition \
             -o /dev/null 2>"${diffgen_dir}/c_compile_err.txt"; then
             echo "    C: OK"
