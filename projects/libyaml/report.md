@@ -53,6 +53,19 @@ Two clean runs completed; most recent kept as the current `work-s1/testgen/test_
 The first s1 run produced 38 test functions / 1097 lines / 16 bridge calls.
 Claude makes different choices each invocation, so the count varies run-to-run.
 
+### s2_explicit — one-shot, all-functions emphasis
+
+| metric | value |
+|---|---|
+| mode | one-shot (no coverage feedback) |
+| model | Claude Sonnet |
+| test functions | 68 |
+| lines | 2471 |
+| printf calls | 244 |
+| duration | 17.2 min |
+| cost | $2.55 |
+| permission audit | 0 forbidden-path hits |
+
 ### s3_edgecase — one-shot with YAML-specific edge cases
 
 | metric | value |
@@ -416,6 +429,34 @@ judger's 157 diffs — those are caused by the 2 bugs only s5 surfaces.
 **The implication for testgen strategy:** more tests (s4: 68) or deeper tests
 (s1: ~16 lines each) both plateau at the same ceiling without branch-level
 guidance. Only explicit branch-coverage feedback (s5) breaks through.
+
+## Phase 4 (Sonnet): Difffix with s2 tests
+
+Fresh copy of Sonnet's buggy transpile (`rust-baseline-test` → `rust-s2`).
+Difffix model: Claude Sonnet.
+
+### Baseline (round 0)
+
+| metric | value |
+|---|---|
+| Tests passed | 249 |
+| Tests failed | **324** |
+
+### Rounds
+
+| round | prev_fails | fails | goals | cost |
+|---|---|---|---|---|
+| 1 | 324 | **0** | 3 | $6.50 |
+
+### Independent judger verification
+
+| metric | value |
+|---|---|
+| match | **4267 (96.4%)** |
+| diff | **157** |
+| panic | 0 |
+
+s2 fix: pointer arithmetic only (same as s4). 157 diffs identical to s1/s3/s4.
 
 ## Phase 4 (Sonnet): Difffix with s3 tests
 
