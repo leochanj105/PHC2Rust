@@ -578,6 +578,45 @@ function exercised?" The loader edge case (calling load after stream end)
 and the emitter edge case (scalars with `\t`/`\r`) are branch-level
 behaviors that only s5's coverage feedback surfaced.
 
+## Cross-scenario comparison
+
+All measurements use `llvm-cov export` on test suite linked against the C library.
+333 total functions, 7091 total branches (libyaml source files only).
+
+### Test suite coverage (after testgen, before difffix)
+
+| scenario | mode | rounds | test fns | fn cov | branch cov |
+|---|---|---|---|---|---|
+| s1 naive | one-shot | 1 | 25 | 159/333 (47.7%) | 2215/7091 (31.2%) |
+| s2 explicit | one-shot | 1 | 68 | 249/333 (74.8%) | 2405/7091 (33.9%) |
+| s3 edge-case | one-shot | 1 | 99 | 253/333 (76.0%) | 2754/7091 (38.8%) |
+| s4 function-cov | loop | 2 | 68 | 254/333 (76.3%) | 2499/7091 (35.2%) |
+| s5 branch-cov | loop | 5 | 201 | 254/333 (76.3%) | 3450/7091 (48.7%) |
+
+Notes:
+- s2/s3/s4 converge at ~76% function coverage despite different strategies.
+- s5's branch-coverage feedback adds +13.5pp branch coverage over s4.
+- s1 (naive, no "cover all functions" instruction) only reaches 48% function coverage.
+- s3 has the most test functions (99) but similar fn/branch coverage to s2/s4.
+
+### Difffix results (all scenarios, harness v2 with crash info)
+
+| scenario | testgen cost | difffix cost | difffix rounds | judger match | judger diff |
+|---|---|---|---|---|---|
+| s1 naive | $0.96 | $2.81 | 2 | 4267 (96.4%) | 157 |
+| s2 explicit | $2.55 | $8.29 | 3 | 4267 (96.4%) | 157 |
+| s3 edge-case | $6.03 | $3.43 | 1 | 4267 (96.4%) | 157 |
+| s4 function-cov | $2.26 | $6.19 | 1 | 4267 (96.4%) | 157 |
+| s5 branch-cov | $15.97 | $17.06 | 1 | **4424 (100%)** | **0** |
+
+Notes:
+- s1–s4 all plateau at 96.4% (identical 157 diffs, same yaml-test-suite inputs × drivers).
+- Only s5 reaches 100%. The 157 diffs are caused by 2 bugs that require branch-level
+  test coverage to expose (loader event guard + printable char classification).
+- Difffix cost varies due to LLM non-determinism in analysis/fixer, not test quality.
+  s2 re-run was more expensive than original despite better crash diagnostics.
+- s1/s3 difffix diagnosed correctly without crash info; s2/s4 benefited from the fix.
+
 ### Final cost summary
 
 | step | cost |
