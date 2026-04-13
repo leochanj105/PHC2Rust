@@ -1,0 +1,52 @@
+diff -ru /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s5/difffix/rounds/1/src_pre/lib.rs /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s5/src/lib.rs
+--- /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s5/difffix/rounds/1/src_pre/lib.rs	2026-04-12 19:22:36.667134310 -0400
++++ /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s5/src/lib.rs	2026-04-12 20:12:06.636260781 -0400
+@@ -5055,6 +5055,9 @@
+     if event.type_ == YAML_STREAM_END_EVENT {
+         return 1;
+     }
++    if event.type_ != YAML_DOCUMENT_START_EVENT {
++        return 1;
++    }
+ 
+     if stack_init(
+         &mut (*parser).error,
+@@ -6035,7 +6038,6 @@
+             while sk != (*parser).simple_keys.top {
+                 if (*sk).possible != 0
+                     && (*sk).token_number == (*parser).tokens_parsed
+-                        + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize)
+                 {
+                     need_more_tokens = 1;
+                     break;
+@@ -6211,7 +6213,7 @@
+             possible: 1,
+             required,
+             token_number: (*parser).tokens_parsed
+-                + ((*parser).tokens.tail as usize - (*parser).tokens.head as usize),
++                + (*parser).tokens.tail.offset_from((*parser).tokens.head) as usize,
+             mark: (*parser).mark,
+         };
+ 
+@@ -9639,7 +9641,7 @@
+ unsafe fn str_is_printable_ptr(p: *const yaml_char_t) -> bool {
+     let c = *p;
+     if (c & 0x80) == 0 {
+-        c == b'\t' || c == b'\n' || c == b'\r' || (c >= 0x20 && c <= 0x7E)
++        c == b'\n' || (c >= 0x20 && c <= 0x7E)
+     } else if (c & 0xE0) == 0xC0 {
+         let c2 = *p.add(1);
+         let v = (((c & 0x1F) as u32) << 6) | ((c2 & 0x3F) as u32);
+@@ -9649,12 +9651,6 @@
+         let c3 = *p.add(2);
+         let v = (((c & 0x0F) as u32) << 12) | (((c2 & 0x3F) as u32) << 6) | ((c3 & 0x3F) as u32);
+         (v >= 0xA0 && v <= 0xD7FF) || (v >= 0xE000 && v <= 0xFFFD && v != 0xFEFF)
+-    } else if (c & 0xF8) == 0xF0 {
+-        let c2 = *p.add(1);
+-        let c3 = *p.add(2);
+-        let c4 = *p.add(3);
+-        let v = (((c & 0x07) as u32) << 18) | (((c2 & 0x3F) as u32) << 12) | (((c3 & 0x3F) as u32) << 6) | ((c4 & 0x3F) as u32);
+-        v >= 0x10000 && v <= 0x10FFFF
+     } else { false }
+ }
+ 

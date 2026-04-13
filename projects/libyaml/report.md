@@ -295,3 +295,51 @@ Built on top of s4's test suite (68 tests, 2538 lines, 53.1% branch coverage).
 | Testgen s5 (5 rounds, branch-guided) | ~40 min | $15.97 |
 | Difffix round 1 (s4 tests) | ~15 min | $12.01 |
 | **Total so far** | **~145 min** | **$51.06** |
+
+## Phase 4 (Sonnet): Difffix with s5 tests
+
+Fresh copy of Sonnet's buggy transpile (`rust-baseline-test` → `rust-s5`).
+Difffix model: Claude Sonnet.
+
+### Baseline (round 0)
+
+| metric | value |
+|---|---|
+| Tests passed | 511 |
+| Tests failed | **163** |
+| Runtime issues | double-free corruption, assertion failures |
+
+### Round 1
+
+| metric | value |
+|---|---|
+| Goals generated | 3 |
+| Fixes applied | 3 |
+| Tests passed | **674** |
+| Tests failed | **0** |
+| Cost | $17.06 |
+| Tokens out | 205K |
+| Cheat audit | CLEAN |
+
+### Independent judger verification (yaml-test-suite, 4424 cases)
+
+| | Sonnet transpile | after s4 difffix | after s5 difffix |
+|---|---|---|---|
+| match | 2238 (51%) | 4267 (96.4%) | **4424 (100%)** |
+| diff | 523 | 157 | **0** |
+| panic | 1663 | 0 | 0 |
+
+**s5's branch-coverage-guided tests closed the remaining 157 diffs that
+s4 missed.** The s4→s5 delta demonstrates that coverage-guided testgen
+directly improves difffix outcomes: s4 tests (53% branch coverage) left
+157 judger diffs; s5 tests (71% branch coverage) left 0.
+
+### Final cost summary
+
+| step | cost |
+|---|---|
+| Sonnet transpile (isolated) | $20.82 |
+| Testgen s4 (function-coverage, 2 rounds) | $2.26 |
+| Testgen s5 (branch-coverage, 5 rounds) | $15.97 |
+| Difffix s5 (1 round, 3 goals) | $17.06 |
+| **Total: transpile + testgen + fix to 100%** | **$56.11** |

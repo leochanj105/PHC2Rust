@@ -1,0 +1,120 @@
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+corrupted double-linked list
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+free(): double free detected in tcache 2
+
+thread '<unnamed>' panicked at src/lib.rs:5131:5:
+assertion failed: (*event).type_ == YAML_DOCUMENT_START_EVENT
+stack backtrace:
+   0: rust_begin_unwind
+             at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/panicking.rs:695:5
+   1: core::panicking::panic_fmt
+             at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/core/src/panicking.rs:75:14
+   2: core::panicking::panic
+             at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/core/src/panicking.rs:145:5
+   3: yaml::yaml_parser_load_document
+   4: yaml_parser_load
+   5: test_loader_stream_end_reuse
+   6: run_test
+   7: main
+   8: __libc_start_call_main
+             at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+   9: __libc_start_main_impl
+             at ./csu/../csu/libc-start.c:392:3
+  10: _start
+note: Some details are omitted, run with `RUST_BACKTRACE=full` for a verbose backtrace.
+
+thread '<unnamed>' panicked at library/core/src/panicking.rs:218:5:
+panic in a function that cannot unwind
+stack backtrace:
+   0:     0x57ba6c7ad550 - std::backtrace_rs::backtrace::libunwind::trace::h2b8934d68a0c74cb
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/../../backtrace/src/backtrace/libunwind.rs:117:9
+   1:     0x57ba6c7ad550 - std::backtrace_rs::backtrace::trace_unsynchronized::h72d137991fa6eab8
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/../../backtrace/src/backtrace/mod.rs:66:14
+   2:     0x57ba6c7ad550 - std::sys::backtrace::_print_fmt::h3e831e32e6da920b
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/sys/backtrace.rs:66:9
+   3:     0x57ba6c7ad550 - <std::sys::backtrace::BacktraceLock::print::DisplayBacktrace as core::fmt::Display>::fmt::h6d42cc84fc840290
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/sys/backtrace.rs:39:26
+   4:     0x57ba6c7fd653 - core::fmt::rt::Argument::fmt::h7239af9e2199f2a8
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/core/src/fmt/rt.rs:177:76
+   5:     0x57ba6c7fd653 - core::fmt::write::h5af61a909e3ec64d
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/core/src/fmt/mod.rs:1449:21
+   6:     0x57ba6c7a1b53 - std::io::Write::write_fmt::h5a7b54aa6e4a315d
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/io/mod.rs:1890:15
+   7:     0x57ba6c7ad3a2 - std::sys::backtrace::BacktraceLock::print::h555579e7396c26ac
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/sys/backtrace.rs:42:9
+   8:     0x57ba6c7af96f - std::panicking::default_hook::{{closure}}::h9128866118196224
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/panicking.rs:298:22
+   9:     0x57ba6c7af7da - std::panicking::default_hook::h52e9e7314e0255f6
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/panicking.rs:325:9
+  10:     0x57ba6c7b0382 - std::panicking::rust_panic_with_hook::h541791bcc774ef34
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/panicking.rs:831:13
+  11:     0x57ba6c7b00f6 - std::panicking::begin_panic_handler::{{closure}}::h6479a2f0137c7d19
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/panicking.rs:697:13
+  12:     0x57ba6c7ada69 - std::sys::backtrace::__rust_end_short_backtrace::ha04e7c0fc61ded91
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/sys/backtrace.rs:168:18
+  13:     0x57ba6c7afdbd - rust_begin_unwind
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/std/src/panicking.rs:695:5
+  14:     0x57ba6c7386ad - core::panicking::panic_nounwind_fmt::runtime::h9530782840bcc272
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/core/src/panicking.rs:117:22
+  15:     0x57ba6c7386ad - core::panicking::panic_nounwind_fmt::h6a24774852878975
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/core/src/intrinsics/mod.rs:3886:9
+  16:     0x57ba6c738742 - core::panicking::panic_nounwind::hbbbf5b15de703440
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/core/src/panicking.rs:218:5
+  17:     0x57ba6c73893e - core::panicking::panic_cannot_unwind::h8c0d27499c4c90fa
+                               at /rustc/05f9846f893b09a1be1fc8560e33fc3c815cfecb/library/core/src/panicking.rs:323:5
+  18:     0x57ba6c75aa1c - yaml_parser_load
+  19:     0x57ba6c746e96 - test_loader_stream_end_reuse
+  20:     0x57ba6c73a5b2 - run_test
+  21:     0x57ba6c739e35 - main
+  22:     0x77b197e29d90 - __libc_start_call_main
+                               at ./csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+  23:     0x77b197e29e40 - __libc_start_main_impl
+                               at ./csu/../csu/libc-start.c:392:3
+  24:     0x57ba6c739195 - _start
+  25:                0x0 - <unknown>
+thread caused non-unwinding panic. aborting.
+corrupted double-linked list
+corrupted double-linked list
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+corrupted double-linked list
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+corrupted double-linked list
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+corrupted double-linked list
+corrupted double-linked list
+corrupted size vs. prev_size

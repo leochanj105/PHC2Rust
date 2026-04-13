@@ -1,0 +1,821 @@
+=== libyaml test suite ===
+test_version
+  version_string: 0.2.5
+  version: 0.2.5
+test_memory
+  malloc_ok: 1
+  realloc_ok: 1
+  free_ok: 1
+  free_null_ok: 1
+  strdup: hello
+  strdup_null_ok: 1
+test_string_extend_join
+  string_extend_ok: 1
+  new_size: 32
+  string_join_ok: 1
+test_stack_queue_extend
+  stack_extend_ok: 1
+  queue_extend_ok: 1
+test_token_delete
+  token_delete_ok: 1
+  token_delete_scalar_ok: 1
+test_event_initialize
+  stream_start_type: 1
+  stream_end_type: 2
+  doc_start_type: 3
+  doc_end_type: 4
+  alias_type: 5
+  scalar_type: 6
+  seq_start_type: 7
+  seq_end_type: 8
+  map_start_type: 9
+  map_end_type: 10
+test_parser_scan
+FAULT parser_scan SIGNAL 6
+test_parser_parse
+  event: STREAM_START
+  event: DOCUMENT_START
+  event: SEQUENCE_START
+  event: SCALAR
+  event: SCALAR
+  event: SCALAR
+  event: SEQUENCE_END
+  event: DOCUMENT_END
+  event: STREAM_END
+  events: 9
+test_parser_load
+  root_type: 1
+  node1_ok: 1
+FAULT parser_load SIGNAL 6
+test_parser_encoding
+  first_event: 1
+  ok: 1
+test_parser_set_input
+  parse_ok: 1
+  event_type: 1
+test_set_max_nest_level
+  set_ok: 1
+  load_ok: 1
+FAULT set_max_nest_level SIGNAL 6
+test_emitter_basic
+  written: 11
+  output: key: value
+test_emitter_set_output
+  written: 6
+test_emitter_open_close
+  open_ok: 1
+  close_ok: 1
+test_emitter_dump
+  scalar_idx: 1
+  dump_ok: 1
+  written: 13
+test_document_api
+  scalar: 1
+  seq: 2
+  append_seq_item1: 1
+  append_seq_item2: 1
+  map: 5
+  append_map_pair: 1
+  root_type: 1
+  node_type: 1
+  delete_ok: 1
+test_parser_fetch_update
+  scan1_ok: 1 token: 1
+  fetch_more_ok: 1
+  update_buffer_ok: 1
+test_bridge_check_utf8
+  valid_utf8: 1
+  invalid_utf8: 0
+test_bridge_reader_handlers
+  string_read_ok: 1 bytes: 5
+  file_read_ok: 1 bytes: 5
+test_bridge_writer_handlers
+  string_write_ok: 1 written: 9
+  file_write_ok: 1
+test_bridge_emitter_set_errors
+  set_emitter_error_ret: 0
+  emitter_error: test emitter error
+  set_writer_error_ret: 0
+  writer_error: test writer error
+test_bridge_emitter_analyze
+  analyze_anchor_ok: 1
+  analyze_tag_ok: 1
+  analyze_scalar_ok: 1
+  analyze_version_directive_ok: 1
+  analyze_tag_directive_ok: 1
+test_bridge_emitter_write
+  write_indent_ok: 1
+  write_indicator_ok: 1
+  write_anchor_ok: 1
+  write_tag_handle_ok: 1
+  write_tag_content_ok: 1
+  write_plain_scalar_ok: 1
+test_bridge_emitter_write_quoted
+  write_single_quoted_ok: 1
+  write_double_quoted_ok: 1
+test_bridge_emitter_write_block
+  write_literal_ok: 1
+  write_folded_ok: 1
+test_bridge_emitter_checks
+  check_empty_document: 0
+  check_empty_sequence: 0
+  check_empty_mapping: 0
+  check_simple_key: 0
+  need_more_events: 1
+test_bridge_emitter_append_tag_directive
+  append_tag_directive_ok: 1
+test_bridge_emitter_increase_indent
+  increase_indent_ok: 1 indent: 0
+test_bridge_emitter_generate_anchor
+  anchor: id001
+test_bridge_emitter_dump_document
+  scalar_node: 1
+  dump_ok: 1 written: 11
+test_bridge_parser_set_errors
+  set_parser_error_ret: 0
+  parser_problem: parser_err
+  set_parser_error_context_ret: 0
+  set_reader_error_ret: 0
+  set_scanner_error_ret: 0
+  set_composer_error_ret: 0
+  set_composer_error_context_ret: 0
+  maximum_level_reached_ret: 0
+test_bridge_parser_flow_levels
+  increase_flow_ok: 1 level: 2
+  decrease_flow_ok: 1 level: 1
+test_bridge_parser_scan_full
+FAULT bridge_parser_scan_full SIGNAL 6
+test_bridge_parser_parse_full
+  scalar: mapping
+  parse_error: did not find expected <document start>
+  event_count: 4
+FAULT bridge_parser_parse_full SIGNAL 6
+test_bridge_parser_load_aliases
+  load_ok: 1
+  root_type: 2
+  delete_aliases_ok: 1
+test_bridge_parser_determine_encoding
+  update_raw_buffer_ok: 1
+  determine_encoding_ok: 1 encoding: 1
+test_bridge_parser_scan_tokens
+  fetch_next_token_ok: 1
+FAULT bridge_parser_scan_tokens SIGNAL 6
+test_bridge_parser_roll_indent
+  roll_indent_ok: 1
+  unroll_indent_ok: 1
+test_bridge_parser_fetch_stream
+  fetch_stream_start_ok: 1
+FAULT bridge_parser_fetch_stream SIGNAL 6
+test_bridge_parser_fetch_document_indicators
+FAULT bridge_parser_fetch_document_indicators SIGNAL 6
+test_bridge_parser_fetch_collections
+FAULT bridge_parser_fetch_collections SIGNAL 6
+test_bridge_parser_fetch_block_entry_key_value
+  tokens: 10
+test_bridge_parser_fetch_anchors_tags
+  tokens: 19
+test_bridge_parser_fetch_scalars
+  scalar: single quoted
+  scalar: double quoted
+  scalar: literal block
+
+  scalar: folded block
+
+  scalar: plain_scalar
+  token_count: 14
+test_bridge_parser_scan_directives
+FAULT bridge_parser_scan_directives SIGNAL 6
+test_bridge_parser_scan_uri_escapes
+  tokens: 7
+test_bridge_parser_process_directives
+  process_directives_ok: 1
+  yaml_version: 1.1
+test_bridge_parser_append_tag_directive
+  append_tag_directive_ok: 1
+test_bridge_parser_stale_save_remove_keys
+  stale_simple_keys_ok: 1
+  save_simple_key_ok: 1
+  remove_simple_key_ok: 1
+test_bridge_emitter_emit_stream
+  state_machine_stream_start: 1
+test_bridge_emitter_process_anchor_tag_scalar
+  process_anchor_ok: 1
+  process_tag_ok: 1
+  process_scalar_ok: 1
+test_bridge_emitter_select_scalar_style
+  select_scalar_style_ok: 1 style: 1
+test_bridge_emitter_write_bom
+  write_bom_ok: 1 written: 0
+test_bridge_emitter_block_scalar_hints
+  write_block_scalar_hints_ok: 1
+test_bridge_parser_parse_states
+  event_count: 4
+FAULT bridge_parser_parse_states SIGNAL 6
+test_bridge_parser_process_empty_scalar
+  events: 4
+FAULT bridge_parser_process_empty_scalar SIGNAL 6
+test_bridge_parser_register_anchor
+  load_ok: 1
+test_bridge_emitter_emit_nodes
+  seq_written: 16
+  flow_map_written: 7
+test_bridge_emitter_emit_alias
+  emit_alias_ok: 1
+  written: 30
+test_bridge_parser_flow_sequence_mapping_entries
+  events: 6
+FAULT bridge_parser_flow_sequence_mapping_entries SIGNAL 6
+test_bridge_parser_indentless_sequence
+  events: 4
+FAULT bridge_parser_indentless_sequence SIGNAL 6
+test_multiple_documents
+  load_error: did not find expected <document start>
+  doc_count: 1
+test_emitter_canonical
+  written: 71
+test_emitter_version_tag_directives
+  doc_start_with_directives: 1
+  written: 38
+test_dump_sequence_mapping_alias
+  dump_sequence_ok: 1 written: 15
+  dump_mapping_ok: 1 written: 11
+  dump_alias_ok: 1 written: 25
+test_emit_flow_sequence
+  written: 18
+  output: [one, two, three]
+
+test_flow_sequence_compact_mapping
+  input0_ok: 1 events: 14
+  input1_ok: 1 events: 10
+  input2_ok: 0 events: 4
+test_token_delete_all_types
+  tag_directive_delete_ok: 1
+  alias_delete_ok: 1
+  anchor_delete_ok: 1
+  tag_delete_ok: 1
+  no_token_delete_ok: 1
+test_emitter_cr_break
+  cr_break_written: 26
+test_emitter_crln_break
+  crln_break_written: 30
+test_emitter_utf16le_encoding
+  stream_start_ok: 1
+  utf16le_written_gt0: 1
+test_parser_utf8_bom
+  bom_parse_error: 4
+  bom_events: 4
+FAULT parser_utf8_bom SIGNAL 6
+test_emitter_special_chars_dquoted
+  special_written: 135
+test_emitter_large_output
+  large_written_gt0: 1
+test_emitter_narrow_width
+  narrow_written: 44
+test_dump_empty_document
+  dump_empty_ok: 1
+  written_gt0: 0
+test_emitter_yaml12_directive
+  doc_start_12_ok: 1
+  yaml12_written: 20
+test_emitter_open_ended_sequence
+  open_ended_written: 17
+test_emitter_single_quoted_special
+  sq_special_written: 67
+test_emitter_plain_scalar_breaks
+  plain_breaks_written: 28
+test_emitter_flow_sequence_canonical
+  canonical_seq_written: 44
+test_emitter_flow_mapping_canonical
+  canonical_map_written: 80
+test_emitter_explicit_doc
+  explicit_doc_written: 17
+test_parser_complex_flow
+  input0_tokens: 6
+  input1_tokens: 6
+  input2_tokens: 6
+  input3_tokens: 10
+FAULT parser_complex_flow SIGNAL 6
+test_parser_special_scalars
+  input0_events: 7
+  input1_events: 7
+  input2_events: 5
+  input3_events: 7
+  input4_events: 7
+  input5_events: 7
+  input6_events: 7
+  input7_events: 7
+test_emitter_block_mapping_complex
+  block_map_complex_written: 25
+test_parser_directive_errors
+  dup_yaml_tokens_or_error: 6 err: 0
+  tag_dir_tokens: 5
+test_emitter_double_quoted_breaks
+  dq_breaks_written: 45
+test_parser_block_sequence_complex
+  input0_events: 10
+  input1_events: 13
+  input2_events: 4
+FAULT parser_block_sequence_complex SIGNAL 6
+test_emitter_increase_indent_variants
+  flow_indentless_ok: 1 indent: 2
+  noflow_indentless_ok: 1 indent: 2
+  flow_noindentless_ok: 1 indent: 4
+test_emitter_analyze_anchor_alias
+  analyze_alias_anchor_ok: 1
+  analyze_anchor_def_ok: 1
+test_parser_block_scalar_variants
+  input0_tokens: 6
+  input1_tokens: 6
+  input2_tokens: 6
+  input3_tokens: 6
+FAULT parser_block_scalar_variants SIGNAL 6
+test_parser_flow_scalar_variants
+  input0_scalar_len: 11
+  input0_events: 7
+  input1_scalar_len: 10
+  input1_events: 7
+  input2_scalar_len: 3
+  input2_events: 7
+  input3_scalar_len: 21
+  input3_events: 7
+  input4_scalar_len: 3
+  input4_events: 7
+  input5_scalar_len: 22
+  input5_events: 7
+test_parser_plain_scalar_variants
+  input0_events: 7
+  input1_events: 5
+FAULT parser_plain_scalar_variants SIGNAL 6
+test_emitter_write_tag_content_variants
+  tag_content_written: 56
+test_parser_nest_limit
+  deep_ok_or_err: 0 error: 4
+FAULT parser_nest_limit SIGNAL 6
+test_document_with_tags
+  doc_start_with_all_ok: 1
+  version_major: 1
+  doc_start_vd_only_ok: 1
+test_emitter_folded_with_breaks
+  folded_written: 92
+test_api_malloc_zero_realloc
+  malloc_zero_ok: 1
+  realloc_null_ok: 1
+  realloc_zero_size_ok: 1
+  realloc_null_zero_ok: 1
+test_api_event_utf8_errors
+  alias_bad_utf8: 0
+  scalar_bad_anchor: 0
+  scalar_bad_tag: 0
+  scalar_bad_value: 0
+  scalar_len_minus1: 1
+  seq_bad_anchor: 0
+  seq_bad_tag: 0
+  map_bad_anchor: 0
+  map_bad_tag: 0
+test_api_event_with_anchor_tag
+  scalar_anchor_tag: 1
+  seq_anchor_tag: 1
+  map_anchor_tag: 1
+  scalar_anchor_only: 1
+  scalar_tag_only: 1
+test_api_document_dirs
+  doc_init_dirs_ok: 1
+  add_scalar_explicit_tag_len-1: 1
+  add_seq_explicit_tag: 2
+  add_map_explicit_tag: 3
+  doc_init_vd_only_ok: 1
+  add_scalar_auto_len: 1
+test_api_string_write_overflow
+  overflow_emit_result: 1
+  written_le_10: 1
+test_api_emitter_indent_boundary
+  indent_0: 2
+  indent_1: 2
+  indent_3: 3
+  indent_9: 9
+  indent_10: 2
+  width_neg2: -1
+  width_0: 0
+test_api_queue_extend_move
+  queue_extend_move_ok: 1
+  head_at_start: 1
+test_emitter_flow_non_simple_key
+  flow_non_simple_written: 64
+test_emitter_block_non_simple_key
+  block_non_simple_written: 12
+test_dump_complex_nested
+  complex_nested_ok: 1 written: 62
+test_dump_with_directives
+  doc_init_ok: 1
+  scalar_ok: 1
+  dump_dirs_ok: 1 written: 76
+test_parser_multi_anchors
+  input0_ok: 1 root: 2
+  input1_ok: 1 root: 1
+FAULT parser_multi_anchors SIGNAL 6
+test_emitter_unicode_chars
+  unicode_written: 35
+test_parser_utf16_bom
+  utf16le_error: 4
+  utf16le_events: 4
+FAULT parser_utf16_bom SIGNAL 6
+test_emitter_open_ended2
+  open_ended2_written: 41
+test_emitter_scalar_select_styles
+  style_any_impl_ok: 1 written: 6
+  style_any_noimpl_ok: 0 written: 0
+  style_any_bool_ok: 1 written: 5
+  style_any_empty_ok: 1 written: 1
+  style_any_special_ok: 1 written: 11
+  style_single_ok: 1 written: 8
+  style_double_ok: 0 written: 0
+test_emitter_flow_mapping_value_complex
+  flow_value_complex_written: 31
+test_emitter_block_mapping_value_complex
+  block_value_complex_written: 19
+test_emitter_alias_in_simple_key
+  alias_simple_key_written: 37
+test_emitter_plain_scalar_with_breaks
+  plain_breaks_written: 55
+test_emitter_single_quoted_breaks
+  sq_breaks_written: 40
+test_parser_error_paths
+  input0_tokens_or_err: 1 err: 3
+  input1_tokens_or_err: 8 err: 0
+FAULT parser_error_paths SIGNAL 6
+test_dumper_flow_sequence_mapping
+  flow_seq_dump_ok: 1 written: 7
+  flow_map_dump_ok: 1 written: 7
+test_emitter_scalar_with_tag_shorthand
+  tag_shorthand_written: 96
+test_loader_prestarted_stream
+  manual_start_event: 1
+  load_after_stream_start_ok: 1
+  root_type: 1
+FAULT loader_prestarted_stream SIGNAL 6
+test_loader_stream_end_reuse
+  first_load_error: 4
+  loaded: 1
+FAULT loader_stream_end_reuse SIGNAL 6
+test_loader_duplicate_anchor
+  dup_anchor_result: 0 err: 5
+test_loader_undefined_alias
+  undef_alias_result: 0 err: 5
+test_loader_explicit_tags
+  bang_tag_ok: 1
+  str_tag_ok: 1
+  str_root_type: 1
+  seq_bang_tag_ok: 1
+  seq_explicit_tag_ok: 1
+  map_explicit_tag_ok: 1
+FAULT loader_explicit_tags SIGNAL 6
+test_dumper_close_twice
+  first_close: 1
+  second_close: 1
+test_dumper_dump_not_opened
+  scalar_node: 1
+  auto_open_dump_ok: 1 written: 12
+test_api_document_node_edge_cases
+  empty_root_null: 1
+  scalar_idx: 1
+  node_at_0_null: 1
+  node_at_100_null: 1
+  node_at_1_ok: 1
+test_emitter_utf16be
+  utf16be_stream_start: 1
+  utf16be_written_gt0: 1
+test_emitter_scalar_leading_trailing
+  leading_space_ok: 1 written: 9
+  trailing_space_ok: 1 written: 9
+  leading_break_ok: 1 written: 10
+  trailing_break_ok: 1 written: 10
+  break_space_ok: 1 written: 8
+  space_break_ok: 1 written: 8
+  hash_after_space_ok: 1 written: 7
+  colon_space_ok: 1 written: 7
+  dash_space_ok: 1 written: 8
+  question_space_ok: 1 written: 8
+test_emitter_scalar_flow_indicators
+  comma_ok: 1 written: 8
+  open_bracket_ok: 1 written: 8
+  close_bracket_ok: 1 written: 8
+  open_brace_ok: 1 written: 8
+  close_brace_ok: 1 written: 8
+  colon_nospace_ok: 1 written: 8
+test_string_join_extend
+  string_join_large_ok: 1
+  joined_length: 45
+  string_join_empty_ok: 1
+test_loader_sequence_mapping_tags
+  input0_ok: 1 root_type: 2
+  input1_ok: 1 root_type: 1
+FAULT loader_sequence_mapping_tags SIGNAL 6
+test_parser_block_mapping_various
+  input0_err: 4
+  input0_events: 4
+FAULT parser_block_mapping_various SIGNAL 6
+test_emitter_scalar_with_special_first_last
+  special_first_written: 74
+test_emitter_block_seq_in_block_map_indent
+  indented_seq_written: 45
+test_emitter_folded_scalar_complex
+  folded_complex_written: 112
+test_scanner_flow_scalar_whitespace
+  input0_tokens: 3
+  input1_tokens: 3
+  input2_tokens: 3
+  input3_tokens: 3
+  input4_tokens: 3
+  input5_tokens: 3
+  input6_tokens: 3
+  input7_tokens: 3
+test_emitter_analyze_tag_variations
+  tag_variations_written: 98
+test_reader_utf32
+  utf32le_err: 2
+  utf32le_events: 0
+  utf32be_err: 2
+  utf32be_events: 0
+test_emitter_multiple_documents_mixed
+  multi_doc_written: 31
+test_dumper_with_explicit_tags_nodes
+  explicit_tags_dump_ok: 1 written: 104
+test_parser_scan_complex_yaml
+FAULT parser_scan_complex_yaml SIGNAL 6
+test_emitter_write_double_quoted_multibyte
+  multibyte_written: 37
+test_parser_implicit_docs
+  input0_err: 4
+  input0_events: 4
+  input1_events: 5
+  input2_events: 8
+  input3_err: 4
+  input3_events: 4
+FAULT parser_implicit_docs SIGNAL 6
+test_emitter_block_scalar_chomping
+  chomping_written: 133
+test_emitter_canonical_sequences_mappings
+  canonical_seq_map_ok: 1 written: 117
+test_api_invalid_utf8_events
+  alias_bad_anchor: 0
+  scalar_bad_anchor: 0
+  scalar_bad_tag: 0
+  scalar_bad_value: 0
+  seq_bad_anchor: 0
+  seq_bad_tag: 0
+  map_bad_anchor: 0
+  map_bad_tag: 0
+test_api_check_utf8_overlong
+  trunc2: 0
+  bad_cont: 0
+  overlong2: 0
+  overlong3: 0
+  overlong4: 0
+  trunc3: 0
+test_large_input_string_reader
+  large_events: 266
+test_parser_utf16be_input
+  utf16be_scalar: a
+  utf16be_err: 4
+  utf16be_events: 4
+FAULT parser_utf16be_input SIGNAL 6
+test_scanner_flow_scalar_unicode_escapes
+  esc0_ok: 1 tokens: 6
+  esc1_ok: 1 tokens: 6
+  esc2_ok: 1 tokens: 6
+  esc3_ok: 1 tokens: 6
+  esc4_ok: 1 tokens: 6
+  esc5_ok: 1 tokens: 6
+  esc6_ok: 1 tokens: 6
+  esc7_ok: 1 tokens: 6
+  esc8_ok: 1 tokens: 6
+  esc9_ok: 1 tokens: 6
+test_scanner_block_scalar_edge_cases
+  blk0_ok: 1 tokens: 6
+  blk1_ok: 1 tokens: 6
+  blk2_ok: 1 tokens: 6
+  blk3_ok: 1 tokens: 6
+  blk4_ok: 1 tokens: 3
+  blk5_ok: 1 tokens: 6
+  blk6_ok: 1 tokens: 6
+  blk7_ok: 1 tokens: 6
+  blk8_ok: 1 tokens: 6
+test_scanner_tag_in_flow
+  tag_flow0_ok: 1 tokens: 9
+  tag_flow1_ok: 1 tokens: 7
+  tag_flow2_ok: 1 tokens: 7
+  tag_flow3_ok: 1 tokens: 9
+  tag_flow4_ok: 1 tokens: 9
+  tag_flow5_ok: 1 tokens: 9
+test_scanner_plain_scalar_multiline
+  plain0_events: 7
+  plain1_events: 4
+FAULT scanner_plain_scalar_multiline SIGNAL 6
+test_scanner_complex_anchors_aliases
+FAULT scanner_complex_anchors_aliases SIGNAL 6
+test_emitter_double_quoted_multiline_wrap
+  dq_wrap_written: 115
+test_emitter_block_seq_in_flow
+  flow_map_seq_written: 15
+test_parser_block_mapping_various2
+  bm2_0_events: 11
+  bm2_1_events: 11
+  bm2_2_err: 4
+  bm2_2_events: 4
+FAULT parser_block_mapping_various2 SIGNAL 6
+test_dumper_doc_with_version_tag_dirs
+  scalar_idx: 1
+  dump_version_tag_ok: 1 written: 56
+test_emitter_write_tag_content_uri
+  tag_uri_written: 128
+test_emitter_block_scalar_with_indent_indicator
+  indent_hint_written: 117
+test_parser_flow_pairs
+  fp0_events: 14
+FAULT parser_flow_pairs SIGNAL 6
+test_loader_anchor_tag_combinations
+  atc0_ok: 1 root: 2
+  atc1_err: 4
+FAULT loader_anchor_tag_combinations SIGNAL 6
+test_scanner_directive_variants
+  dir0_tokens: 5 err: 0
+  dir1_tokens: 5 err: 0
+  dir2_tokens: 1 err: 3
+  dir3_tokens: 6 err: 0
+  dir4_tokens: 6 err: 0
+  dir5_tokens: 6 err: 0
+test_emitter_select_style_variants
+  select_style_written: 0
+test_parser_node_with_anchor_tag
+  nat0_events: 7
+  nat1_events: 8
+  nat2_events: 10
+  nat3_events: 7
+  nat4_err: 4
+  nat4_events: 4
+FAULT parser_node_with_anchor_tag SIGNAL 6
+test_scanner_flow_scalar_line_break
+  fsb0_ok: 1 tokens: 6
+  fsb1_ok: 1 tokens: 6
+  fsb2_ok: 1 tokens: 6
+  fsb3_ok: 1 tokens: 6
+  fsb4_ok: 1 tokens: 6
+  fsb5_ok: 1 tokens: 6
+  fsb6_ok: 1 tokens: 6
+test_emitter_state_machine_sequence_mapping
+  sm_seq_map_written: 40
+test_parser_stream_end_edge
+  se0_events: 2
+  se1_events: 5
+  se2_err: 4
+  se2_events: 4
+FAULT parser_stream_end_edge SIGNAL 6
+test_emitter_analyze_scalar_variants
+  analyze_scalar_written: 119
+test_api_document_delete_node_types
+  scalar: 1 seq: 2 map: 3
+  delete_all_types_ok: 1
+test_scanner_complex_yaml_inputs
+  complex0_ok: 1 tokens: 6
+FAULT scanner_complex_yaml_inputs SIGNAL 6
+test_api_event_init_invalid_utf8
+  bad_value_scalar: 0
+  bad_anchor_scalar: 0
+  bad_tag_scalar: 0
+  bad_anchor_alias: 0
+  bad_anchor_seq: 0
+  bad_tag_seq: 0
+  bad_anchor_map: 0
+  bad_tag_map: 0
+  neg_len_scalar: 1
+test_emitter_yaml11_version_directive
+  written: 50
+  has_yaml: 1
+  has_11: 1
+  has_12: 1
+test_emitter_block_scalar_chomp_variants
+  strip_has_minus: 1
+  keep_has_plus: 1
+  indent_hint_written: 1
+  folded_written: 1
+test_emitter_double_quoted_special_escapes
+  escape0_written: 1
+  escape1_written: 1
+  escape2_written: 1
+  escape3_written: 1
+  escape4_written: 1
+  escape5_written: 1
+  escape6_written: 1
+  escape7_written: 1
+  escape8_written: 1
+  unisep0_written: 1
+  unisep1_written: 1
+test_loader_flow_seq_and_map
+  flow_seq_load: 1
+  flow_seq_type: 2
+  flow_seq_items: 3
+  flow_map_load: 0
+FAULT loader_flow_seq_and_map SIGNAL 6
+test_parser_indentless_sequence_entry
+  indentless0_events: 4
+FAULT parser_indentless_sequence_entry SIGNAL 6
+test_parser_explicit_doc_end
+  expl_doc0_events: 8 err: 0
+  expl_doc1_events: 4 err: 4
+FAULT parser_explicit_doc_end SIGNAL 6
+test_emitter_open_ended_with_directive
+  written: 35
+  has_dotdotdot: 1
+  has_yaml: 1
+test_api_document_init_with_dirs
+  init_with_dirs: 1
+  has_ver_dir: 1
+  ver: 1.1
+  ntags: 2
+  scalar_idx: 1
+  init_ver_only: 1
+  ver_only_major: 1
+test_emitter_scalars_with_leading_spaces
+  lead_space_lit: 1
+  lead_nl_fold: 1
+  empty_lit: 1
+test_loader_mapping_anchor_alias
+  map_alias_load: 1
+  map_alias_type: 1
+FAULT loader_mapping_anchor_alias SIGNAL 6
+test_scanner_tab_in_block_context
+  tab0_events: 5 err: 4
+FAULT scanner_tab_in_block_context SIGNAL 6
+test_emitter_tag_content_percent_encode
+  tag_special_emit: 1
+  written: 28
+  pct_written: 31
+test_parser_flow_seq_mapping_pairs
+  flow_pair0_events: 11 err: 0
+  flow_pair1_events: 6 err: 4
+FAULT parser_flow_seq_mapping_pairs SIGNAL 6
+test_emitter_single_quoted_with_breaks
+  squote0_written: 1
+  squote1_written: 1
+  squote2_written: 1
+  squote3_written: 1
+test_loader_sequence_anchor_alias
+  seq_alias_load: 1
+  seq_alias_type: 2
+  seq_alias_items: 3
+  nested_seq_load: 0 err: 4
+test_parser_multi_docs_scan
+  multi_doc_count: 1
+FAULT parser_multi_docs_scan SIGNAL 11
+test_emitter_block_scalar_indent_hint
+  indent_hint0: 1
+  indent_hint1: 1
+  indent_hint2: 1
+  fold_at_width: 1
+test_api_document_node_add_ops
+  doc_init: 1
+  scalar_plain: 1
+  scalar_single: 2
+  scalar_tagged: 3
+  seq_idx: 4
+  seq_append1: 1
+  seq_append2: 1
+  map_idx: 5
+  map_pair: 1
+  map_pair2: 1
+  flow_seq: 6
+  flow_map: 7
+test_emitter_check_empty_seq_map
+  written: 18
+  has_empty_seq: 1
+  has_empty_map: 1
+test_scanner_block_scalar_chomp_strip
+  chomp0_val: key
+  chomp0_ok: 0
+FAULT scanner_block_scalar_chomp_strip SIGNAL 6
+test_parser_flow_mapping_empty_value
+  empty_val0_events: 3 err: 3
+  empty_val1_events: 3 err: 3
+  empty_val2_events: 5 err: 4
+FAULT parser_flow_mapping_empty_value SIGNAL 6
+test_emitter_plain_scalar_at_width
+  plain_at_width: 1
+  dquote_at_width: 1
+  squote_at_width: 1
+test_loader_explicit_tag_on_scalar
+  tag_scalar0_load: 1 err: 0
+  tag_scalar0_tag_ok: 1
+  tag_scalar1_load: 1 err: 0
+  tag_scalar1_tag_ok: 1
+  tag_scalar2_load: 1 err: 0
+  tag_scalar2_tag_ok: 1
+  tag_scalar3_load: 1 err: 0
+  tag_scalar3_tag_ok: 1
+FAULT loader_explicit_tag_on_scalar SIGNAL 6
+test_parser_anchor_then_tag
+  anchor_tag0_events: 5 err: 0
+  anchor_tag1_events: 5 err: 0
+  anchor_tag2_events: 8 err: 0
+  anchor_tag3_events: 4 err: 4
+FAULT parser_anchor_then_tag SIGNAL 6
+=== done ===
