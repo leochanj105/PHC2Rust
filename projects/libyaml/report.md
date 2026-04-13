@@ -334,6 +334,116 @@ s4 missed.** The s4→s5 delta demonstrates that coverage-guided testgen
 directly improves difffix outcomes: s4 tests (53% branch coverage) left
 157 judger diffs; s5 tests (71% branch coverage) left 0.
 
+## Phase 4 (Sonnet): Difffix with s1 tests
+
+Fresh copy of Sonnet's buggy transpile (`rust-baseline-test` → `rust-s1`).
+Difffix model: Claude Sonnet.
+
+### Baseline (round 0)
+
+| metric | value |
+|---|---|
+| Tests passed | 191 |
+| Tests failed | **212** |
+
+### Rounds
+
+| round | prev_fails | fails | goals | cost |
+|---|---|---|---|---|
+| 1 | 212 | 212 | 1 (stalled) | $1.37 |
+| 2 | 212 | **0** | 2 | $1.44 |
+| **total** | | | | **$2.81** |
+
+### Independent judger verification
+
+| metric | value |
+|---|---|
+| match | **4267 (96.4%)** |
+| diff | **157** |
+| panic | 0 |
+
+### s1 fixes applied
+
+- Round 1: `tokens.tail as usize - tokens.head as usize` → `tail.offset_from(head)` (pointer arithmetic bug)
+- Round 2: same fix at second call site + `node_count` calculation fix in emitter (`(top as usize - start as usize) / sizeof(yaml_node_t)` → `top.offset_from(start)`)
+
+### s1 vs s4 nuance: depth vs breadth, same outcome
+
+s1 and s4 arrive at the **same judger result (96.4%, 157 remaining diffs)**
+despite very different test characteristics:
+
+| | s1 (naive) | s4 (function-cov) |
+|---|---|---|
+| Test functions | 25 | 68 |
+| Source lines | 994 | 2538 |
+| Parsed test lines (difftest output) | **403** | 173 |
+| Output lines per function | **~16** | ~2.5 |
+| Baseline failures | 212/403 | 25/173 |
+| Difffix rounds | 2 | 1 |
+| Difffix cost | $2.81 | $12.01 |
+| Judger after fix | 4267 (96.4%) | 4267 (96.4%) |
+| Remaining diffs | 157 | 157 (same 157) |
+
+**Why s1 has MORE test lines from FEWER functions:** with no coverage pressure,
+Claude wrote 25 deep tests producing ~16 output lines each (parsing full
+YAML documents, printing every event). s4's prompt said "cover ALL 196
+functions" + gave an uncovered list, so Claude wrote 68 shallow tests
+(~2.5 lines each) spread across many functions — breadth over depth.
+
+**Why both land at the same judger result:** s1's depth and s4's breadth
+happen to expose the same set of bugs (pointer arithmetic in the scanner).
+Neither approach reaches the branch-level edge cases (loader stream-end
+reuse, printable character classification). The 157 remaining diffs are
+identical between s1 and s4 — same yaml-test-suite inputs, same drivers.
+
+**s1 actually found a bug s4 missed** (node_count calculation in emitter,
+line 8300), and s4 found nothing extra over s1. But neither bug affects the
+judger's 157 diffs — those are caused by the 2 bugs only s5 surfaces.
+
+**The implication for testgen strategy:** more tests (s4: 68) or deeper tests
+(s1: ~16 lines each) both plateau at the same ceiling without branch-level
+guidance. Only explicit branch-coverage feedback (s5) breaks through.
+
+### Causal analysis: why s5 succeeded where s4 didn't
+
+s4 difffix left 157 judger diffs. s5 difffix closed all 157. The 157 cases
+span 7 drivers × ~22 yaml-test-suite inputs each. Root cause: 2 bugs that
+s4's tests didn't expose but s5's branch-coverage-guided tests did.
+
+**Bug A: `yaml_parser_load_document` — missing event type guard**
+
+Causal chain:
+1. s5 branch-coverage feedback (round 1) reported `src/loader.c:95,99,104,108,113`
+   as uncovered branches in the loader.
+2. Claude generated `test_loader_stream_end_reuse()` — loads all documents,
+   then calls `yaml_parser_load` again after stream end. This exercises the
+   "event is not DOCUMENT_START" branch that s4 tests never hit.
+3. Sonnet's Rust had `assert!((*event).type_ == YAML_DOCUMENT_START_EVENT)`
+   which aborted instead of returning gracefully. C returns 1.
+4. s5 difffix added: `if event.type_ != YAML_DOCUMENT_START_EVENT { return 1; }`
+5. This fixed 22 judger inputs × 7 drivers = ~154 of the 157 remaining diffs.
+
+**Bug B: `str_is_printable_ptr` — wrong character classification**
+
+Causal chain:
+1. s5 branch-coverage feedback reported uncovered branches in
+   `src/emitter.c` scalar analysis paths.
+2. Claude generated 14 new emitter tests (`test_emitter_cr_break`,
+   `test_emitter_canonical_*`, `test_emitter_special_chars_dquoted`, etc.)
+   exercising scalar style selection which calls `str_is_printable_ptr`.
+3. Sonnet's Rust incorrectly classified `\t` and `\r` as printable and had
+   a wrong 4-byte UTF-8 branch. This caused different quoting style choices
+   for scalars containing those characters.
+4. s5 difffix removed `\t` and `\r` from the printable set and removed the
+   incorrect 4-byte UTF-8 branch.
+5. This fixed the remaining ~3 judger diffs (emitter output edge cases).
+
+**Neither bug was reachable by s4's tests** because s4 (function-coverage)
+only checked "is each function called?" not "are all branches within each
+function exercised?" The loader edge case (calling load after stream end)
+and the emitter edge case (scalars with `\t`/`\r`) are branch-level
+behaviors that only s5's coverage feedback surfaced.
+
 ### Final cost summary
 
 | step | cost |

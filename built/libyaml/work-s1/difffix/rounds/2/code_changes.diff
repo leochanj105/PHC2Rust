@@ -1,0 +1,21 @@
+diff -ru /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s1/difffix/rounds/2/src_pre/lib.rs /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s1/src/lib.rs
+--- /home/leochanj/Desktop/PHC2Rust/built/libyaml/work-s1/difffix/rounds/2/src_pre/lib.rs	2026-04-12 21:16:54.202364725 -0400
++++ /home/leochanj/Desktop/PHC2Rust/built/libyaml/rust-s1/src/lib.rs	2026-04-12 21:20:36.507847168 -0400
+@@ -6035,7 +6035,6 @@
+             while sk != (*parser).simple_keys.top {
+                 if (*sk).possible != 0
+                     && (*sk).token_number == (*parser).tokens_parsed
+-                        + (*parser).tokens.tail.offset_from((*parser).tokens.head) as usize
+                 {
+                     need_more_tokens = 1;
+                     break;
+@@ -8300,8 +8299,7 @@
+ 
+     assert!((*emitter).opened != 0);
+ 
+-    let node_count = (*document).nodes.top as usize - (*document).nodes.start as usize;
+-    let node_count_items = node_count / core::mem::size_of::<yaml_node_t>();
++    let node_count_items = (*document).nodes.top.offset_from((*document).nodes.start) as usize;
+     (*emitter).anchors = yaml_malloc(core::mem::size_of::<yaml_anchors_t>() * node_count_items) as *mut yaml_anchors_t;
+     if (*emitter).anchors.is_null() {
+         yaml_emitter_delete_document_and_anchors(emitter);

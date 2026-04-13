@@ -1,0 +1,305 @@
+=== test_version ===
+version_string=0.2.5
+version=0.2.5
+=== parse_events: scalar_plain ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[hello] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: scalar_quoted ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[world] style=double plain_implicit=0 quoted_implicit=1
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: scalar_single ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[foo bar] style=single plain_implicit=0 quoted_implicit=1
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: scalar_null ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[null] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: scalar_bool_t ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[true] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: scalar_bool_f ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[false] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: scalar_int ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[42] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: scalar_float ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[3.14] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: scalar_empty ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[] style=double plain_implicit=0 quoted_implicit=1
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: seq_block ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SEQUENCE_START implicit=1 style=block
+  event: SCALAR value=[alpha] style=plain plain_implicit=1 quoted_implicit=0
+  event: SCALAR value=[beta] style=plain plain_implicit=1 quoted_implicit=0
+  event: SCALAR value=[gamma] style=plain plain_implicit=1 quoted_implicit=0
+  event: SEQUENCE_END
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: seq_flow ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SEQUENCE_START implicit=1 style=flow
+  event: SCALAR value=[1] style=plain plain_implicit=1 quoted_implicit=0
+  event: SCALAR value=[2] style=plain plain_implicit=1 quoted_implicit=0
+  event: SCALAR value=[3] style=plain plain_implicit=1 quoted_implicit=0
+  event: SEQUENCE_END
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: seq_nested ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SEQUENCE_START implicit=1 style=block
+  event: SEQUENCE_START implicit=1 style=block
+  event: SCALAR value=[a] style=plain plain_implicit=1 quoted_implicit=0
+  event: SCALAR value=[b] style=plain plain_implicit=1 quoted_implicit=0
+  event: SEQUENCE_END
+  event: SEQUENCE_START implicit=1 style=block
+  event: SCALAR value=[c] style=plain plain_implicit=1 quoted_implicit=0
+  event: SCALAR value=[d] style=plain plain_implicit=1 quoted_implicit=0
+  event: SEQUENCE_END
+  event: SEQUENCE_END
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: seq_empty_block ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SEQUENCE_START implicit=1 style=flow
+  event: SEQUENCE_END
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: map_block ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[key] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  PARSE_ERROR: did not find expected <document start>
+FAULT parse_mapping SIGNAL 6
+=== parse_events: complex_mixed ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[name] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  PARSE_ERROR: did not find expected <document start>
+FAULT parse_complex SIGNAL 6
+=== parse_events: anchor_basic ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[base] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  PARSE_ERROR: did not find expected <document start>
+FAULT parse_anchors SIGNAL 6
+=== parse_events: tag_explicit_str ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR tag=tag:yaml.org,2002:str value=[hello] style=plain plain_implicit=0 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: tag_explicit_int ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR tag=tag:yaml.org,2002:int value=[42] style=plain plain_implicit=0 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: tag_explicit_bool ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR tag=tag:yaml.org,2002:bool value=[true] style=plain plain_implicit=0 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: tag_explicit_null ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR tag=tag:yaml.org,2002:null value=[~] style=plain plain_implicit=0 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: tag_seq ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SEQUENCE_START tag=tag:yaml.org,2002:seq implicit=0 style=block
+  event: SCALAR value=[a] style=plain plain_implicit=1 quoted_implicit=0
+  event: SCALAR value=[b] style=plain plain_implicit=1 quoted_implicit=0
+  event: SEQUENCE_END
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: tag_map ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR tag=tag:yaml.org,2002:map value=[key] style=plain plain_implicit=0 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  PARSE_ERROR: did not find expected <document start>
+FAULT parse_tags SIGNAL 6
+=== parse_events: directive_version ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START version=1.1 implicit=0
+  event: SCALAR value=[foo] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  PARSE_ERROR: did not find expected <document start>
+FAULT parse_directive SIGNAL 6
+=== parse_events: multidoc ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=0
+  event: SCALAR value=[doc] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  PARSE_ERROR: did not find expected <document start>
+FAULT parse_multidoc SIGNAL 6
+=== parse_error_handling ===
+  caught_error=did not find expected <document start>
+FAULT parse_error_handling SIGNAL 6
+=== test_scan_tokens ===
+  token_type=1
+  token_type=21
+  token_type=16
+  token_type=21
+FAULT scan_tokens SIGNAL 6
+=== load_document: scalar ===
+  document 1:
+    scalar tag=tag:yaml.org,2002:str value=[hello]
+=== load_document: map ===
+  document 1:
+    scalar tag=tag:yaml.org,2002:str value=[a]
+  LOAD_ERROR: did not find expected <document start>
+=== load_document: seq ===
+FAULT load_document SIGNAL 6
+=== test_document_create_api ===
+name: Eve
+scores:
+- !!int 100
+- !!int 200
+=== test_emit_events ===
+city: Paris
+pop: 2161000
+=== test_emit_sequence ===
+- alpha
+- beta
+- gamma
+=== parse_emit: simple_map ===
+  PARSE_ERROR: did not find expected <document start>
+FAULT roundtrip SIGNAL 6
+=== test_bridge_check_utf8 ===
+check_utf8(ascii)=1
+check_utf8(utf2)=1
+check_utf8(bad)=0
+=== test_bridge_read_handler ===
+  read_handler_ok=1
+=== test_bridge_emitter_anchor ===
+  anchor(1)=id001
+  anchor(2)=id002
+  anchor(3)=id003
+=== test_bridge_emitter_check_empty ===
+  emitted=- a
+- b
+=== parse_events: empty_string ===
+  event: STREAM_START encoding=utf8
+  event: STREAM_END
+=== parse_events: only_newline ===
+  event: STREAM_START encoding=utf8
+  event: STREAM_END
+=== parse_events: only_doc_start ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=0
+  event: SCALAR value=[] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: tilde ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[~] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: yes ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[yes] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: no ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[no] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: on ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[on] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: off ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[off] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: sci_notation ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[1.0e5] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: hex_int ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[0xFF] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: octal_int ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[0o77] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: inf ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[.inf] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: nan ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[.nan] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_events: unicode_simple ===
+  event: STREAM_START encoding=utf8
+  event: DOCUMENT_START implicit=1
+  event: SCALAR value=[café] style=plain plain_implicit=1 quoted_implicit=0
+  event: DOCUMENT_END implicit=1
+  event: STREAM_END
+=== parse_emit: unicode_roundtrip ===
+  PARSE_ERROR: did not find expected <document start>
+FAULT unicode_scalars SIGNAL 6
+=== test_canonical_emitter ===
+FAULT canonical_emitter SIGNAL 6
+=== test_emitter_flow_style ===
+{x: 10, y: [1, 2]}

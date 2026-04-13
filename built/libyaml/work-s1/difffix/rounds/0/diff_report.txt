@@ -1,0 +1,78 @@
+============================================================
+Differential Test Report (C vs Rust)
+Generated: 2026-04-12 21:06
+============================================================
+
+## OUTPUT COMPARISON
+
+C test output:    516 lines
+Rust test output: 305 lines
+
+WARNING: Rust produced fewer output lines (305 vs 516).
+Likely cause: crash or missing functions. Lines after crash are missing.
+
+C output: 403 test lines
+Rust output: 228 test lines
+
+FAULT (12 test functions crashed/timed out):
+  FAULT parse_mapping SIGNAL 6
+  FAULT parse_complex SIGNAL 6
+  FAULT parse_anchors SIGNAL 6
+  FAULT parse_tags SIGNAL 6
+  FAULT parse_directive SIGNAL 6
+  FAULT parse_multidoc SIGNAL 6
+  FAULT parse_error_handling SIGNAL 6
+  FAULT scan_tokens SIGNAL 6
+  FAULT load_document SIGNAL 6
+  FAULT roundtrip SIGNAL 6
+  FAULT unicode_scalars SIGNAL 6
+  FAULT canonical_emitter SIGNAL 6
+
+MISSING (184 tests, 14 functions):
+Functions not in Rust output (not implemented or crashed):
+  :: 2 tests
+  ]: 2 tests
+  a:: 1 tests
+  c:: 1 tests
+  d:: 1 tests
+  event:: 146 tests
+  greeting:: 1 tests
+  hello:: 1 tests
+  key:: 1 tests
+  line]: 1 tests
+  mapping: 5 tests
+  scalar: 16 tests
+  sequence: 2 tests
+  token_type: 4 tests
+
+MISMATCH (28 tests, 3 functions):
+C and Rust produce different results:
+  caught_error: 1 mismatches
+    C:    caught_error=did not find expected ',' or ']'
+    Rust: caught_error=did not find expected <document start>
+  event:: 26 mismatches
+    C:    event: SCALAR value=[value] style=plain plain_implicit=1 quoted_implicit=0
+    Rust: event: SCALAR value=[name] style=plain plain_implicit=1 quoted_implicit=0
+    C:    event: SCALAR value=[foo] style=plain plain_implicit=1 quoted_implicit=0
+    Rust: event: SCALAR value=[base] style=plain plain_implicit=1 quoted_implicit=0
+    C:    event: SCALAR value=[bar] style=plain plain_implicit=1 quoted_implicit=0
+    Rust: event: SCALAR value=[a] style=plain plain_implicit=1 quoted_implicit=0
+    ... (23 more)
+  token_type: 1 mismatches
+    C:    token_type=8
+    Rust: token_type=21
+
+SUMMARY
+Tests passed:     191
+Tests failed:     212
+Missing functions: :, ], a:, c:, d:, event:, greeting:, hello:, key:, line], mapping, scalar, sequence, token_type
+Mismatched functions: caught_error, event:, token_type
+
+## FUNCTION LOCATION MAP
+
+Use this to find where each function is defined (do NOT read all files):
+
+
+============================================================
+Tests failed:     212
+============================================================

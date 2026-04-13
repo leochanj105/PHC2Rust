@@ -53,6 +53,7 @@ prepare_difftest() {
     # Compile check against C lib
     local INC_FLAGS=""
     for d in $C_INCLUDE_DIRS; do INC_FLAGS="$INC_FLAGS -I$d"; done
+    for d in $C_SRC_DIRS; do INC_FLAGS="$INC_FLAGS -I$d"; done
 
     local C_SRCS=""
     for d in $C_SRC_DIRS; do

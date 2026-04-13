@@ -1,0 +1,4 @@
+round	prev_fails	fails	passed	total	goals	in_tokens	out_tokens	cache_read	cache_create	cost_usd
+0	-	212	191	403	-	-	-	-	-	-
+1	212	212	191	403	1	39	15081	1356699	60500	1.3685
+2	212	0	403	403	2	64	21253	1926950	83201	1.4370

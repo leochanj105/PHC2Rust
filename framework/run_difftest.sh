@@ -28,6 +28,8 @@ trap 'rm -rf "$BDIR"' EXIT
 
 INC_FLAGS=""
 for d in $INCDIR; do INC_FLAGS="$INC_FLAGS -I$d"; done
+# Also include src dirs (for yaml_private.h and similar internal headers)
+for d in $C_SRC_DIRS; do INC_FLAGS="$INC_FLAGS -I$d"; done
 # Also include diffgen dir for test_bridge.h
 INC_FLAGS="$INC_FLAGS -I${DIFFGEN_WORKDIR}"
 
