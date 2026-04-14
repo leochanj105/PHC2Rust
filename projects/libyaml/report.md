@@ -578,6 +578,67 @@ function exercised?" The loader edge case (calling load after stream end)
 and the emitter edge case (scalars with `\t`/`\r`) are branch-level
 behaviors that only s5's coverage feedback surfaced.
 
+### Bug A — concrete trace
+
+**Branch coverage feedback (s5 round 1):**
+```
+uncovered: src/loader.c:103:9:true — stream_end_produced already true
+```
+
+**Test s5 generated (s1–s4 never wrote this pattern):**
+```c
+/* Load all docs until empty, then load AGAIN — triggers stream_end branch */
+while (1) {
+    if (!yaml_parser_load(&parser, &doc)) break;
+    if (!yaml_document_get_root_node(&doc)) { yaml_document_delete(&doc); break; }
+    yaml_document_delete(&doc);
+}
+int r = yaml_parser_load(&parser, &doc);  /* <-- s1–s4 never do this second call */
+printf("  second_load_ok: %d\n", r);
+```
+
+**Bug it exposed (Rust panicked; C returned 1):**
+```rust
+assert!((*event).type_ == YAML_DOCUMENT_START_EVENT);  // aborts when stream already ended
+```
+
+**s5 fix:**
+```rust
+if event.type_ != YAML_DOCUMENT_START_EVENT { return 1; }
+```
+Closed ~154 of 157 judger diffs.
+
+### Bug B — concrete trace
+
+**Branch coverage feedback (s5 round 2):**
+```
+uncovered: src/emitter.c — CR_BREAK path, write_double_quoted special chars
+```
+
+**Tests s5 generated (emitting scalars containing `\t` / `\r` / special chars):**
+```c
+yaml_emitter_set_break(&emitter, YAML_CR_BREAK);   /* CR_BREAK path */
+/* + scalar events with bytes like '\t', '\r' that go through
+   str_is_printable_ptr during emitter style selection */
+```
+
+**Bug it exposed — `str_is_printable_ptr` classification:**
+```rust
+// Buggy: \t and \r marked printable; also a spurious 4-byte UTF-8 branch
+c == b'\t' || c == b'\n' || c == b'\r' || (c >= 0x20 && c <= 0x7E)
+```
+
+**s5 fix:**
+```rust
+c == b'\n' || (c >= 0x20 && c <= 0x7E)    // \t and \r removed
+// 4-byte UTF-8 branch removed entirely
+```
+Closed the remaining 3 judger diffs.
+
+**Why s1–s4 missed both:** their tests only emitted clean ASCII scalars
+("hello", "key", "val") and only loaded documents once per parser. Neither
+pattern exercises the branches these bugs live on.
+
 ## Cross-scenario comparison
 
 All measurements use `llvm-cov export` + `branch_coverage.py` on test suite linked
