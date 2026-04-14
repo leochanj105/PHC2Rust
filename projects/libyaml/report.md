@@ -580,42 +580,70 @@ behaviors that only s5's coverage feedback surfaced.
 
 ## Cross-scenario comparison
 
-All measurements use `llvm-cov export` on test suite linked against the C library.
-333 total functions, 7091 total branches (libyaml source files only).
+All measurements use `llvm-cov export` + `branch_coverage.py` on test suite linked
+against the C library. 196 library functions, 1615 branches / 3230 conditions
+(libyaml source files only, bridge wrappers excluded).
 
 ### Test suite coverage (after testgen, before difffix)
 
-| scenario | mode | rounds | test fns | fn cov | branch cov |
+| scenario | mode | rounds | test fns | fn cov | branch cov (conditions) |
 |---|---|---|---|---|---|
-| s1 naive | one-shot | 1 | 25 | 159/333 (47.7%) | 2215/7091 (31.2%) |
-| s2 explicit | one-shot | 1 | 68 | 249/333 (74.8%) | 2405/7091 (33.9%) |
-| s3 edge-case | one-shot | 1 | 99 | 253/333 (76.0%) | 2754/7091 (38.8%) |
-| s4 function-cov | loop | 2 | 68 | 254/333 (76.3%) | 2499/7091 (35.2%) |
-| s5 branch-cov | loop | 5 | 201 | 254/333 (76.3%) | 3450/7091 (48.7%) |
+| s1 naive | one-shot | 1 | 25 | 157/196 (80.1%) | 1574/3230 (48.7%) |
+| s2 explicit | one-shot | 1 | 68 | 182/196 (92.9%) | 1662/3230 (51.5%) |
+| s3 edge-case | one-shot | 1 | 99 | 190/196 (96.9%) | 1883/3230 (58.3%) |
+| s4 function-cov | loop | 2 | 68 | 196/196 (100.0%) | 1715/3230 (53.1%) |
+| s5 branch-cov | loop | 5 | 201 | 196/196 (100.0%) | 2301/3230 (71.2%) |
 
 Notes:
-- s2/s3/s4 converge at ~76% function coverage despite different strategies.
-- s5's branch-coverage feedback adds +13.5pp branch coverage over s4.
-- s1 (naive, no "cover all functions" instruction) only reaches 48% function coverage.
-- s3 has the most test functions (99) but similar fn/branch coverage to s2/s4.
+- s4 achieves 100% function coverage (its explicit goal), confirmed by `llvm-cov`.
+- s5 maintains 100% function coverage and adds +18.1pp branch coverage over s4.
+- s3 (edge-case, one-shot) achieves higher branch coverage (58.3%) than s4 (53.1%)
+  despite having no coverage feedback — edge-case inputs naturally exercise more branches.
+- s1 (naive, no "cover all functions" instruction) still reaches 80% function coverage
+  and 48.7% branch coverage (surprisingly close to s4's 53.1%).
+- Only s5's iterative branch feedback breaks past 60%.
 
-### Difffix results (all scenarios, harness v2 with crash info)
+### Judger results: yaml-test-suite (4424 cases, 13 drivers)
 
-| scenario | testgen cost | difffix cost | difffix rounds | judger match | judger diff |
-|---|---|---|---|---|---|
-| s1 naive | $0.96 | $2.81 | 2 | 4267 (96.4%) | 157 |
-| s2 explicit | $2.55 | $8.29 | 3 | 4267 (96.4%) | 157 |
-| s3 edge-case | $6.03 | $3.43 | 1 | 4267 (96.4%) | 157 |
-| s4 function-cov | $2.26 | $6.19 | 1 | 4267 (96.4%) | 157 |
-| s5 branch-cov | $15.97 | $17.06 | 1 | **4424 (100%)** | **0** |
+| scenario | match | diff | panic | pass rate |
+|---|---|---|---|---|
+| baseline | 2238 | 523 | 1663 | 50.6% |
+| s1 naive | 4267 | 157 | 0 | 96.4% |
+| s2 explicit | 4267 | 157 | 0 | 96.4% |
+| s3 edge-case | 4267 | 157 | 0 | 96.4% |
+| s4 function-cov | 4267 | 157 | 0 | 96.4% |
+| s5 branch-cov | **4424** | **0** | **0** | **100%** |
+
+### Judger results: oss-fuzz corpus (5000 inputs × 20 drivers = 100K cases)
+
+| scenario | match | diff | panic | pass rate |
+|---|---|---|---|---|
+| baseline | 92907 | 985 | 6108 | 92.9% |
+| s1 naive | 97200 | 174 | 2626 | 97.2% |
+| s2 explicit | 97200 | 174 | 2626 | 97.2% |
+| s3 edge-case | 97200 | 174 | 2626 | 97.2% |
+| s4 function-cov | 97200 | 174 | 2626 | 97.2% |
+| s5 branch-cov | **97376** | **0** | 2624 | **97.4%** |
+
+### Per-scenario time/tokens/cost (harness v2 with crash info for s2/s4)
+
+| scene | tg cost | tg min | tg turns | tg out tok | df cost | df rounds | df min | df turns | df out tok |
+|---|---|---|---|---|---|---|---|---|---|
+| s1 | $0.96 | 4.8 | 39 | 20,342 | $2.81 | 2 | 13.9 | 130 | 36,334 |
+| s2 | $2.55 | 17.2 | 41 | 102,317 | $8.29 | 3 | 29.1 | 217 | 63,763 |
+| s3 | $6.03 | 33.5 | 94 | 179,407 | $3.43 | 1 | 12.8 | 122 | 30,117 |
+| s4 | $2.26 | 13.5 | 74 | 77,228 | $6.19 | 1 | 36.1 | 197 | 116,876 |
+| s5 | $15.96 | 65.5 | 436 | 240,166 | $17.06 | 1 | 64.4 | 531 | 205,042 |
 
 Notes:
-- s1–s4 all plateau at 96.4% (identical 157 diffs, same yaml-test-suite inputs × drivers).
-- Only s5 reaches 100%. The 157 diffs are caused by 2 bugs that require branch-level
-  test coverage to expose (loader event guard + printable char classification).
-- Difffix cost varies due to LLM non-determinism in analysis/fixer, not test quality.
-  s2 re-run was more expensive than original despite better crash diagnostics.
-- s1/s3 difffix diagnosed correctly without crash info; s2/s4 benefited from the fix.
+- yaml-test-suite: s1–s4 plateau at 96.4% (identical 157 diffs). Only s5 reaches 100%.
+- oss-fuzz: s5 closes all 174 remaining diffs (s1–s4). 2624–2626 panics persist
+  across all post-difffix scenarios — Rust crashes on fuzz inputs where C succeeds,
+  all from `libyaml_deconstructor_alt_fuzzer` and related drivers. These are bugs
+  not reachable by any testgen strategy; only fuzz testing surfaces them.
+- oss-fuzz sample: N=5000 inputs (deterministic, sorted first 5000 of 65614 corpus
+  files), 20 drivers, 100K total cases.
+- Difffix cost varies due to LLM non-determinism, not test quality.
 
 ### Final cost summary
 
