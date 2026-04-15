@@ -1,0 +1,49 @@
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+corrupted double-linked list
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+corrupted double-linked list
+corrupted double-linked list
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+corrupted double-linked list
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+double free or corruption (fasttop)
+corrupted double-linked list
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+free(): double free detected in tcache 2
+corrupted double-linked list
+corrupted double-linked list
+corrupted size vs. prev_size

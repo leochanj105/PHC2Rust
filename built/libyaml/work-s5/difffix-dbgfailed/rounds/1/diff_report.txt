@@ -1,0 +1,205 @@
+============================================================
+Differential Test Report (C vs Rust)
+Generated: 2026-04-14 15:54
+============================================================
+
+## OUTPUT COMPARISON
+
+C test output:    889 lines
+Rust test output: 823 lines
+
+WARNING: Rust produced fewer output lines (823 vs 889).
+Likely cause: crash or missing functions. Lines after crash are missing.
+
+C output: 674 test lines
+Rust output: 561 test lines
+
+FAULT (50 test functions crashed/timed out):
+  FAULT parser_scan SIGNAL 6
+  FAULT parser_load SIGNAL 6
+  FAULT set_max_nest_level SIGNAL 6
+  FAULT bridge_parser_scan_full SIGNAL 6
+  FAULT bridge_parser_parse_full SIGNAL 6
+  FAULT bridge_parser_scan_tokens SIGNAL 6
+  FAULT bridge_parser_fetch_stream SIGNAL 6
+  FAULT bridge_parser_fetch_document_indicators SIGNAL 6
+  FAULT bridge_parser_fetch_collections SIGNAL 6
+  FAULT bridge_parser_scan_directives SIGNAL 6
+  FAULT bridge_parser_parse_states SIGNAL 6
+  FAULT bridge_parser_process_empty_scalar SIGNAL 6
+  FAULT bridge_parser_flow_sequence_mapping_entries SIGNAL 6
+  FAULT bridge_parser_indentless_sequence SIGNAL 6
+  FAULT parser_utf8_bom SIGNAL 6
+  FAULT parser_complex_flow SIGNAL 6
+  FAULT parser_block_sequence_complex SIGNAL 6
+  FAULT parser_block_scalar_variants SIGNAL 6
+  FAULT parser_plain_scalar_variants SIGNAL 6
+  FAULT parser_nest_limit SIGNAL 6
+  FAULT parser_multi_anchors SIGNAL 6
+  FAULT parser_utf16_bom SIGNAL 6
+  FAULT parser_error_paths SIGNAL 6
+  FAULT loader_prestarted_stream SIGNAL 6
+  FAULT loader_stream_end_reuse SIGNAL 6
+  FAULT loader_explicit_tags SIGNAL 6
+  FAULT loader_sequence_mapping_tags SIGNAL 6
+  FAULT parser_block_mapping_various SIGNAL 6
+  FAULT parser_scan_complex_yaml SIGNAL 6
+  FAULT parser_implicit_docs SIGNAL 6
+  FAULT parser_utf16be_input SIGNAL 6
+  FAULT scanner_plain_scalar_multiline SIGNAL 6
+  FAULT scanner_complex_anchors_aliases SIGNAL 6
+  FAULT parser_block_mapping_various2 SIGNAL 6
+  FAULT parser_flow_pairs SIGNAL 6
+  FAULT loader_anchor_tag_combinations SIGNAL 6
+  FAULT parser_node_with_anchor_tag SIGNAL 6
+  FAULT parser_stream_end_edge SIGNAL 6
+  FAULT scanner_complex_yaml_inputs SIGNAL 6
+  FAULT loader_flow_seq_and_map SIGNAL 6
+  FAULT parser_indentless_sequence_entry SIGNAL 6
+  FAULT parser_explicit_doc_end SIGNAL 6
+  FAULT loader_mapping_anchor_alias SIGNAL 6
+  FAULT scanner_tab_in_block_context SIGNAL 6
+  FAULT parser_flow_seq_mapping_pairs SIGNAL 6
+  FAULT parser_multi_docs_scan SIGNAL 11
+  FAULT scanner_block_scalar_chomp_strip SIGNAL 6
+  FAULT parser_flow_mapping_empty_value SIGNAL 6
+  FAULT loader_explicit_tag_on_scalar SIGNAL 6
+  FAULT parser_anchor_then_tag SIGNAL 6
+
+MISSING (162 tests, 121 functions):
+Functions not in Rust output (not implemented or crashed):
+  anchor0_ok:: 1 tests
+  anchor1_ok:: 1 tests
+  anchor2_ok:: 1 tests
+  anchor3_ok:: 1 tests
+  anchor_tag3_events:: 1 tests
+  anchor_tag4_events:: 1 tests
+  anchor_tag5_events:: 1 tests
+  atc1_ok:: 1 tests
+  atc2_ok:: 1 tests
+  atc3_ok:: 1 tests
+  atc4_ok:: 1 tests
+  bm2_2_events:: 1 tests
+  bm2_3_events:: 1 tests
+  bm2_4_events:: 1 tests
+  bom_events:: 1 tests
+  chomp0_ok:: 1 tests
+  chomp0_val:: 1 tests
+  chomp1_ok:: 1 tests
+  chomp1_val:: 2 tests
+  chomp2_ok:: 1 tests
+  chomp2_val:: 2 tests
+  chomp3_ok:: 1 tests
+  chomp3_val:: 2 tests
+  chomp4_ok:: 1 tests
+  chomp4_val:: 2 tests
+  chomp5_ok:: 1 tests
+  chomp5_val:: 2 tests
+  complex1_ok:: 1 tests
+  complex2_ok:: 1 tests
+  complex3_ok:: 1 tests
+  complex4_ok:: 1 tests
+  complex5_ok:: 1 tests
+  complex6_ok:: 1 tests
+  complex7_ok:: 1 tests
+  decrease_flow_ok:: 1 tests
+  doc_count:: 1 tests
+  empty_scalar_found:: 1 tests
+  empty_val0_events:: 1 tests
+  empty_val1_events:: 1 tests
+  empty_val2_events:: 1 tests
+  empty_val3_events:: 1 tests
+  event_count:: 2 tests
+  events:: 3 tests
+  expl_doc1_events:: 1 tests
+  expl_doc2_events:: 1 tests
+  flow_map_load:: 1 tests
+  flow_map_pairs:: 1 tests
+  flow_map_type:: 1 tests
+  flow_pair1_events:: 1 tests
+  flow_pair2_events:: 1 tests
+  flow_pair3_events:: 1 tests
+  fp1_events:: 1 tests
+  fp2_events:: 1 tests
+  fp3_events:: 1 tests
+  fp4_err:: 1 tests
+  fp4_events:: 1 tests
+  increase_flow_ok:: 1 tests
+  indentless0_events:: 1 tests
+  indentless1_events:: 1 tests
+  input0_events:: 1 tests
+  input0_tokens:: 1 tests
+  input1_events:: 2 tests
+  input1_ok:: 2 tests
+  input1_tokens:: 1 tests
+  input2_events:: 3 tests
+  input2_ok:: 3 tests
+  input2_tokens:: 1 tests
+  input2_tokens_or_err:: 1 tests
+  input3_events:: 4 tests
+  input3_ok:: 2 tests
+  input3_tokens:: 1 tests
+  input3_tokens_or_err:: 1 tests
+  input4_events:: 4 tests
+  input4_ok:: 2 tests
+  input4_tokens:: 3 tests
+  input4_tokens_or_err:: 1 tests
+  input5_events:: 2 tests
+  input5_ok:: 2 tests
+  input5_tokens:: 2 tests
+  input6_ok:: 1 tests
+  input6_tokens:: 2 tests
+  input7_tokens:: 2 tests
+  input8_tokens:: 2 tests
+  map_alias_pairs:: 1 tests
+  map_alias_type:: 1 tests
+  map_self_alias_load:: 1 tests
+  mixed_doc_count:: 1 tests
+  multi_doc_count:: 1 tests
+  multibyte_written:: 1 tests
+  nat4_events:: 1 tests
+  nest_limit_restored:: 1 tests
+  plain1_events:: 1 tests
+  plain2_events:: 1 tests
+  plain3_events:: 1 tests
+  plain4_events:: 1 tests
+  plain5_events:: 1 tests
+  remaining_tokens:: 1 tests
+  root_type:: 2 tests
+  scalar:: 7 tests
+  se2_events:: 1 tests
+  se3_events:: 1 tests
+  se4_err:: 1 tests
+  se4_events:: 1 tests
+  second_load_ok:: 1 tests
+  special_written:: 1 tests
+  stream_end_consumed:: 1 tests
+  tab0_events:: 1 tests
+  tab1_events:: 1 tests
+  tab2_events:: 1 tests
+  tab3_events:: 1 tests
+  tag_scalar4_load:: 1 tests
+  tag_scalar4_tag_ok:: 1 tests
+  tagged_map_load:: 1 tests
+  tagged_map_type:: 1 tests
+  tagged_seq_load:: 1 tests
+  tagged_seq_type:: 1 tests
+  token_count:: 1 tests
+  tokens:: 4 tests
+  utf16be_events:: 2 tests
+  utf16be_scalar:: 1 tests
+  utf16le_events:: 1 tests
+
+SUMMARY
+Tests passed:     512
+Tests failed:     162
+Missing functions: anchor0_ok:, anchor1_ok:, anchor2_ok:, anchor3_ok:, anchor_tag3_events:, anchor_tag4_events:, anchor_tag5_events:, atc1_ok:, atc2_ok:, atc3_ok:, atc4_ok:, bm2_2_events:, bm2_3_events:, bm2_4_events:, bom_events:, chomp0_ok:, chomp0_val:, chomp1_ok:, chomp1_val:, chomp2_ok:, chomp2_val:, chomp3_ok:, chomp3_val:, chomp4_ok:, chomp4_val:, chomp5_ok:, chomp5_val:, complex1_ok:, complex2_ok:, complex3_ok:, complex4_ok:, complex5_ok:, complex6_ok:, complex7_ok:, decrease_flow_ok:, doc_count:, empty_scalar_found:, empty_val0_events:, empty_val1_events:, empty_val2_events:, empty_val3_events:, event_count:, events:, expl_doc1_events:, expl_doc2_events:, flow_map_load:, flow_map_pairs:, flow_map_type:, flow_pair1_events:, flow_pair2_events:, flow_pair3_events:, fp1_events:, fp2_events:, fp3_events:, fp4_err:, fp4_events:, increase_flow_ok:, indentless0_events:, indentless1_events:, input0_events:, input0_tokens:, input1_events:, input1_ok:, input1_tokens:, input2_events:, input2_ok:, input2_tokens:, input2_tokens_or_err:, input3_events:, input3_ok:, input3_tokens:, input3_tokens_or_err:, input4_events:, input4_ok:, input4_tokens:, input4_tokens_or_err:, input5_events:, input5_ok:, input5_tokens:, input6_ok:, input6_tokens:, input7_tokens:, input8_tokens:, map_alias_pairs:, map_alias_type:, map_self_alias_load:, mixed_doc_count:, multi_doc_count:, multibyte_written:, nat4_events:, nest_limit_restored:, plain1_events:, plain2_events:, plain3_events:, plain4_events:, plain5_events:, remaining_tokens:, root_type:, scalar:, se2_events:, se3_events:, se4_err:, se4_events:, second_load_ok:, special_written:, stream_end_consumed:, tab0_events:, tab1_events:, tab2_events:, tab3_events:, tag_scalar4_load:, tag_scalar4_tag_ok:, tagged_map_load:, tagged_map_type:, tagged_seq_load:, tagged_seq_type:, token_count:, tokens:, utf16be_events:, utf16be_scalar:, utf16le_events:
+
+## FUNCTION LOCATION MAP
+
+Use this to find where each function is defined (do NOT read all files):
+
+
+============================================================
+Tests failed:     162
+============================================================

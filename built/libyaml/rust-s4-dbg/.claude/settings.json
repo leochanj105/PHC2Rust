@@ -1,0 +1,53 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(./**)", "Write(./**)", "Edit(./**)", "Glob(./**)", "Grep(./**)",
+      "Bash",
+      "Read(//tmp/**)", "Write(//tmp/**)", "Edit(//tmp/**)",
+      "Read(//home/leochanj/Desktop/libyaml/src/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/src/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/src/**)",
+      "Read(//home/leochanj/Desktop/libyaml/include/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/include/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/include/**)",
+      "Read(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)",
+      "Write(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)",
+      "Edit(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)",
+      "Glob(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)",
+      "Grep(//home/leochanj/Desktop/PHC2Rust/built/libyaml/**)"
+    ],
+    "deny": [
+      "WebFetch", "WebSearch",
+      "Read(//home/leochanj/Desktop/libyaml/tests/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/tests/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/tests/**)",
+      "Read(//home/leochanj/Desktop/libyaml/testing/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/testing/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/testing/**)",
+      "Read(//home/leochanj/Desktop/libyaml/Testing/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/Testing/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/Testing/**)",
+      "Read(//home/leochanj/Desktop/libyaml/examples/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/examples/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/examples/**)",
+      "Read(//home/leochanj/Desktop/libyaml/judger/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/judger/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/judger/**)",
+      "Read(//home/leochanj/Desktop/libyaml/regression-inputs/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/regression-inputs/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/regression-inputs/**)",
+      "Read(//home/leochanj/Desktop/libyaml/old/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/old/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/old/**)",
+      "Read(//home/leochanj/Desktop/libyaml/rust-baseline/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/rust-baseline/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/rust-baseline/**)",
+      "Read(//home/leochanj/Desktop/libyaml/rust-branch/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/rust-branch/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/rust-branch/**)",
+      "Read(//home/leochanj/Desktop/libyaml/rust-function/**)",
+      "Glob(//home/leochanj/Desktop/libyaml/rust-function/**)",
+      "Grep(//home/leochanj/Desktop/libyaml/rust-function/**)"
+    ]
+  }
+}

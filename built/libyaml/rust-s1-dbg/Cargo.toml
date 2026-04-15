@@ -1,0 +1,11 @@
+[package]
+name = "libyaml"
+version = "0.2.5"
+edition = "2021"
+
+[lib]
+name = "yaml"
+crate-type = ["staticlib", "cdylib"]
+
+[dependencies]
+libc = "0.2"
