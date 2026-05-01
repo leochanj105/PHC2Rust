@@ -1,76 +1,91 @@
-/*
- * libyaml_reformatter_fuzzer_diff.c — Event-level parse→emit roundtrip.
- * Prints the emitted output buffer for comparison.
- * Based on: google/oss-fuzz/projects/libyaml/libyaml_reformatter_fuzzer.c
- */
+// Copyright 2020 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
 #include "yaml.h"
 #include "yaml_write_handler.h"
+#include <assert.h>
+#include <stdbool.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
-#include <stdbool.h>
 
 #ifdef NDEBUG
 #undef NDEBUG
 #endif
 
 int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
-    if (size < 2)
-        return 0;
+  if (size < 2)
+    return 0;
 
-    bool done = false;
-    bool is_canonical = data[0] & 1;
-    bool is_unicode = data[1] & 1;
-    data += 2;
-    size -= 2;
+  bool done = false;
+  bool is_canonical = data[0] & 1;
+  bool is_unicode = data[1] & 1;
+  data += 2;
+  size -= 2;
 
-    yaml_parser_t parser;
-    yaml_emitter_t emitter;
-    yaml_event_t event;
-    int error = 0;
+  yaml_parser_t parser;
+  yaml_emitter_t emitter;
+  yaml_event_t event;
 
-    if (!yaml_parser_initialize(&parser))
-        return 0;
+  /* Initialize the parser and emitter objects. */
 
-    if (!yaml_emitter_initialize(&emitter))
-        goto cleanup_parser;
+  if (!yaml_parser_initialize(&parser))
+    return 0;
 
-    yaml_parser_set_input_string(&parser, data, size);
+  if (!yaml_emitter_initialize(&emitter))
+    goto cleanup_parser;
 
-    yaml_output_buffer_t out = {/*buf=*/NULL, /*size=*/0, /*capacity=*/1000};
-    yaml_emitter_set_output(&emitter, yaml_write_handler, &out);
+  /* Set the parser parameters. */
 
-    yaml_emitter_set_canonical(&emitter, is_canonical);
-    yaml_emitter_set_unicode(&emitter, is_unicode);
+  yaml_parser_set_input_string(&parser, data, size);
 
-    while (!done) {
-        if (!yaml_parser_parse(&parser, &event)) {
-            error = 1;
-            break;
-        }
+  /* Set the emitter parameters. */
+  yaml_output_buffer_t out = {/*buf=*/NULL, /*size=*/0, /*capacity=*/1000};
+  yaml_emitter_set_output(&emitter, yaml_write_handler, &out);
 
-        done = (event.type == YAML_STREAM_END_EVENT);
+  yaml_emitter_set_canonical(&emitter, is_canonical);
+  yaml_emitter_set_unicode(&emitter, is_unicode);
 
-        if (!yaml_emitter_emit(&emitter, &event)) {
-            error = 1;
-            break;
-        }
-    }
+  /* The main loop. */
 
-    printf("canonical=%d unicode=%d\n", is_canonical, is_unicode);
-    if (out.buf && out.size > 0) {
-        printf("OUTPUT %zu\n", out.size);
-        fwrite(out.buf, 1, out.size, stdout);
-        if (out.size > 0 && out.buf[out.size - 1] != '\n')
-            printf("\n");
-    }
-    printf("---\n%s\n", error ? "FAILURE" : "SUCCESS");
+  while (!done) {
+    /* Get the next event. */
 
-    free(out.buf);
-    yaml_emitter_delete(&emitter);
+    if (!yaml_parser_parse(&parser, &event))
+      break;
+
+    /* Check if this is the stream end. */
+
+    done = (event.type == YAML_STREAM_END_EVENT);
+
+    /* Emit the event. */
+
+    if (!yaml_emitter_emit(&emitter, &event))
+      break;
+  }
+
+  printf("OUT %zu\n", out.size);
+  if (out.buf && out.size > 0)
+    fwrite(out.buf, 1, out.size, stdout);
+  printf("\n---\n");
+
+  free(out.buf);
+  yaml_emitter_delete(&emitter);
 
 cleanup_parser:
-    yaml_parser_delete(&parser);
-    return 0;
+
+  yaml_parser_delete(&parser);
+  return 0;
 }
